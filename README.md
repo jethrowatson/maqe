@@ -6,17 +6,32 @@
 [![Deterministic Acceptance Gates](https://img.shields.io/badge/Acceptance%20Gates-100%25%20Passing-emerald)](tests/evaluation.test.ts)
 [![Next.js](https://img.shields.io/badge/Next.js-16.2.10-black)](https://nextjs.org/)
 [![Database](https://img.shields.io/badge/MariaDB-Cloud%2010.11-blue)](db/schema.sql)
-[![Live Demo](https://img.shields.io/badge/Live%20Deploy-jethrowatson.co.uk%2Fmaqe%2F-blueviolet)](https://jethrowatson.co.uk/maqe/)
+[![Live Deploy](https://img.shields.io/badge/Live%20Deploy-jethrowatson.co.uk%2Fmaqe%2F-blueviolet)](https://jethrowatson.co.uk/maqe/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Hosted-2563eb)](https://jethrowatson.github.io/maqe/)
 
 ---
 
-## 🚀 Live Deployments & Cloud Endpoints
+## 🌐 Live Deployments & Cloud Endpoints
 
-- **Live Web Application (StackCP / High-Performance CDN)**: [https://jethrowatson.co.uk/maqe/](https://jethrowatson.co.uk/maqe/)
-- **Live Web Application (GitHub Pages)**: [https://jethrowatson.github.io/maqe/](https://jethrowatson.github.io/maqe/)
+- **Live Public Overview (Brochure Front End)**: [https://jethrowatson.co.uk/maqe/](https://jethrowatson.co.uk/maqe/)
+- **Live Deployment (GitHub Pages)**: [https://jethrowatson.github.io/maqe/](https://jethrowatson.github.io/maqe/)
 - **Cloud MariaDB REST API Gateway**: [https://jethrowatson.co.uk/maqe/api/health](https://jethrowatson.co.uk/maqe/api/health)
 - **GitHub Repository**: [https://github.com/jethrowatson/maqe](https://github.com/jethrowatson/maqe)
+
+---
+
+## 🔐 Access Credentials & Security Gate
+
+The platform features a public **Brochure Landing Page** showcasing the 15-slide platform overview. The full platform (Member Platform, Operator Console, Database, Matching Engine, CRM) is secured behind a password gate.
+
+### Instant 1-Click Credentials
+
+| Access Profile | Email | Password | Role & Permissions |
+| :--- | :--- | :--- | :--- |
+| **Member Platform** | `marcus.vance@deltametalworks.co.uk` | `MAQE2026!` | Delta Metalworks Ltd • Premium Tier (50 credits), AI Lead Matching, Directory Search, Opportunity CRM, RFQ Procurement |
+| **Operator Console** | `operator@maqe.intelligence` | `MAQE2026!` | MAQE Intelligence Administrator • C01 Registry Intake Coordinator, C02 Candidate Discovery Review, C05 Matching Laboratory, C10 Job Diagnostics |
+
+*(The login page provides instant 1-click test credential chips for single-click evaluation without typing).*
 
 ---
 
@@ -24,8 +39,9 @@
 
 MAQE is an engineering super-database connecting UK manufacturing capabilities with commercial demand. It operates two distinct, coherent product experiences:
 
-1. **Member Application** (Customer leads & supplier matching, Pro directory search, CRM pipeline, participant messaging, RFQ procurement, profile verification).
-2. **Operator Console** (Intake & backfill partition coordinator, candidate discovery review, AI assertion evidence inspection, matching laboratory with calibrated weights, and durable job telemetry).
+1. **Brochure Front End** (Full platform overview, platform flow, 5-dimension intelligence super-database, interactive Delta Metalworks matching showcase, blind RFQ procurement, membership tiers).
+2. **Member Platform** (Customer leads & supplier matching, Pro directory search, CRM pipeline, participant messaging, RFQ procurement, profile verification).
+3. **Operator Console** (Intake & backfill partition coordinator, candidate discovery review, AI assertion evidence inspection, matching laboratory with calibrated weights, and durable job telemetry).
 
 ```
    ┌───────────────────────┐

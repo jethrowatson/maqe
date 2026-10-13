@@ -8,6 +8,8 @@ import {
   Bell,
   Database,
   Building2,
+  LogOut,
+  Globe2,
   ChevronDown
 } from 'lucide-react';
 
@@ -20,6 +22,8 @@ interface HeaderProps {
   cloudConnected: boolean;
   unreadCount: number;
   onOpenNotifications: () => void;
+  onLogout: () => void;
+  onViewBrochure: () => void;
 }
 
 export function Header({
@@ -28,7 +32,9 @@ export function Header({
   creditBalance,
   cloudConnected,
   unreadCount,
-  onOpenNotifications
+  onOpenNotifications,
+  onLogout,
+  onViewBrochure
 }: HeaderProps) {
   return (
     <header className="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50">
@@ -36,8 +42,12 @@ export function Header({
         <div className="flex items-center justify-between h-16">
           {/* Logo & Platform Title */}
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center font-black tracking-widest text-white text-lg shadow-sm">
+            <div
+              onClick={onViewBrochure}
+              className="flex items-center space-x-2 cursor-pointer group"
+              title="Return to Public Overview"
+            >
+              <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center font-black tracking-widest text-white text-lg shadow-sm group-hover:bg-blue-500 transition-colors">
                 M
               </div>
               <div>
@@ -45,15 +55,15 @@ export function Header({
                   <span className="font-extrabold text-xl tracking-tight text-white">MAQE</span>
                   <span className="text-xs bg-slate-800 border border-slate-700 text-slate-300 px-2 py-0.5 rounded font-mono">v1.1</span>
                 </div>
-                <p className="text-[11px] text-slate-400 font-medium tracking-wide uppercase">Engineering Intelligence Platform</p>
+                <p className="text-[10px] text-slate-400 font-medium tracking-wide uppercase">Engineering Intelligence Platform</p>
               </div>
             </div>
 
             {/* Cloud Database Status Pill */}
-            <div className="hidden md:flex items-center space-x-1.5 px-2.5 py-1 bg-slate-800/80 border border-slate-700/60 rounded-full text-xs text-slate-300">
+            <div className="hidden lg:flex items-center space-x-1.5 px-2.5 py-1 bg-slate-800/80 border border-slate-700/60 rounded-full text-xs text-slate-300">
               <span className={`w-2 h-2 rounded-full ${cloudConnected ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
               <Database className="w-3.5 h-3.5 text-slate-400 ml-0.5" />
-              <span>{cloudConnected ? 'Cloud MariaDB Live' : 'Local Fallback'}</span>
+              <span>{cloudConnected ? 'Cloud MariaDB Live' : 'Local Standby'}</span>
             </div>
           </div>
 
@@ -87,10 +97,10 @@ export function Header({
             </button>
           </div>
 
-          {/* Right Org / Credits / Alerts */}
-          <div className="flex items-center space-x-4">
+          {/* Right Org / Credits / Alerts / Logout */}
+          <div className="flex items-center space-x-3">
             {/* Credit Allowance Badge */}
-            <div className="flex items-center space-x-2 bg-slate-800/90 border border-slate-700 px-3 py-1.5 rounded-lg">
+            <div className="hidden sm:flex items-center space-x-2 bg-slate-800/90 border border-slate-700 px-3 py-1.5 rounded-lg">
               <Coins className="w-4 h-4 text-amber-400" />
               <div className="text-left">
                 <div className="text-xs font-bold text-white">{creditBalance} Credits</div>
@@ -104,22 +114,31 @@ export function Header({
               className="relative p-2 text-slate-400 hover:text-white transition-colors rounded-lg hover:bg-slate-800"
               title="Notifications"
             >
-              <Bell className="w-5 h-5" />
+              <Bell className="w-4 h-4" />
               {unreadCount > 0 && (
                 <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-blue-500 rounded-full"></span>
               )}
             </button>
 
-            {/* Company / Member Identity */}
-            <div className="hidden sm:flex items-center space-x-2 pl-2 border-l border-slate-800">
-              <div className="w-8 h-8 rounded-full bg-blue-900 border border-blue-500/40 flex items-center justify-center font-bold text-blue-200 text-xs">
-                DM
-              </div>
-              <div className="text-left">
-                <div className="text-xs font-semibold text-white leading-tight">Delta Metalworks Ltd</div>
-                <div className="text-[10px] text-slate-400">Sheffield • SIC 25110</div>
-              </div>
-            </div>
+            {/* View Brochure Link */}
+            <button
+              onClick={onViewBrochure}
+              className="hidden md:inline-flex items-center px-2.5 py-1.5 text-xs font-semibold text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors"
+              title="Platform Overview"
+            >
+              <Globe2 className="w-3.5 h-3.5 mr-1" />
+              Overview
+            </button>
+
+            {/* Sign Out Button */}
+            <button
+              onClick={onLogout}
+              className="inline-flex items-center px-2.5 py-1.5 text-xs font-semibold text-rose-300 hover:text-rose-100 hover:bg-rose-950/60 border border-rose-900/60 rounded-lg transition-colors"
+              title="Lock and Log Out"
+            >
+              <LogOut className="w-3.5 h-3.5 mr-1" />
+              Lock
+            </button>
           </div>
         </div>
       </div>

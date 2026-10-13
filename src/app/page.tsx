@@ -8,11 +8,13 @@ import {
   CompanyRecord,
   Opportunity,
   OpportunityState,
-  PlanTier,
-  DecisionState
+  PlanTier
 } from '../lib/domain/types';
 
 import { Header } from '../components/Header';
+import { BrochureView } from '../components/BrochureView';
+import { LoginPage, AuthSession } from '../components/LoginPage';
+
 import { MemberMatchingView } from '../components/MemberMatchingView';
 import { DirectorySearchView } from '../components/DirectorySearchView';
 import { OpportunityCRMView } from '../components/OpportunityCRMView';
@@ -42,6 +44,10 @@ import {
 } from 'lucide-react';
 
 export default function MAQEApp() {
+  const [authSession, setAuthSession] = useState<AuthSession | null>(null);
+  const [pageState, setPageState] = useState<'brochure' | 'login' | 'app'>('brochure');
+  const [loginRoleTarget, setLoginRoleTarget] = useState<'member' | 'operator'>('member');
+
   const [mode, setMode] = useState<'member' | 'operator'>('member');
   const [memberView, setMemberView] = useState<string>('matches');
   const [operatorView, setOperatorView] = useState<string>('intake');
@@ -53,9 +59,28 @@ export default function MAQEApp() {
   const [showNotifications, setShowNotifications] = useState<boolean>(false);
   const [selectedCompanyForDossier, setSelectedCompanyForDossier] = useState<CompanyRecord | null>(null);
 
-  // Load initial data
+  // Initialize session from localStorage & ping cloud API
   useEffect(() => {
     store.checkRemoteApi().then(connected => setCloudConnected(connected));
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('maqe_auth_session');
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved) as AuthSession;
+          if (parsed && parsed.isAuthenticated) {
+            setAuthSession(parsed);
+            setMode(parsed.role);
+            setPageState('app');
+          }
+        } catch {
+          localStorage.removeItem('maqe_auth_session');
+        }
+      }
+    }
+    refreshState();
+  }, []);
+
+  useEffect(() => {
     refreshState();
   }, [direction, memberView, operatorView]);
 
@@ -63,6 +88,28 @@ export default function MAQEApp() {
     setCreditBalance(store.getCreditBalance());
     setCandidates(store.getMatches('demo_delta', direction));
     setOpportunities(store.getOpportunities());
+  };
+
+  const handleLoginSuccess = (session: AuthSession) => {
+    setAuthSession(session);
+    setMode(session.role);
+    setPageState('app');
+    refreshState();
+  };
+
+  const handleLogout = () => {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('maqe_auth_session');
+    }
+    setAuthSession(null);
+    setPageState('login');
+  };
+
+  const handleGoToLogin = (targetRole?: 'member' | 'operator') => {
+    if (targetRole) {
+      setLoginRoleTarget(targetRole);
+    }
+    setPageState('login');
   };
 
   const handleUnlockCandidate = async (cand: MatchCandidateResult) => {
@@ -92,6 +139,28 @@ export default function MAQEApp() {
     refreshState();
   };
 
+  // 1. Brochure Landing Page
+  if (pageState === 'brochure') {
+    return (
+      <BrochureView
+        onGoToLogin={handleGoToLogin}
+        cloudConnected={cloudConnected}
+      />
+    );
+  }
+
+  // 2. Dedicated Secure Login Page
+  if (pageState === 'login') {
+    return (
+      <LoginPage
+        initialRole={loginRoleTarget}
+        onLoginSuccess={handleLoginSuccess}
+        onBackToBrochure={() => setPageState('brochure')}
+      />
+    );
+  }
+
+  // 3. Authenticated Secure Platform
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
       {/* Primary Top Header */}
@@ -104,6 +173,8 @@ export default function MAQEApp() {
         cloudConnected={cloudConnected}
         unreadCount={store.notificationEngine.getUnreadCount('org_delta')}
         onOpenNotifications={() => setShowNotifications(true)}
+        onLogout={handleLogout}
+        onViewBrochure={() => setPageState('brochure')}
       />
 
       {/* Sub Navigation Bar */}
@@ -396,14 +467,16 @@ export default function MAQEApp() {
       <footer className="bg-white border-t border-slate-200 mt-auto py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
           <div>
-            <span className="font-bold text-slate-800">MAQE Engineering Intelligence Platform</span> • Version 1.1 (Production Release)
+            <span className="font-bold text-slate-800">MAQE Engineering Intelligence Platform</span> • Protected Gateway
           </div>
           <div className="flex items-center space-x-4">
-            <span>Companies House Public Data API Adapter</span>
+            <button onClick={() => setPageState('brochure')} className="hover:text-blue-600">
+              Platform Overview
+            </button>
             <span>•</span>
-            <span>Deterministic Scoring Engine</span>
-            <span>•</span>
-            <span className="text-emerald-700 font-medium">Cloud Database Connected</span>
+            <button onClick={handleLogout} className="text-rose-600 hover:text-rose-800">
+              Lock Session
+            </button>
           </div>
         </div>
       </footer>
