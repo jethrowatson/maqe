@@ -35,9 +35,9 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
   const [selectedCompanyTab, setSelectedCompanyTab] = useState<'delta' | 'apex' | 'enclosures'>('delta');
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+    <div className="w-full min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-600 selection:text-white">
       {/* Top Navigation */}
-      <header className="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50">
+      <header className="bg-white/95 backdrop-blur-md text-slate-900 border-b border-slate-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -47,39 +47,39 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
               </div>
               <div>
                 <div className="flex items-center space-x-2">
-                  <span className="font-extrabold text-xl tracking-tight text-white">MAQE</span>
-                  <span className="text-xs bg-slate-800 border border-slate-700 text-slate-300 px-2 py-0.5 rounded font-mono">v1.1</span>
+                  <span className="font-extrabold text-xl tracking-tight text-slate-900">MAQE</span>
+                  <span className="text-xs bg-slate-100 border border-slate-200 text-slate-600 px-2 py-0.5 rounded font-mono font-medium">v1.1</span>
                 </div>
-                <p className="text-[10px] text-slate-400 font-medium tracking-wider uppercase">Engineering Intelligence Platform</p>
+                <p className="text-[10px] text-slate-500 font-medium tracking-wider uppercase">Engineering Intelligence Platform</p>
               </div>
             </div>
 
             {/* Nav Links */}
-            <nav className="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-300">
-              <a href="#innovation" className="hover:text-white transition-colors">Platform Innovation</a>
-              <a href="#super-database" className="hover:text-white transition-colors">Super-Database</a>
-              <a href="#ai-matching" className="hover:text-white transition-colors">Directional Matching</a>
-              <a href="#rfq" className="hover:text-white transition-colors">Procurement & RFQs</a>
-              <a href="#pricing" className="hover:text-white transition-colors">Membership & Credits</a>
+            <nav className="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-600">
+              <a href="#innovation" className="hover:text-blue-600 transition-colors">Platform Innovation</a>
+              <a href="#super-database" className="hover:text-blue-600 transition-colors">Super-Database</a>
+              <a href="#ai-matching" className="hover:text-blue-600 transition-colors">Directional Matching</a>
+              <a href="#rfq" className="hover:text-blue-600 transition-colors">Procurement & RFQs</a>
+              <a href="#pricing" className="hover:text-blue-600 transition-colors">Membership & Credits</a>
             </nav>
 
             {/* Auth CTAs */}
             <div className="flex items-center space-x-3">
-              <div className="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 bg-slate-800 border border-slate-700 rounded-full text-xs text-slate-300">
-                <span className={`w-2 h-2 rounded-full ${cloudConnected ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`}></span>
+              <div className="hidden sm:flex items-center space-x-1.5 px-2.5 py-1 bg-slate-100 border border-slate-200 rounded-full text-xs text-slate-600">
+                <span className={`w-2 h-2 rounded-full ${cloudConnected ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`}></span>
                 <span className="text-[11px] font-mono">{cloudConnected ? 'Cloud MariaDB Live' : 'Database Standby'}</span>
               </div>
 
               <button
                 onClick={() => onGoToLogin('operator')}
-                className="hidden lg:inline-flex items-center px-3 py-1.5 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800 border border-slate-700 rounded-lg transition-colors"
+                className="hidden lg:inline-flex items-center px-3 py-1.5 text-xs font-semibold text-slate-700 hover:text-slate-900 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors shadow-2xs"
               >
                 Operator Console
               </button>
 
               <button
                 onClick={() => onGoToLogin('member')}
-                className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all shadow-xs"
+                className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all shadow-sm"
               >
                 Sign In / Access
                 <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
@@ -90,57 +90,57 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-slate-900 text-white pt-20 pb-24 border-b border-slate-800">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      <section className="relative bg-white text-slate-900 pt-16 pb-20 sm:pt-20 sm:pb-24 border-b border-slate-200">
+        <div className="absolute inset-0 opacity-40 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-900/60 border border-blue-500/30 text-blue-300 text-xs font-semibold mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold mb-6 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
               <span>Next-Generation Manufacturing & Supply Chain Intelligence</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-slate-900">
               The Engineering Intelligence Platform.
             </h1>
 
-            <p className="mt-6 text-lg sm:text-xl text-slate-300 font-normal leading-relaxed">
-              Company intelligence, supplier discovery, and AI lead matching. We build an engineering super-database directly from statutory company registries and verified public sources — <strong className="text-white font-semibold">with zero manual profile input required</strong>.
+            <p className="mt-6 text-base sm:text-lg lg:text-xl text-slate-600 font-normal leading-relaxed">
+              Company intelligence, supplier discovery, and AI lead matching. We build an engineering super-database directly from statutory company registries and verified public sources — <strong className="text-slate-900 font-semibold">with zero manual profile input required</strong>.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <button
                 onClick={() => onGoToLogin('member')}
-                className="px-6 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-blue-600/30 flex items-center"
+                className="px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-xl transition-all shadow-md shadow-blue-600/20 hover:shadow-lg flex items-center"
               >
                 Enter Member Platform
                 <ArrowRight className="w-4 h-4 ml-2" />
               </button>
               <button
                 onClick={() => onGoToLogin('operator')}
-                className="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-sm rounded-xl transition-colors flex items-center"
+                className="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold text-sm rounded-xl transition-colors shadow-2xs flex items-center"
               >
-                <ShieldCheck className="w-4 h-4 mr-2 text-amber-400" />
+                <ShieldCheck className="w-4 h-4 mr-2 text-blue-600" />
                 Launch Operator Console
               </button>
             </div>
 
             {/* Key Platform Stats */}
-            <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-800/80">
-              <div>
-                <div className="text-2xl font-black text-white">600,000</div>
-                <div className="text-xs text-slate-400 mt-0.5">UK Engineering Target Records</div>
+            <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-200">
+              <div className="bg-slate-50/80 rounded-xl p-4 border border-slate-200/80">
+                <div className="text-2xl sm:text-3xl font-black text-slate-900">600,000</div>
+                <div className="text-xs text-slate-500 mt-1 font-medium">UK Engineering Records</div>
               </div>
-              <div>
-                <div className="text-2xl font-black text-blue-400">Dual-Direction</div>
-                <div className="text-xs text-slate-400 mt-0.5">Customer & Supplier Matching</div>
+              <div className="bg-blue-50/60 rounded-xl p-4 border border-blue-100">
+                <div className="text-2xl sm:text-3xl font-black text-blue-700">Dual-Direction</div>
+                <div className="text-xs text-slate-500 mt-1 font-medium">Customer & Supplier Matching</div>
               </div>
-              <div>
-                <div className="text-2xl font-black text-white">100% Citation</div>
-                <div className="text-xs text-slate-400 mt-0.5">SHA-256 Ground-Truth Proof</div>
+              <div className="bg-slate-50/80 rounded-xl p-4 border border-slate-200/80">
+                <div className="text-2xl sm:text-3xl font-black text-slate-900">100% Citation</div>
+                <div className="text-xs text-slate-500 mt-1 font-medium">SHA-256 Ground Proof</div>
               </div>
-              <div>
-                <div className="text-2xl font-black text-emerald-400">Zero Double-Charge</div>
-                <div className="text-xs text-slate-400 mt-0.5">Permanent Ledger Invariant</div>
+              <div className="bg-emerald-50/60 rounded-xl p-4 border border-emerald-100">
+                <div className="text-2xl sm:text-3xl font-black text-emerald-700">Zero Double-Charge</div>
+                <div className="text-xs text-slate-500 mt-1 font-medium">Permanent Ledger Invariant</div>
               </div>
             </div>
           </div>
