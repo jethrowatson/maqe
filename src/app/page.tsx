@@ -402,6 +402,14 @@ export default function MAQEApp() {
                 onResume={() => { store.intakeEngine.resumeBackfill(); refreshState(); }}
                 onStepPartition={(id) => { store.intakeEngine.stepPartition(id); refreshState(); }}
                 status={store.intakeEngine.getStatus()}
+                onStepLiveScrape={(sic) => {
+                  const res = store.intakeEngine.stepLiveScrape(sic);
+                  refreshState();
+                  return res;
+                }}
+                eventLog={store.intakeEngine.getEventLog()}
+                newlyScrapedCompanies={store.intakeEngine.getNewlyScrapedCompanies()}
+                onSetSpeed={(spd) => store.intakeEngine.setScraperSpeed(spd)}
               />
             ) : operatorView === 'discovery' ? (
               <OperatorDiscoveryView

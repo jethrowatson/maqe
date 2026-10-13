@@ -1,0 +1,3989 @@
+[
+  {
+    "sic_code": "10110",
+    "description": "Processing and preserving of meat",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10120",
+    "description": "Processing and preserving of poultry meat",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10130",
+    "description": "Production of meat and poultry meat products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10200",
+    "description": "Processing and preserving of fish, crustaceans and molluscs",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10310",
+    "description": "Processing and preserving of potatoes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10320",
+    "description": "Manufacture of fruit and vegetable juice",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10390",
+    "description": "Other processing and preserving of fruit and vegetables",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10410",
+    "description": "Manufacture of oils and fats",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10420",
+    "description": "Manufacture of margarine and similar edible fats",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10511",
+    "description": "Liquid milk and cream production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10512",
+    "description": "Butter and cheese production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10519",
+    "description": "Manufacture of other milk products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10520",
+    "description": "Manufacture of ice cream",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10611",
+    "description": "Grain milling",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10612",
+    "description": "Manufacture of breakfast cereals and cereals-based food",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10620",
+    "description": "Manufacture of starches and starch products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10710",
+    "description": "Manufacture of bread; manufacture of fresh pastry goods and cakes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10720",
+    "description": "Manufacture of rusks and biscuits; manufacture of preserved pastry goods and cakes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10730",
+    "description": "Manufacture of macaroni, noodles, couscous and similar farinaceous products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10810",
+    "description": "Manufacture of sugar",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10821",
+    "description": "Manufacture of cocoa and chocolate confectionery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10822",
+    "description": "Manufacture of sugar confectionery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10831",
+    "description": "Tea processing",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10832",
+    "description": "Production of coffee and coffee substitutes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10840",
+    "description": "Manufacture of condiments and seasonings",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10850",
+    "description": "Manufacture of prepared meals and dishes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10860",
+    "description": "Manufacture of homogenized food preparations and dietetic food",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10890",
+    "description": "Manufacture of other food products n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10910",
+    "description": "Manufacture of prepared feeds for farm animals",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "10920",
+    "description": "Manufacture of prepared pet foods",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Food production",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "11010",
+    "description": "Distilling, rectifying and blending of spirits",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Beverages",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "11020",
+    "description": "Manufacture of wine from grape",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Beverages",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "11030",
+    "description": "Manufacture of cider and other fruit wines",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Beverages",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "11040",
+    "description": "Manufacture of other non-distilled fermented beverages",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Beverages",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "11050",
+    "description": "Manufacture of beer",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Beverages",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "11060",
+    "description": "Manufacture of malt",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Beverages",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "11070",
+    "description": "Manufacture of soft drinks; production of mineral waters and other bottled waters",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Beverages",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "12000",
+    "description": "Manufacture of tobacco products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Tobacco",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13100",
+    "description": "Preparation and spinning of textile fibres",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13200",
+    "description": "Weaving of textiles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13300",
+    "description": "Finishing of textiles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13910",
+    "description": "Manufacture of knitted and crocheted fabrics",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13921",
+    "description": "Manufacture of soft furnishings",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13922",
+    "description": "manufacture of canvas goods, sacks, etc.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13923",
+    "description": "manufacture of household textiles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13931",
+    "description": "Manufacture of woven or tufted carpets and rugs",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13939",
+    "description": "Manufacture of other carpets and rugs",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13940",
+    "description": "Manufacture of cordage, rope, twine and netting",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13950",
+    "description": "Manufacture of non-wovens and articles made from non-wovens, except apparel",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13960",
+    "description": "Manufacture of other technical and industrial textiles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "13990",
+    "description": "Manufacture of other textiles n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Textiles",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14110",
+    "description": "Manufacture of leather clothes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14120",
+    "description": "Manufacture of workwear",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14131",
+    "description": "Manufacture of other men's outerwear",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14132",
+    "description": "Manufacture of other women's outerwear",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14141",
+    "description": "Manufacture of men's underwear",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14142",
+    "description": "Manufacture of women's underwear",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14190",
+    "description": "Manufacture of other wearing apparel and accessories n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14200",
+    "description": "Manufacture of articles of fur",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14310",
+    "description": "Manufacture of knitted and crocheted hosiery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "14390",
+    "description": "Manufacture of other knitted and crocheted apparel",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Clothing and workwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "15110",
+    "description": "Tanning and dressing of leather; dressing and dyeing of fur",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Leather and footwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "15120",
+    "description": "Manufacture of luggage, handbags and the like, saddlery and harness",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Leather and footwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "15200",
+    "description": "Manufacture of footwear",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Leather and footwear",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "16100",
+    "description": "Sawmilling and planing of wood",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Wood products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "16210",
+    "description": "Manufacture of veneer sheets and wood-based panels",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Wood products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "16220",
+    "description": "Manufacture of assembled parquet floors",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Wood products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "16230",
+    "description": "Manufacture of other builders' carpentry and joinery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Wood products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "16240",
+    "description": "Manufacture of wooden containers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Wood products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "16290",
+    "description": "Manufacture of other products of wood; manufacture of articles of cork, straw and plaiting materials",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Wood products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17110",
+    "description": "Manufacture of pulp",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17120",
+    "description": "Manufacture of paper and paperboard",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17211",
+    "description": "Manufacture of corrugated paper and paperboard, sacks and bags",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17219",
+    "description": "Manufacture of other paper and paperboard containers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17220",
+    "description": "Manufacture of household and sanitary goods and of toilet requisites",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17230",
+    "description": "Manufacture of paper stationery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17240",
+    "description": "Manufacture of wallpaper",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "17290",
+    "description": "Manufacture of other articles of paper and paperboard n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Paper and packaging",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18110",
+    "description": "Printing of newspapers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18121",
+    "description": "Manufacture of printed labels",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18129",
+    "description": "Printing n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18130",
+    "description": "Pre-press and pre-media services",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18140",
+    "description": "Binding and related services",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18201",
+    "description": "Reproduction of sound recording",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18202",
+    "description": "Reproduction of video recording",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "18203",
+    "description": "Reproduction of computer media",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Printing and recorded media",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "19100",
+    "description": "Manufacture of coke oven products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Coke and petroleum processing",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "19201",
+    "description": "Mineral oil refining",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Coke and petroleum processing",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "19209",
+    "description": "Other treatment of petroleum products (excluding petrochemicals manufacture)",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Coke and petroleum processing",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20110",
+    "description": "Manufacture of industrial gases",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20120",
+    "description": "Manufacture of dyes and pigments",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20130",
+    "description": "Manufacture of other inorganic basic chemicals",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20140",
+    "description": "Manufacture of other organic basic chemicals",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20150",
+    "description": "Manufacture of fertilizers and nitrogen compounds",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20160",
+    "description": "Manufacture of plastics in primary forms",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20170",
+    "description": "Manufacture of synthetic rubber in primary forms",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20200",
+    "description": "Manufacture of pesticides and other agrochemical products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20301",
+    "description": "Manufacture of paints, varnishes and similar coatings, mastics and sealants",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20302",
+    "description": "Manufacture of printing ink",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20411",
+    "description": "Manufacture of soap and detergents",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20412",
+    "description": "Manufacture of cleaning and polishing preparations",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20420",
+    "description": "Manufacture of perfumes and toilet preparations",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20510",
+    "description": "Manufacture of explosives",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20520",
+    "description": "Manufacture of glues",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20530",
+    "description": "Manufacture of essential oils",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20590",
+    "description": "Manufacture of other chemical products n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "20600",
+    "description": "Manufacture of man-made fibres",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Chemicals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "21100",
+    "description": "Manufacture of basic pharmaceutical products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Pharmaceuticals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "21200",
+    "description": "Manufacture of pharmaceutical preparations",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Pharmaceuticals",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "22110",
+    "description": "Manufacture of rubber tyres and tubes; retreading and rebuilding of rubber tyres",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Rubber and plastics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "22190",
+    "description": "Manufacture of other rubber products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Rubber and plastics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "22210",
+    "description": "Manufacture of plastic plates, sheets, tubes and profiles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Rubber and plastics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "22220",
+    "description": "Manufacture of plastic packing goods",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Rubber and plastics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "22230",
+    "description": "Manufacture of builders  ware of plastic",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Rubber and plastics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "22290",
+    "description": "Manufacture of other plastic products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Rubber and plastics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23110",
+    "description": "Manufacture of flat glass",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23120",
+    "description": "Shaping and processing of flat glass",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23130",
+    "description": "Manufacture of hollow glass",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23140",
+    "description": "Manufacture of glass fibres",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23190",
+    "description": "Manufacture and processing of other glass, including technical glassware",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23200",
+    "description": "Manufacture of refractory products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23310",
+    "description": "Manufacture of ceramic tiles and flags",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23320",
+    "description": "Manufacture of bricks, tiles and construction products, in baked clay",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23410",
+    "description": "Manufacture of ceramic household and ornamental articles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23420",
+    "description": "Manufacture of ceramic sanitary fixtures",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23430",
+    "description": "Manufacture of ceramic insulators and insulating fittings",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23440",
+    "description": "Manufacture of other technical ceramic products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23490",
+    "description": "Manufacture of other ceramic products n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23510",
+    "description": "Manufacture of cement",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23520",
+    "description": "Manufacture of lime and plaster",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23610",
+    "description": "Manufacture of concrete products for construction purposes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23620",
+    "description": "Manufacture of plaster products for construction purposes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23630",
+    "description": "Manufacture of ready-mixed concrete",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23640",
+    "description": "Manufacture of mortars",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23650",
+    "description": "Manufacture of fibre cement",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23690",
+    "description": "Manufacture of other articles of concrete, plaster and cement",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23700",
+    "description": "Cutting, shaping and finishing of stone",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23910",
+    "description": "Production of abrasive products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "23990",
+    "description": "Manufacture of other non-metallic mineral products n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Glass, ceramics and mineral products",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24100",
+    "description": "Manufacture of basic iron and steel and of ferro-alloys",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24200",
+    "description": "Manufacture of tubes, pipes, hollow profiles and related fittings, of steel",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24310",
+    "description": "Cold drawing of bars",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24320",
+    "description": "Cold rolling of narrow strip",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24330",
+    "description": "Cold forming or folding",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24340",
+    "description": "Cold drawing of wire",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24410",
+    "description": "Precious metals production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24420",
+    "description": "Aluminium production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24430",
+    "description": "Lead, zinc and tin production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24440",
+    "description": "Copper production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24450",
+    "description": "Other non-ferrous metal production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24460",
+    "description": "Processing of nuclear fuel",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24510",
+    "description": "Casting of iron",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24520",
+    "description": "Casting of steel",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24530",
+    "description": "Casting of light metals",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "24540",
+    "description": "Casting of other non-ferrous metals",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Basic metals and foundries",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25110",
+    "description": "Manufacture of metal structures and parts of structures",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25120",
+    "description": "Manufacture of doors and windows of metal",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25210",
+    "description": "Manufacture of central heating radiators and boilers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25290",
+    "description": "Manufacture of other tanks, reservoirs and containers of metal",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25300",
+    "description": "Manufacture of steam generators, except central heating hot water boilers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25400",
+    "description": "Manufacture of weapons and ammunition",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25500",
+    "description": "Forging, pressing, stamping and roll-forming of metal; powder metallurgy",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25610",
+    "description": "Treatment and coating of metals",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25620",
+    "description": "Machining",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25710",
+    "description": "Manufacture of cutlery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25720",
+    "description": "Manufacture of locks and hinges",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25730",
+    "description": "Manufacture of tools",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25910",
+    "description": "Manufacture of steel drums and similar containers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25920",
+    "description": "Manufacture of light metal packaging",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25930",
+    "description": "Manufacture of wire products, chain and springs",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25940",
+    "description": "Manufacture of fasteners and screw machine products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "25990",
+    "description": "Manufacture of other fabricated metal products n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Fabricated metals and machining",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26110",
+    "description": "Manufacture of electronic components",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26120",
+    "description": "Manufacture of loaded electronic boards",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26200",
+    "description": "Manufacture of computers and peripheral equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26301",
+    "description": "Manufacture of telegraph and telephone apparatus and equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26309",
+    "description": "Manufacture of communication equipment other than telegraph, and telephone apparatus and equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26400",
+    "description": "Manufacture of consumer electronics",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26511",
+    "description": "Manufacture of electronic measuring, testing etc. equipment, not for industrial process control",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26512",
+    "description": "Manufacture of electronic industrial process control equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26513",
+    "description": "Manufacture of non-electronic measuring, testing etc. equipment, not for industrial process control",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26514",
+    "description": "Manufacture of non-electronic industrial process control equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26520",
+    "description": "Manufacture of watches and clocks",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26600",
+    "description": "Manufacture of irradiation, electromedical and electrotherapeutic equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26701",
+    "description": "Manufacture of optical precision instruments",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26702",
+    "description": "Manufacture of photographic and cinematographic equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "26800",
+    "description": "Manufacture of magnetic and optical media",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electronics, instruments and optics",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27110",
+    "description": "Manufacture of electric motors, generators and transformers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27120",
+    "description": "Manufacture of electricity distribution and control apparatus",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27200",
+    "description": "Manufacture of batteries and accumulators",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27310",
+    "description": "Manufacture of fibre optic cables",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27320",
+    "description": "Manufacture of other electronic and electric wires and cables",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27330",
+    "description": "Manufacture of wiring devices",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27400",
+    "description": "Manufacture of electric lighting equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27510",
+    "description": "Manufacture of electric domestic appliances",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27520",
+    "description": "Manufacture of non-electric domestic appliances",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "27900",
+    "description": "Manufacture of other electrical equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Electrical equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28110",
+    "description": "Manufacture of engines and turbines, except aircraft, vehicle and cycle engines",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28120",
+    "description": "Manufacture of fluid power equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28131",
+    "description": "Manufacture of pumps",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28132",
+    "description": "Manufacture of compressors",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28140",
+    "description": "Manufacture of taps and valves",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28150",
+    "description": "Manufacture of bearings, gears, gearing and driving elements",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28210",
+    "description": "Manufacture of ovens, furnaces and furnace burners",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28220",
+    "description": "Manufacture of lifting and handling equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28230",
+    "description": "Manufacture of office machinery and equipment (except computers and peripheral equipment)",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28240",
+    "description": "Manufacture of power-driven hand tools",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28250",
+    "description": "Manufacture of non-domestic cooling and ventilation equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28290",
+    "description": "Manufacture of other general-purpose machinery n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28301",
+    "description": "Manufacture of agricultural tractors",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28302",
+    "description": "Manufacture of agricultural and forestry machinery other than tractors",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28410",
+    "description": "Manufacture of metal forming machinery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28490",
+    "description": "Manufacture of other machine tools",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28910",
+    "description": "Manufacture of machinery for metallurgy",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28921",
+    "description": "Manufacture of machinery for mining",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28922",
+    "description": "Manufacture of earthmoving equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28923",
+    "description": "Manufacture of equipment for concrete crushing and screening and roadworks",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28930",
+    "description": "Manufacture of machinery for food, beverage and tobacco processing",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28940",
+    "description": "Manufacture of machinery for textile, apparel and leather production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28950",
+    "description": "Manufacture of machinery for paper and paperboard production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28960",
+    "description": "Manufacture of plastics and rubber machinery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "28990",
+    "description": "Manufacture of other special-purpose machinery n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Machinery and industrial equipment",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "29100",
+    "description": "Manufacture of motor vehicles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Motor vehicles and components",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "29201",
+    "description": "Manufacture of bodies (coachwork) for motor vehicles (except caravans)",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Motor vehicles and components",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "29202",
+    "description": "Manufacture of trailers and semi-trailers",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Motor vehicles and components",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "29203",
+    "description": "Manufacture of caravans",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Motor vehicles and components",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "29310",
+    "description": "Manufacture of electrical and electronic equipment for motor vehicles and their engines",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Motor vehicles and components",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "29320",
+    "description": "Manufacture of other parts and accessories for motor vehicles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Motor vehicles and components",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30110",
+    "description": "Building of ships and floating structures",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30120",
+    "description": "Building of pleasure and sporting boats",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30200",
+    "description": "Manufacture of railway locomotives and rolling stock",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30300",
+    "description": "Manufacture of air and spacecraft and related machinery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30400",
+    "description": "Manufacture of military fighting vehicles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30910",
+    "description": "Manufacture of motorcycles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30920",
+    "description": "Manufacture of bicycles and invalid carriages",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "30990",
+    "description": "Manufacture of other transport equipment n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Aerospace, marine, rail and other transport",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "31010",
+    "description": "Manufacture of office and shop furniture",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Furniture",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "31020",
+    "description": "Manufacture of kitchen furniture",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Furniture",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "31030",
+    "description": "Manufacture of mattresses",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Furniture",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "31090",
+    "description": "Manufacture of other furniture",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Furniture",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32110",
+    "description": "Striking of coins",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32120",
+    "description": "Manufacture of jewellery and related articles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32130",
+    "description": "Manufacture of imitation jewellery and related articles",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32200",
+    "description": "Manufacture of musical instruments",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32300",
+    "description": "Manufacture of sports goods",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32401",
+    "description": "Manufacture of professional and arcade games and toys",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32409",
+    "description": "Manufacture of other games and toys, n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32500",
+    "description": "Manufacture of medical and dental instruments and supplies",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32910",
+    "description": "Manufacture of brooms and brushes",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "32990",
+    "description": "Other manufacturing n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Other manufacturing and medical devices",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33110",
+    "description": "Repair of fabricated metal products",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33120",
+    "description": "Repair of machinery",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33130",
+    "description": "Repair of electronic and optical equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33140",
+    "description": "Repair of electrical equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33150",
+    "description": "Repair and maintenance of ships and boats",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33160",
+    "description": "Repair and maintenance of aircraft and spacecraft",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33170",
+    "description": "Repair and maintenance of other transport equipment n.e.c.",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33190",
+    "description": "Repair of other equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "33200",
+    "description": "Installation of industrial machinery and equipment",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Equipment repair and installation",
+    "reason": "Included in full Section C manufacturing coverage.",
+    "guidance": "Confirm current operations and capabilities; SIC alone does not establish engineering specialism."
+  },
+  {
+    "sic_code": "71121",
+    "description": "Engineering design activities for industrial process and production",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Engineering services and testing",
+    "reason": "Explicit engineering, industrial design, technical consulting or testing activity.",
+    "guidance": "Confirm discipline, technical capability and customers; testing can serve non-industrial sectors."
+  },
+  {
+    "sic_code": "71122",
+    "description": "Engineering related scientific and technical consulting activities",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Engineering services and testing",
+    "reason": "Explicit engineering, industrial design, technical consulting or testing activity.",
+    "guidance": "Confirm discipline, technical capability and customers; testing can serve non-industrial sectors."
+  },
+  {
+    "sic_code": "71129",
+    "description": "Other engineering activities",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Engineering services and testing",
+    "reason": "Explicit engineering, industrial design, technical consulting or testing activity.",
+    "guidance": "Confirm discipline, technical capability and customers; testing can serve non-industrial sectors."
+  },
+  {
+    "sic_code": "71200",
+    "description": "Technical testing and analysis",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Engineering services and testing",
+    "reason": "Explicit engineering, industrial design, technical consulting or testing activity.",
+    "guidance": "Confirm discipline, technical capability and customers; testing can serve non-industrial sectors."
+  },
+  {
+    "sic_code": "72110",
+    "description": "Research and experimental development on biotechnology",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Scientific and engineering R&D",
+    "reason": "Scientific R&D can supply engineering, product development, industrial biotechnology and manufacturing.",
+    "guidance": "Identify industrial application; distinguish research providers from operating manufacturers."
+  },
+  {
+    "sic_code": "72190",
+    "description": "Other research and experimental development on natural sciences and engineering",
+    "tier": 1,
+    "default_intake": true,
+    "category": "Scientific and engineering R&D",
+    "reason": "Scientific R&D can supply engineering, product development, industrial biotechnology and manufacturing.",
+    "guidance": "Identify industrial application; distinguish research providers from operating manufacturers."
+  },
+  {
+    "sic_code": "05101",
+    "description": "Deep coal mines",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "05102",
+    "description": "Open cast coal working",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "05200",
+    "description": "Mining of lignite",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "06100",
+    "description": "Extraction of crude petroleum",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "06200",
+    "description": "Extraction of natural gas",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "07100",
+    "description": "Mining of iron ores",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "07210",
+    "description": "Mining of uranium and thorium ores",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "07290",
+    "description": "Mining of other non-ferrous metal ores",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "08110",
+    "description": "Quarrying of ornamental and building stone, limestone, gypsum, chalk and slate",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "08120",
+    "description": "Operation of gravel and sand pits; mining of clays and kaolin",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "08910",
+    "description": "Mining of chemical and fertilizer minerals",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "08920",
+    "description": "Extraction of peat",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "08930",
+    "description": "Extraction of salt",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "08990",
+    "description": "Other mining and quarrying n.e.c.",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "09100",
+    "description": "Support activities for petroleum and natural gas extraction",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "09900",
+    "description": "Support activities for other mining and quarrying",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Extraction and raw materials",
+    "reason": "Raw-material producers and extraction contractors supply industry and buy engineering services.",
+    "guidance": "Classify as material supplier, industrial operator or technical contractor, not automatically a manufacturer."
+  },
+  {
+    "sic_code": "35110",
+    "description": "Production of electricity",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "35120",
+    "description": "Transmission of electricity",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "35130",
+    "description": "Distribution of electricity",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "35210",
+    "description": "Manufacture of gas",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "35220",
+    "description": "Distribution of gaseous fuels through mains",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "35300",
+    "description": "Steam and air conditioning supply",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "36000",
+    "description": "Water collection, treatment and supply",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "37000",
+    "description": "Sewerage",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Energy, utilities and water",
+    "reason": "Plant operators and network businesses are engineering customers and infrastructure counterparties.",
+    "guidance": "Distinguish operators from engineering service providers and identify physical assets."
+  },
+  {
+    "sic_code": "38110",
+    "description": "Collection of non-hazardous waste",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Recycling, waste and remediation",
+    "reason": "Industrial waste treatment, recycled feedstocks, dismantling and remediation support manufacturing.",
+    "guidance": "Verify industrial customers, material streams and technical capability; some firms only collect household waste."
+  },
+  {
+    "sic_code": "38120",
+    "description": "Collection of hazardous waste",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Recycling, waste and remediation",
+    "reason": "Industrial waste treatment, recycled feedstocks, dismantling and remediation support manufacturing.",
+    "guidance": "Verify industrial customers, material streams and technical capability; some firms only collect household waste."
+  },
+  {
+    "sic_code": "38210",
+    "description": "Treatment and disposal of non-hazardous waste",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Recycling, waste and remediation",
+    "reason": "Industrial waste treatment, recycled feedstocks, dismantling and remediation support manufacturing.",
+    "guidance": "Verify industrial customers, material streams and technical capability; some firms only collect household waste."
+  },
+  {
+    "sic_code": "38220",
+    "description": "Treatment and disposal of hazardous waste",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Recycling, waste and remediation",
+    "reason": "Industrial waste treatment, recycled feedstocks, dismantling and remediation support manufacturing.",
+    "guidance": "Verify industrial customers, material streams and technical capability; some firms only collect household waste."
+  },
+  {
+    "sic_code": "38310",
+    "description": "Dismantling of wrecks",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Recycling, waste and remediation",
+    "reason": "Industrial waste treatment, recycled feedstocks, dismantling and remediation support manufacturing.",
+    "guidance": "Verify industrial customers, material streams and technical capability; some firms only collect household waste."
+  },
+  {
+    "sic_code": "38320",
+    "description": "Recovery of sorted materials",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Recycling, waste and remediation",
+    "reason": "Industrial waste treatment, recycled feedstocks, dismantling and remediation support manufacturing.",
+    "guidance": "Verify industrial customers, material streams and technical capability; some firms only collect household waste."
+  },
+  {
+    "sic_code": "39000",
+    "description": "Remediation activities and other waste management services",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Recycling, waste and remediation",
+    "reason": "Industrial waste treatment, recycled feedstocks, dismantling and remediation support manufacturing.",
+    "guidance": "Verify industrial customers, material streams and technical capability; some firms only collect household waste."
+  },
+  {
+    "sic_code": "42110",
+    "description": "Construction of roads and motorways",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "42120",
+    "description": "Construction of railways and underground railways",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "42130",
+    "description": "Construction of bridges and tunnels",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "42210",
+    "description": "Construction of utility projects for fluids",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "42220",
+    "description": "Construction of utility projects for electricity and telecommunications",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "42910",
+    "description": "Construction of water projects",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "42990",
+    "description": "Construction of other civil engineering projects n.e.c.",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "43130",
+    "description": "Test drilling and boring",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Civil and infrastructure engineering",
+    "reason": "Civil engineering, infrastructure construction and ground investigation are direct engineering activities.",
+    "guidance": "Identify discipline and project capability; distinguish contractor, consultant and project company."
+  },
+  {
+    "sic_code": "43210",
+    "description": "Electrical installation",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Installation and specialist contracting",
+    "reason": "May cover industrial electrics, HVAC, plant installation, steel erection and specialist engineering works.",
+    "guidance": "Require industrial or commercial capability evidence; domestic trades also use these codes."
+  },
+  {
+    "sic_code": "43220",
+    "description": "Plumbing, heat and air-conditioning installation",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Installation and specialist contracting",
+    "reason": "May cover industrial electrics, HVAC, plant installation, steel erection and specialist engineering works.",
+    "guidance": "Require industrial or commercial capability evidence; domestic trades also use these codes."
+  },
+  {
+    "sic_code": "43290",
+    "description": "Other construction installation",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Installation and specialist contracting",
+    "reason": "May cover industrial electrics, HVAC, plant installation, steel erection and specialist engineering works.",
+    "guidance": "Require industrial or commercial capability evidence; domestic trades also use these codes."
+  },
+  {
+    "sic_code": "43999",
+    "description": "Other specialised construction activities n.e.c.",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Installation and specialist contracting",
+    "reason": "May cover industrial electrics, HVAC, plant installation, steel erection and specialist engineering works.",
+    "guidance": "Require industrial or commercial capability evidence; domestic trades also use these codes."
+  },
+  {
+    "sic_code": "45310",
+    "description": "Wholesale trade of motor vehicle parts and accessories",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Components and machinery distribution",
+    "reason": "Distribution of components, electronics, machine tools and production or heavy machinery.",
+    "guidance": "Verify B2B products and sectors; distributors may have no manufacturing capability."
+  },
+  {
+    "sic_code": "46120",
+    "description": "Agents involved in the sale of fuels, ores, metals and industrial chemicals",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial sales agents",
+    "reason": "Agents connect buyers with industrial materials, machinery, equipment and transport assets.",
+    "guidance": "Verify industrial product range and agency role; do not label agents as manufacturers."
+  },
+  {
+    "sic_code": "46130",
+    "description": "Agents involved in the sale of timber and building materials",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial sales agents",
+    "reason": "Agents connect buyers with industrial materials, machinery, equipment and transport assets.",
+    "guidance": "Verify industrial product range and agency role; do not label agents as manufacturers."
+  },
+  {
+    "sic_code": "46140",
+    "description": "Agents involved in the sale of machinery, industrial equipment, ships and aircraft",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial sales agents",
+    "reason": "Agents connect buyers with industrial materials, machinery, equipment and transport assets.",
+    "guidance": "Verify industrial product range and agency role; do not label agents as manufacturers."
+  },
+  {
+    "sic_code": "46520",
+    "description": "Wholesale of electronic and telecommunications equipment and parts",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Components and machinery distribution",
+    "reason": "Distribution of components, electronics, machine tools and production or heavy machinery.",
+    "guidance": "Verify B2B products and sectors; distributors may have no manufacturing capability."
+  },
+  {
+    "sic_code": "46610",
+    "description": "Wholesale of agricultural machinery, equipment and supplies",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Components and machinery distribution",
+    "reason": "Distribution of components, electronics, machine tools and production or heavy machinery.",
+    "guidance": "Verify B2B products and sectors; distributors may have no manufacturing capability."
+  },
+  {
+    "sic_code": "46620",
+    "description": "Wholesale of machine tools",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Components and machinery distribution",
+    "reason": "Distribution of components, electronics, machine tools and production or heavy machinery.",
+    "guidance": "Verify B2B products and sectors; distributors may have no manufacturing capability."
+  },
+  {
+    "sic_code": "46630",
+    "description": "Wholesale of mining, construction and civil engineering machinery",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Components and machinery distribution",
+    "reason": "Distribution of components, electronics, machine tools and production or heavy machinery.",
+    "guidance": "Verify B2B products and sectors; distributors may have no manufacturing capability."
+  },
+  {
+    "sic_code": "46640",
+    "description": "Wholesale of machinery for the textile industry and of sewing and knitting machines",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Components and machinery distribution",
+    "reason": "Distribution of components, electronics, machine tools and production or heavy machinery.",
+    "guidance": "Verify B2B products and sectors; distributors may have no manufacturing capability."
+  },
+  {
+    "sic_code": "46690",
+    "description": "Wholesale of other machinery and equipment",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Components and machinery distribution",
+    "reason": "Distribution of components, electronics, machine tools and production or heavy machinery.",
+    "guidance": "Verify B2B products and sectors; distributors may have no manufacturing capability."
+  },
+  {
+    "sic_code": "46711",
+    "description": "Wholesale of petroleum and petroleum products",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "46719",
+    "description": "Wholesale of other fuels and related products",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "46720",
+    "description": "Wholesale of metals and metal ores",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "46730",
+    "description": "Wholesale of wood, construction materials and sanitary equipment",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "46740",
+    "description": "Wholesale of hardware, plumbing and heating equipment and supplies",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "46750",
+    "description": "Wholesale of chemical products",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "46760",
+    "description": "Wholesale of other intermediate products",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "46770",
+    "description": "Wholesale of waste and scrap",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial materials distribution",
+    "reason": "Trade in fuels, metals, construction materials, hardware, chemicals, intermediates and scrap.",
+    "guidance": "Verify industrial products and supply capability; broad trade codes include non-industrial merchants."
+  },
+  {
+    "sic_code": "74100",
+    "description": "specialised design activities",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Product design and environmental services",
+    "reason": "May cover industrial product design or environmental advice for plants and engineering projects.",
+    "guidance": "Require industrial evidence; design includes graphics/fashion and environmental consulting has wider uses."
+  },
+  {
+    "sic_code": "74901",
+    "description": "Environmental consulting activities",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Product design and environmental services",
+    "reason": "May cover industrial product design or environmental advice for plants and engineering projects.",
+    "guidance": "Require industrial evidence; design includes graphics/fashion and environmental consulting has wider uses."
+  },
+  {
+    "sic_code": "77310",
+    "description": "Renting and leasing of agricultural machinery and equipment",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Machinery and plant hire",
+    "reason": "Plant and equipment rental supports manufacturing, maintenance, construction and engineering.",
+    "guidance": "Verify industrial equipment range; the other-equipment code includes unrelated rental businesses."
+  },
+  {
+    "sic_code": "77320",
+    "description": "Renting and leasing of construction and civil engineering machinery and equipment",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Machinery and plant hire",
+    "reason": "Plant and equipment rental supports manufacturing, maintenance, construction and engineering.",
+    "guidance": "Verify industrial equipment range; the other-equipment code includes unrelated rental businesses."
+  },
+  {
+    "sic_code": "77390",
+    "description": "Renting and leasing of other machinery, equipment and tangible goods n.e.c.",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Machinery and plant hire",
+    "reason": "Plant and equipment rental supports manufacturing, maintenance, construction and engineering.",
+    "guidance": "Verify industrial equipment range; the other-equipment code includes unrelated rental businesses."
+  },
+  {
+    "sic_code": "81222",
+    "description": "Specialised cleaning services",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial cleaning and contract packaging",
+    "reason": "Specialist cleaning, furnace services and contract packaging can be part of industrial operations.",
+    "guidance": "Confirm industrial premises or production services; exclude solely domestic/commercial cleaning."
+  },
+  {
+    "sic_code": "81223",
+    "description": "Furnace and chimney cleaning services",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial cleaning and contract packaging",
+    "reason": "Specialist cleaning, furnace services and contract packaging can be part of industrial operations.",
+    "guidance": "Confirm industrial premises or production services; exclude solely domestic/commercial cleaning."
+  },
+  {
+    "sic_code": "81229",
+    "description": "Other building and industrial cleaning activities",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial cleaning and contract packaging",
+    "reason": "Specialist cleaning, furnace services and contract packaging can be part of industrial operations.",
+    "guidance": "Confirm industrial premises or production services; exclude solely domestic/commercial cleaning."
+  },
+  {
+    "sic_code": "82920",
+    "description": "Packaging activities",
+    "tier": 2,
+    "default_intake": true,
+    "category": "Industrial cleaning and contract packaging",
+    "reason": "Specialist cleaning, furnace services and contract packaging can be part of industrial operations.",
+    "guidance": "Confirm industrial premises or production services; exclude solely domestic/commercial cleaning."
+  },
+  {
+    "sic_code": "02200",
+    "description": "Logging",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Upstream forestry",
+    "reason": "Potential timber feedstock supply and forestry contractors.",
+    "guidance": "Require documented links to industrial timber processing or technical contracting."
+  },
+  {
+    "sic_code": "02400",
+    "description": "Support services to forestry",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Upstream forestry",
+    "reason": "Potential timber feedstock supply and forestry contractors.",
+    "guidance": "Require documented links to industrial timber processing or technical contracting."
+  },
+  {
+    "sic_code": "35140",
+    "description": "Trade of electricity",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Energy trading",
+    "reason": "Potential industrial energy procurement relationships.",
+    "guidance": "Require industrial customer relevance; trading alone is not engineering or plant operation."
+  },
+  {
+    "sic_code": "35230",
+    "description": "Trade of gas through mains",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Energy trading",
+    "reason": "Potential industrial energy procurement relationships.",
+    "guidance": "Require industrial customer relevance; trading alone is not engineering or plant operation."
+  },
+  {
+    "sic_code": "41100",
+    "description": "Development of building projects",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "41201",
+    "description": "Construction of commercial buildings",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "41202",
+    "description": "Construction of domestic buildings",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43110",
+    "description": "Demolition",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43120",
+    "description": "Site preparation",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43310",
+    "description": "Plastering",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43320",
+    "description": "Joinery installation",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43330",
+    "description": "Floor and wall covering",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43341",
+    "description": "Painting",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43342",
+    "description": "Glazing",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43390",
+    "description": "Other building completion and finishing",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43910",
+    "description": "Roofing activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "43991",
+    "description": "Scaffold erection",
+    "tier": 3,
+    "default_intake": false,
+    "category": "General construction and building trades",
+    "reason": "Can contain industrial building, site works, coatings, access and fabrication-related installation firms.",
+    "guidance": "Require industrial project or technical capability evidence; general housing and domestic trades create noise."
+  },
+  {
+    "sic_code": "45190",
+    "description": "Sale of other motor vehicles",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Vehicle sales, service and repair",
+    "reason": "Can include fleet engineering, commercial vehicle specialists and component suppliers.",
+    "guidance": "Require specialist B2B or engineering capability; exclude routine consumer sales and garage work."
+  },
+  {
+    "sic_code": "45200",
+    "description": "Maintenance and repair of motor vehicles",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Vehicle sales, service and repair",
+    "reason": "Can include fleet engineering, commercial vehicle specialists and component suppliers.",
+    "guidance": "Require specialist B2B or engineering capability; exclude routine consumer sales and garage work."
+  },
+  {
+    "sic_code": "45320",
+    "description": "Retail trade of motor vehicle parts and accessories",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Vehicle sales, service and repair",
+    "reason": "Can include fleet engineering, commercial vehicle specialists and component suppliers.",
+    "guidance": "Require specialist B2B or engineering capability; exclude routine consumer sales and garage work."
+  },
+  {
+    "sic_code": "45400",
+    "description": "Sale, maintenance and repair of motorcycles and related parts and accessories",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Vehicle sales, service and repair",
+    "reason": "Can include fleet engineering, commercial vehicle specialists and component suppliers.",
+    "guidance": "Require specialist B2B or engineering capability; exclude routine consumer sales and garage work."
+  },
+  {
+    "sic_code": "46110",
+    "description": "Agents selling agricultural raw materials, livestock, textile raw materials and semi-finished goods",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46150",
+    "description": "Agents involved in the sale of furniture, household goods, hardware and ironmongery",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46160",
+    "description": "Agents involved in the sale of textiles, clothing, fur, footwear and leather goods",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46180",
+    "description": "Agents specialized in the sale of other particular products",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46190",
+    "description": "Agents involved in the sale of a variety of goods",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46240",
+    "description": "Wholesale of hides, skins and leather",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46410",
+    "description": "Wholesale of textiles",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46420",
+    "description": "Wholesale of clothing and footwear",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46439",
+    "description": "Wholesale of radio, television goods & electrical household appliances (other than records, tapes, CD's & video tapes and the equipment used for playing them)",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46440",
+    "description": "Wholesale of china and glassware and cleaning materials",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46460",
+    "description": "Wholesale of pharmaceutical goods",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46470",
+    "description": "Wholesale of furniture, carpets and lighting equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46499",
+    "description": "Wholesale of household goods (other than musical instruments) n.e.c.",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46510",
+    "description": "Wholesale of computers, computer peripheral equipment and software",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46650",
+    "description": "Wholesale of office furniture",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46660",
+    "description": "Wholesale of other office machinery and equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "46900",
+    "description": "Non-specialised wholesale trade",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad distribution and sales agents",
+    "reason": "May hide industrial textiles, PPE, equipment, materials and technical distribution businesses.",
+    "guidance": "Require evidence of relevant industrial products; do not ingest all general wholesalers by default."
+  },
+  {
+    "sic_code": "47520",
+    "description": "Retail sale of hardware, paints and glass in specialised stores",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Retail-coded technical suppliers",
+    "reason": "Some tools, technical products and specialist suppliers register under retail or online-sales codes.",
+    "guidance": "Require independent evidence of industrial B2B supply; these are very broad retail categories."
+  },
+  {
+    "sic_code": "47749",
+    "description": "Retail sale of medical and orthopaedic goods in specialised stores (not incl. hearing aids) n.e.c.",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Retail-coded technical suppliers",
+    "reason": "Some tools, technical products and specialist suppliers register under retail or online-sales codes.",
+    "guidance": "Require independent evidence of industrial B2B supply; these are very broad retail categories."
+  },
+  {
+    "sic_code": "47789",
+    "description": "Other retail sale of new goods in specialised stores (not commercial art galleries and opticians)",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Retail-coded technical suppliers",
+    "reason": "Some tools, technical products and specialist suppliers register under retail or online-sales codes.",
+    "guidance": "Require independent evidence of industrial B2B supply; these are very broad retail categories."
+  },
+  {
+    "sic_code": "47910",
+    "description": "Retail sale via mail order houses or via Internet",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Retail-coded technical suppliers",
+    "reason": "Some tools, technical products and specialist suppliers register under retail or online-sales codes.",
+    "guidance": "Require independent evidence of industrial B2B supply; these are very broad retail categories."
+  },
+  {
+    "sic_code": "47990",
+    "description": "Other retail sale not in stores, stalls or markets",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Retail-coded technical suppliers",
+    "reason": "Some tools, technical products and specialist suppliers register under retail or online-sales codes.",
+    "guidance": "Require independent evidence of industrial B2B supply; these are very broad retail categories."
+  },
+  {
+    "sic_code": "49200",
+    "description": "Freight rail transport",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "49410",
+    "description": "Freight transport by road",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "49500",
+    "description": "Transport via pipeline",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "50200",
+    "description": "Sea and coastal freight water transport",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "50400",
+    "description": "Inland freight water transport",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "51210",
+    "description": "Freight air transport",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "51220",
+    "description": "Space transport",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52101",
+    "description": "Operation of warehousing and storage facilities for water transport activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52102",
+    "description": "Operation of warehousing and storage facilities for air transport activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52103",
+    "description": "Operation of warehousing and storage facilities for land transport activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52211",
+    "description": "Operation of rail freight terminals",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52219",
+    "description": "Other service activities incidental to land transportation, n.e.c.",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52220",
+    "description": "Service activities incidental to water transportation",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52230",
+    "description": "Service activities incidental to air transportation",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52241",
+    "description": "Cargo handling for water transport activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52242",
+    "description": "Cargo handling for air transport activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52243",
+    "description": "Cargo handling for land transport activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "52290",
+    "description": "Other transportation support activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial logistics and transport",
+    "reason": "May support materials, heavy equipment, aerospace and manufacturing supply chains.",
+    "guidance": "Require industrial freight, heavy lifting or technical handling relevance; transport alone is not engineering."
+  },
+  {
+    "sic_code": "58290",
+    "description": "Other software publishing",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial software and IT",
+    "reason": "Can include CAD/CAM, simulation, embedded software, automation, MES and industrial data platforms.",
+    "guidance": "Require engineering or manufacturing product/customer evidence; exclude generic IT and digital agencies."
+  },
+  {
+    "sic_code": "61100",
+    "description": "Wired telecommunications activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Telecommunications operators and services",
+    "reason": "Can include industrial connectivity, communications networks and technical infrastructure services.",
+    "guidance": "Require engineering/infrastructure relevance; generic telecom resale is not enough."
+  },
+  {
+    "sic_code": "61200",
+    "description": "Wireless telecommunications activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Telecommunications operators and services",
+    "reason": "Can include industrial connectivity, communications networks and technical infrastructure services.",
+    "guidance": "Require engineering/infrastructure relevance; generic telecom resale is not enough."
+  },
+  {
+    "sic_code": "61300",
+    "description": "Satellite telecommunications activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Telecommunications operators and services",
+    "reason": "Can include industrial connectivity, communications networks and technical infrastructure services.",
+    "guidance": "Require engineering/infrastructure relevance; generic telecom resale is not enough."
+  },
+  {
+    "sic_code": "61900",
+    "description": "Other telecommunications activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Telecommunications operators and services",
+    "reason": "Can include industrial connectivity, communications networks and technical infrastructure services.",
+    "guidance": "Require engineering/infrastructure relevance; generic telecom resale is not enough."
+  },
+  {
+    "sic_code": "62012",
+    "description": "Business and domestic software development",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial software and IT",
+    "reason": "Can include CAD/CAM, simulation, embedded software, automation, MES and industrial data platforms.",
+    "guidance": "Require engineering or manufacturing product/customer evidence; exclude generic IT and digital agencies."
+  },
+  {
+    "sic_code": "62020",
+    "description": "Information technology consultancy activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial software and IT",
+    "reason": "Can include CAD/CAM, simulation, embedded software, automation, MES and industrial data platforms.",
+    "guidance": "Require engineering or manufacturing product/customer evidence; exclude generic IT and digital agencies."
+  },
+  {
+    "sic_code": "62030",
+    "description": "Computer facilities management activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial software and IT",
+    "reason": "Can include CAD/CAM, simulation, embedded software, automation, MES and industrial data platforms.",
+    "guidance": "Require engineering or manufacturing product/customer evidence; exclude generic IT and digital agencies."
+  },
+  {
+    "sic_code": "62090",
+    "description": "Other information technology service activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial software and IT",
+    "reason": "Can include CAD/CAM, simulation, embedded software, automation, MES and industrial data platforms.",
+    "guidance": "Require engineering or manufacturing product/customer evidence; exclude generic IT and digital agencies."
+  },
+  {
+    "sic_code": "63110",
+    "description": "Data processing, hosting and related activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Industrial software and IT",
+    "reason": "Can include CAD/CAM, simulation, embedded software, automation, MES and industrial data platforms.",
+    "guidance": "Require engineering or manufacturing product/customer evidence; exclude generic IT and digital agencies."
+  },
+  {
+    "sic_code": "64202",
+    "description": "Activities of production holding companies",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Group and holding-company records",
+    "reason": "May identify manufacturing or engineering groups and their operating subsidiaries.",
+    "guidance": "Use for group mapping; do not treat holding entities as independent operating suppliers without evidence."
+  },
+  {
+    "sic_code": "64203",
+    "description": "Activities of construction holding companies",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Group and holding-company records",
+    "reason": "May identify manufacturing or engineering groups and their operating subsidiaries.",
+    "guidance": "Use for group mapping; do not treat holding entities as independent operating suppliers without evidence."
+  },
+  {
+    "sic_code": "64204",
+    "description": "Activities of distribution holding companies",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Group and holding-company records",
+    "reason": "May identify manufacturing or engineering groups and their operating subsidiaries.",
+    "guidance": "Use for group mapping; do not treat holding entities as independent operating suppliers without evidence."
+  },
+  {
+    "sic_code": "64209",
+    "description": "Activities of other holding companies n.e.c.",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Group and holding-company records",
+    "reason": "May identify manufacturing or engineering groups and their operating subsidiaries.",
+    "guidance": "Use for group mapping; do not treat holding entities as independent operating suppliers without evidence."
+  },
+  {
+    "sic_code": "70100",
+    "description": "Activities of head offices",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Group and holding-company records",
+    "reason": "May identify manufacturing or engineering groups and their operating subsidiaries.",
+    "guidance": "Use for group mapping; do not treat holding entities as independent operating suppliers without evidence."
+  },
+  {
+    "sic_code": "70229",
+    "description": "Management consultancy activities other than financial management",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad consultancy and professional services",
+    "reason": "Can contain operations improvement, industrial architecture, surveying and specialist technical consultants.",
+    "guidance": "Require engineering, industrial design, surveying or manufacturing evidence; generic advice is insufficient."
+  },
+  {
+    "sic_code": "71111",
+    "description": "Architectural activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad consultancy and professional services",
+    "reason": "Can contain operations improvement, industrial architecture, surveying and specialist technical consultants.",
+    "guidance": "Require engineering, industrial design, surveying or manufacturing evidence; generic advice is insufficient."
+  },
+  {
+    "sic_code": "71112",
+    "description": "Urban planning and landscape architectural activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad consultancy and professional services",
+    "reason": "Can contain operations improvement, industrial architecture, surveying and specialist technical consultants.",
+    "guidance": "Require engineering, industrial design, surveying or manufacturing evidence; generic advice is insufficient."
+  },
+  {
+    "sic_code": "74902",
+    "description": "Quantity surveying activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad consultancy and professional services",
+    "reason": "Can contain operations improvement, industrial architecture, surveying and specialist technical consultants.",
+    "guidance": "Require engineering, industrial design, surveying or manufacturing evidence; generic advice is insufficient."
+  },
+  {
+    "sic_code": "74909",
+    "description": "Other professional, scientific and technical activities n.e.c.",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Broad consultancy and professional services",
+    "reason": "Can contain operations improvement, industrial architecture, surveying and specialist technical consultants.",
+    "guidance": "Require engineering, industrial design, surveying or manufacturing evidence; generic advice is insufficient."
+  },
+  {
+    "sic_code": "77120",
+    "description": "Renting and leasing of trucks and other heavy vehicles",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent asset and technology leasing",
+    "reason": "May support industrial fleets, equipment, marine/aerospace assets or manufacturing technology licences.",
+    "guidance": "Verify industrial use; pure asset owners and licensors are not automatically engineering suppliers."
+  },
+  {
+    "sic_code": "77330",
+    "description": "Renting and leasing of office machinery and equipment (including computers)",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent asset and technology leasing",
+    "reason": "May support industrial fleets, equipment, marine/aerospace assets or manufacturing technology licences.",
+    "guidance": "Verify industrial use; pure asset owners and licensors are not automatically engineering suppliers."
+  },
+  {
+    "sic_code": "77341",
+    "description": "Renting and leasing of passenger water transport equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent asset and technology leasing",
+    "reason": "May support industrial fleets, equipment, marine/aerospace assets or manufacturing technology licences.",
+    "guidance": "Verify industrial use; pure asset owners and licensors are not automatically engineering suppliers."
+  },
+  {
+    "sic_code": "77342",
+    "description": "Renting and leasing of freight water transport equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent asset and technology leasing",
+    "reason": "May support industrial fleets, equipment, marine/aerospace assets or manufacturing technology licences.",
+    "guidance": "Verify industrial use; pure asset owners and licensors are not automatically engineering suppliers."
+  },
+  {
+    "sic_code": "77351",
+    "description": "Renting and leasing of air passenger transport equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent asset and technology leasing",
+    "reason": "May support industrial fleets, equipment, marine/aerospace assets or manufacturing technology licences.",
+    "guidance": "Verify industrial use; pure asset owners and licensors are not automatically engineering suppliers."
+  },
+  {
+    "sic_code": "77352",
+    "description": "Renting and leasing of freight air transport equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent asset and technology leasing",
+    "reason": "May support industrial fleets, equipment, marine/aerospace assets or manufacturing technology licences.",
+    "guidance": "Verify industrial use; pure asset owners and licensors are not automatically engineering suppliers."
+  },
+  {
+    "sic_code": "77400",
+    "description": "Leasing of intellectual property and similar products, except copyright works",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent asset and technology leasing",
+    "reason": "May support industrial fleets, equipment, marine/aerospace assets or manufacturing technology licences.",
+    "guidance": "Verify industrial use; pure asset owners and licensors are not automatically engineering suppliers."
+  },
+  {
+    "sic_code": "78109",
+    "description": "Other activities of employment placement agencies",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Technical recruitment and workforce supply",
+    "reason": "Can supply engineering specialists and manufacturing labour.",
+    "guidance": "Require a clear engineering/manufacturing specialism; generic recruitment is outside the default scope."
+  },
+  {
+    "sic_code": "78200",
+    "description": "Temporary employment agency activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Technical recruitment and workforce supply",
+    "reason": "Can supply engineering specialists and manufacturing labour.",
+    "guidance": "Require a clear engineering/manufacturing specialism; generic recruitment is outside the default scope."
+  },
+  {
+    "sic_code": "78300",
+    "description": "Human resources provision and management of human resources functions",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Technical recruitment and workforce supply",
+    "reason": "Can supply engineering specialists and manufacturing labour.",
+    "guidance": "Require a clear engineering/manufacturing specialism; generic recruitment is outside the default scope."
+  },
+  {
+    "sic_code": "80200",
+    "description": "Security systems service activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Facilities and adjacent technical services",
+    "reason": "May contain integrated technical maintenance, industrial security systems or specialist cleaning.",
+    "guidance": "Require industrial systems or technical maintenance evidence; general facilities services are too broad."
+  },
+  {
+    "sic_code": "81100",
+    "description": "Combined facilities support activities",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Facilities and adjacent technical services",
+    "reason": "May contain integrated technical maintenance, industrial security systems or specialist cleaning.",
+    "guidance": "Require industrial systems or technical maintenance evidence; general facilities services are too broad."
+  },
+  {
+    "sic_code": "81299",
+    "description": "Other cleaning services",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Facilities and adjacent technical services",
+    "reason": "May contain integrated technical maintenance, industrial security systems or specialist cleaning.",
+    "guidance": "Require industrial systems or technical maintenance evidence; general facilities services are too broad."
+  },
+  {
+    "sic_code": "85320",
+    "description": "Technical and vocational secondary education",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Engineering education and training",
+    "reason": "Potential technical training and industrial R&D partners.",
+    "guidance": "Require engineering/manufacturing programmes; treat education providers as partners, not manufacturers."
+  },
+  {
+    "sic_code": "85410",
+    "description": "Post-secondary non-tertiary education",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Engineering education and training",
+    "reason": "Potential technical training and industrial R&D partners.",
+    "guidance": "Require engineering/manufacturing programmes; treat education providers as partners, not manufacturers."
+  },
+  {
+    "sic_code": "85421",
+    "description": "First-degree level higher education",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Engineering education and training",
+    "reason": "Potential technical training and industrial R&D partners.",
+    "guidance": "Require engineering/manufacturing programmes; treat education providers as partners, not manufacturers."
+  },
+  {
+    "sic_code": "85422",
+    "description": "Post-graduate level higher education",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Engineering education and training",
+    "reason": "Potential technical training and industrial R&D partners.",
+    "guidance": "Require engineering/manufacturing programmes; treat education providers as partners, not manufacturers."
+  },
+  {
+    "sic_code": "85590",
+    "description": "Other education n.e.c.",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Engineering education and training",
+    "reason": "Potential technical training and industrial R&D partners.",
+    "guidance": "Require engineering/manufacturing programmes; treat education providers as partners, not manufacturers."
+  },
+  {
+    "sic_code": "94110",
+    "description": "Activities of business and employers membership organizations",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Trade and professional bodies",
+    "reason": "Potential engineering/manufacturing member networks and discovery sources.",
+    "guidance": "Require sector relevance; classify as an ecosystem organisation rather than an operating supplier."
+  },
+  {
+    "sic_code": "94120",
+    "description": "Activities of professional membership organizations",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Trade and professional bodies",
+    "reason": "Potential engineering/manufacturing member networks and discovery sources.",
+    "guidance": "Require sector relevance; classify as an ecosystem organisation rather than an operating supplier."
+  },
+  {
+    "sic_code": "95110",
+    "description": "Repair of computers and peripheral equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent equipment and product repair",
+    "reason": "Can contain specialist refurbishment, electronics repair and product servicing businesses.",
+    "guidance": "Require industrial or specialist B2B relevance; most consumer repair activity is outside default scope."
+  },
+  {
+    "sic_code": "95120",
+    "description": "Repair of communication equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent equipment and product repair",
+    "reason": "Can contain specialist refurbishment, electronics repair and product servicing businesses.",
+    "guidance": "Require industrial or specialist B2B relevance; most consumer repair activity is outside default scope."
+  },
+  {
+    "sic_code": "95210",
+    "description": "Repair of consumer electronics",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent equipment and product repair",
+    "reason": "Can contain specialist refurbishment, electronics repair and product servicing businesses.",
+    "guidance": "Require industrial or specialist B2B relevance; most consumer repair activity is outside default scope."
+  },
+  {
+    "sic_code": "95220",
+    "description": "Repair of household appliances and home and garden equipment",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent equipment and product repair",
+    "reason": "Can contain specialist refurbishment, electronics repair and product servicing businesses.",
+    "guidance": "Require industrial or specialist B2B relevance; most consumer repair activity is outside default scope."
+  },
+  {
+    "sic_code": "95240",
+    "description": "Repair of furniture and home furnishings",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent equipment and product repair",
+    "reason": "Can contain specialist refurbishment, electronics repair and product servicing businesses.",
+    "guidance": "Require industrial or specialist B2B relevance; most consumer repair activity is outside default scope."
+  },
+  {
+    "sic_code": "95250",
+    "description": "Repair of watches, clocks and jewellery",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent equipment and product repair",
+    "reason": "Can contain specialist refurbishment, electronics repair and product servicing businesses.",
+    "guidance": "Require industrial or specialist B2B relevance; most consumer repair activity is outside default scope."
+  },
+  {
+    "sic_code": "95290",
+    "description": "Repair of personal and household goods n.e.c.",
+    "tier": 3,
+    "default_intake": false,
+    "category": "Adjacent equipment and product repair",
+    "reason": "Can contain specialist refurbishment, electronics repair and product servicing businesses.",
+    "guidance": "Require industrial or specialist B2B relevance; most consumer repair activity is outside default scope."
+  }
+]

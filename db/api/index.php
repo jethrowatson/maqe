@@ -313,6 +313,75 @@ switch ($resource) {
         echo json_encode(['opportunities' => $opps]);
         break;
 
+    case 'sic_master':
+        $tier = $_GET['tier'] ?? null;
+        $category = $_GET['category'] ?? null;
+        $search = $_GET['q'] ?? null;
+        $limit = min((int)($_GET['limit'] ?? 100), 500);
+
+        $sql = "SELECT * FROM maqe_sic_master WHERE 1=1";
+        $params = [];
+        if ($tier) {
+            $sql .= " AND tier = ?";
+            $params[] = (int)$tier;
+        }
+        if ($category && $category !== 'all') {
+            $sql .= " AND category = ?";
+            $params[] = $category;
+        }
+        if ($search) {
+            $sql .= " AND (sic_code LIKE ? OR description LIKE ? OR category LIKE ?)";
+            $params[] = "%{$search}%";
+            $params[] = "%{$search}%";
+            $params[] = "%{$search}%";
+        }
+        $sql .= " ORDER BY tier ASC, sic_code ASC LIMIT {$limit}";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $rows = $stmt->fetchAll();
+
+        echo json_encode([
+            'total' => count($rows),
+            'sic_codes' => $rows
+        ]);
+        break;
+
+    case 'sic_stats':
+        $stmt = $pdo->query("SELECT tier, count(*) as count, sum(records_count) as total_records FROM maqe_sic_master GROUP BY tier ORDER BY tier ASC");
+        $tier_stats = $stmt->fetchAll();
+
+        $c_stmt = $pdo->query("SELECT COUNT(DISTINCT category) as categories_count, COUNT(*) as total_sic FROM maqe_sic_master");
+        $meta = $c_stmt->fetch();
+
+        echo json_encode([
+            'tier_breakdown' => $tier_stats,
+            'total_sic_codes' => (int)$meta['total_sic'],
+            'total_categories' => (int)$meta['categories_count'],
+            'status' => 'active_engine'
+        ]);
+        break;
+
+    case 'sic_scrape':
+        if ($method !== 'POST') {
+            http_response_code(405);
+            echo json_encode(['error' => 'Method not allowed']);
+            exit();
+        }
+        $sic_code = $body['sic_code'] ?? null;
+        if (!$sic_code) {
+            http_response_code(400);
+            echo json_encode(['error' => 'sic_code is required']);
+            exit();
+        }
+        $stmt = $pdo->prepare("UPDATE maqe_sic_master SET records_count = records_count + 1, last_scraped_at = NOW() WHERE sic_code = ?");
+        $stmt->execute([$sic_code]);
+        echo json_encode([
+            'success' => true,
+            'sic_code' => $sic_code,
+            'scraped_at' => gmdate('Y-m-d\TH:i:s\Z')
+        ]);
+        break;
+
     default:
         http_response_code(404);
         echo json_encode(['error' => 'Endpoint not found', 'resource' => $resource]);

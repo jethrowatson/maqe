@@ -56,6 +56,31 @@ export interface SyncWatermark {
   last_success_at: string;
 }
 
+export interface SICMasterEntry {
+  sic_code: string;
+  description: string;
+  tier: number; // 1 (Core), 2 (Supply Chain), 3 (Optional)
+  default_intake: boolean;
+  category: string;
+  reason: string;
+  guidance: string;
+  status?: string;
+  records_count?: number;
+  last_scraped_at?: string;
+}
+
+export interface IngestEvent {
+  id: string;
+  timestamp: string;
+  type: 'companies_house_query' | 'entity_ingested' | 'discovery_crawled' | 'assertion_extracted' | 'match_evaluated';
+  sic_code: string;
+  company_name?: string;
+  company_number?: string;
+  message: string;
+  details?: Record<string, any>;
+  level: 'info' | 'success' | 'warn';
+}
+
 // =========================================================================
 // C02 Discovery & Document Retrieval
 // =========================================================================
