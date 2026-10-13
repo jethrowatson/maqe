@@ -83,7 +83,7 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
       {/* ---------------------------------------------------- */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16">
             {/* Brand Logo */}
             <div className="flex items-center space-x-3.5">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-400 p-[1px] shadow-lg shadow-blue-500/20">
@@ -146,33 +146,33 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
       {/* ---------------------------------------------------- */}
       {/* 2. HERO SECTION WITH LIVE INTERACTIVE TERMINAL       */}
       {/* ---------------------------------------------------- */}
-      <section className="relative overflow-hidden pt-12 pb-24 border-b border-slate-800/80 radial-mesh">
+      <section className="relative overflow-hidden py-8 sm:py-10 lg:py-14 border-b border-slate-800/80 radial-mesh">
         {/* Subtle decorative background grids */}
         <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:32px_32px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content (7 Cols) */}
             <div className="lg:col-span-7">
               {/* Eyebrow Badge */}
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/40 text-blue-300 text-xs font-semibold mb-6">
+              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-950/80 border border-blue-500/40 text-blue-300 text-xs font-semibold mb-3 sm:mb-4">
                 <Sparkles className="w-3.5 h-3.5 text-blue-400" />
                 <span>Statutory Ingest • Zero Manual Input • Dual-Direction AI Matching</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-white text-balance">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.1] text-white text-balance">
                 The UK Engineering Intelligence Platform.
               </h1>
 
               {/* Sub-headline */}
-              <p className="mt-6 text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl text-pretty">
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-300 font-normal leading-relaxed max-w-xl text-pretty">
                 Turn statutory filings and verified web discovery into a structured engineering super-database. Match capability to industrial demand in both directions — <strong className="text-white font-semibold">without asking companies to manually fill out profiles</strong>.
               </p>
 
               {/* Interactive Search Bar directly in Hero */}
-              <div className="mt-8 p-2 bg-slate-900/90 border border-slate-700/80 rounded-2xl shadow-xl max-w-2xl">
-                <div className="flex items-center px-3 py-2 bg-slate-950/60 rounded-xl border border-slate-800 focus-within:border-blue-500 transition-colors">
+              <div className="mt-5 p-1.5 bg-slate-900/90 border border-slate-700/80 rounded-2xl shadow-xl max-w-xl">
+                <div className="flex items-center px-3 py-1.5 sm:py-2 bg-slate-950/60 rounded-xl border border-slate-800 focus-within:border-blue-500 transition-colors">
                   <Search className="w-4 h-4 text-blue-400 mr-2.5 shrink-0" />
                   <input
                     type="text"
@@ -192,7 +192,7 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                 </div>
 
                 {/* Instant Search Suggestions / Chips */}
-                <div className="flex flex-wrap items-center gap-1.5 mt-2.5 px-1 text-[11px] text-slate-400">
+                <div className="flex flex-wrap items-center gap-1.5 mt-2 px-1 text-[11px] text-slate-400">
                   <span className="font-semibold text-slate-500">Try quick lookups:</span>
                   {['Delta Metalworks', 'Apex Steel', 'Laser Cutting', 'Automotive Blanks', 'Server Cabinets'].map((sample) => (
                     <button
@@ -237,35 +237,35 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
               </div>
 
               {/* CTAs */}
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-5 flex flex-wrap items-center gap-3">
                 <button
                   onClick={() => onGoToLogin('member')}
-                  className="px-6 py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm rounded-xl transition-all shadow-lg shadow-blue-600/30 flex items-center"
+                  className="px-5 py-2.5 sm:py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm rounded-xl transition-all shadow-lg shadow-blue-600/30 flex items-center"
                 >
                   Enter Member Platform
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
                 </button>
                 <button
                   onClick={() => onGoToLogin('operator')}
-                  className="px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-sm rounded-xl transition-colors flex items-center"
+                  className="px-5 py-2.5 sm:py-3 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-xs sm:text-sm rounded-xl transition-colors flex items-center"
                 >
-                  <ShieldCheck className="w-4 h-4 mr-2 text-amber-400" />
+                  <ShieldCheck className="w-4 h-4 mr-1.5 text-amber-400" />
                   Launch Operator Console
                 </button>
               </div>
 
               {/* Trust Badges */}
-              <div className="mt-8 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-400">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <div className="mt-4 flex flex-wrap items-center gap-y-1.5 gap-x-5 text-[11px] sm:text-xs text-slate-400">
+                <div className="flex items-center space-x-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Companies House Direct API</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-center space-x-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Deterministic Zero-Hallucination Scoring</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <div className="flex items-center space-x-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Permanent Non-Double-Charge Ledger</span>
                 </div>
               </div>
@@ -273,14 +273,14 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
 
             {/* Right Hero: Floating Live Terminal Preview (5 Cols) */}
             <div className="lg:col-span-5">
-              <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 backdrop-blur-xl p-6 shadow-2xl glow-card relative">
+              <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 backdrop-blur-xl p-4 sm:p-5 shadow-2xl glow-card relative">
                 {/* Header of terminal */}
-                <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                  <div className="flex items-center space-x-2.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-amber-500/80"></div>
-                    <div className="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                    <span className="text-xs font-mono text-slate-400 ml-2">MAQE Live Radar v1.1</span>
+                <div className="flex items-center justify-between pb-3 border-b border-slate-800">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                    <span className="text-[11px] font-mono text-slate-400 ml-1.5">MAQE Live Radar v1.1</span>
                   </div>
                   <div className="flex items-center space-x-1.5 px-2 py-0.5 bg-blue-950/60 border border-blue-500/40 rounded text-[10px] font-mono text-blue-300">
                     <Radio className="w-3 h-3 animate-pulse text-blue-400" />
@@ -289,20 +289,20 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                 </div>
 
                 {/* Target Company Focus */}
-                <div className="mt-4 p-3.5 bg-slate-950/60 rounded-xl border border-slate-800">
+                <div className="mt-2.5 p-2.5 bg-slate-950/60 rounded-xl border border-slate-800">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs text-slate-400 font-medium">Evaluated Member Node:</div>
-                      <div className="text-sm font-bold text-white mt-0.5">Delta Metalworks Ltd</div>
+                      <div className="text-[11px] text-slate-400 font-medium">Evaluated Member Node:</div>
+                      <div className="text-xs sm:text-sm font-bold text-white mt-0.5">Delta Metalworks Ltd</div>
                     </div>
                     <div className="text-right">
                       <div className="text-[10px] text-slate-400 font-mono">Sheffield • SIC 25110</div>
                       <div className="text-[11px] font-bold text-emerald-400">98% Verified Profile</div>
                     </div>
                   </div>
-                  <div className="mt-2.5 flex flex-wrap gap-1 text-[10px]">
+                  <div className="mt-2 flex flex-wrap gap-1 text-[10px]">
                     <span className="px-2 py-0.5 rounded bg-blue-900/50 text-blue-300 border border-blue-700/50 font-medium">
-                      Laser Cutting (Bystronic 10kW)
+                      Laser Cutting (10kW)
                     </span>
                     <span className="px-2 py-0.5 rounded bg-blue-900/50 text-blue-300 border border-blue-700/50 font-medium">
                       CNC Bending
@@ -314,35 +314,35 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                 </div>
 
                 {/* Direction Switcher */}
-                <div className="mt-4 grid grid-cols-2 gap-2 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+                <div className="mt-2.5 grid grid-cols-2 gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
                   <button
                     onClick={() => setMatchingDirection('customer')}
-                    className={`py-2 px-3 rounded-lg font-bold transition-all text-center ${
+                    className={`py-1.5 px-2 rounded-lg font-bold transition-all text-center text-xs ${
                       matchingDirection === 'customer'
                         ? 'bg-blue-600 text-white shadow-xs'
                         : 'text-slate-400 hover:text-white'
                     }`}
                   >
-                    Customer Leads (Outbound)
+                    Customer Leads
                   </button>
                   <button
                     onClick={() => setMatchingDirection('supplier')}
-                    className={`py-2 px-3 rounded-lg font-bold transition-all text-center ${
+                    className={`py-1.5 px-2 rounded-lg font-bold transition-all text-center text-xs ${
                       matchingDirection === 'supplier'
                         ? 'bg-blue-600 text-white shadow-xs'
                         : 'text-slate-400 hover:text-white'
                     }`}
                   >
-                    Supplier Matches (Inbound)
+                    Supplier Matches
                   </button>
                 </div>
 
                 {/* Live Edge Results */}
-                <div className="mt-4 space-y-2.5">
+                <div className="mt-2.5 space-y-2">
                   {matchingDirection === 'customer' ? (
                     <>
                       {/* Lead 1 */}
-                      <div className="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+                      <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
                         <div>
                           <div className="flex items-center space-x-2">
                             <span className="text-xs font-bold text-white">Apex Enclosures Ltd</span>
@@ -354,13 +354,13 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                             High sheet metal chassis consumption for server racks
                           </div>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-xs">
+                        <div className="w-7 h-7 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-xs shrink-0 ml-2">
                           #1
                         </div>
                       </div>
 
                       {/* Lead 2 */}
-                      <div className="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+                      <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
                         <div>
                           <div className="flex items-center space-x-2">
                             <span className="text-xs font-bold text-white">Vanguard Auto Components</span>
@@ -372,23 +372,23 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                             Automotive chassis brackets (repeat OEM contract)
                           </div>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-xs">
+                        <div className="w-7 h-7 rounded-lg bg-blue-600/20 text-blue-400 flex items-center justify-center font-bold text-xs shrink-0 ml-2">
                           #2
                         </div>
                       </div>
 
                       {/* Strict Exclusion Notice */}
-                      <div className="p-2.5 bg-red-950/30 rounded-xl border border-red-800/50 flex items-center space-x-2 text-[11px] text-red-300">
+                      <div className="p-2 bg-red-950/30 rounded-xl border border-red-800/50 flex items-center space-x-2 text-[11px] text-red-300">
                         <ShieldAlert className="w-4 h-4 text-red-400 shrink-0" />
                         <div>
-                          <strong className="text-red-200">Competitor Excluded:</strong> Vortex Sheet Metal (SIC 25110) filtered out to protect commercial margins.
+                          <strong className="text-red-200">Competitor Excluded:</strong> Vortex Sheet Metal (SIC 25110) filtered out.
                         </div>
                       </div>
                     </>
                   ) : (
                     <>
                       {/* Supplier 1 */}
-                      <div className="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+                      <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
                         <div>
                           <div className="flex items-center space-x-2">
                             <span className="text-xs font-bold text-white">Apex Steel & Alloys Ltd</span>
@@ -400,13 +400,13 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                             Raw mild steel coil & plate stockholder (Scunthorpe)
                           </div>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xs">
+                        <div className="w-7 h-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xs shrink-0 ml-2">
                           #1
                         </div>
                       </div>
 
                       {/* Supplier 2 */}
-                      <div className="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+                      <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
                         <div>
                           <div className="flex items-center space-x-2">
                             <span className="text-xs font-bold text-white">Precision Press & Tooling</span>
@@ -418,13 +418,13 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                             Press brake dies & laser consumables (Birmingham)
                           </div>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xs">
+                        <div className="w-7 h-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xs shrink-0 ml-2">
                           #2
                         </div>
                       </div>
 
                       {/* Haulage match */}
-                      <div className="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+                      <div className="p-2.5 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
                         <div>
                           <div className="flex items-center space-x-2">
                             <span className="text-xs font-bold text-white">Titan Freight Logistics</span>
@@ -436,7 +436,7 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                             Articulated flatbed transport for palletized metal
                           </div>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xs">
+                        <div className="w-7 h-7 rounded-lg bg-indigo-600/20 text-indigo-400 flex items-center justify-center font-bold text-xs shrink-0 ml-2">
                           #3
                         </div>
                       </div>
@@ -445,7 +445,7 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                 </div>
 
                 {/* Footer of terminal card */}
-                <div className="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
+                <div className="mt-3 pt-2.5 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
                   <span className="flex items-center">
                     <Coins className="w-3.5 h-3.5 text-amber-400 mr-1.5" />
                     Simulated Wallet: <strong>{simulatedCredits} Credits</strong>
