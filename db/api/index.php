@@ -185,6 +185,15 @@ switch ($resource) {
             echo json_encode(['error' => 'Method not allowed']);
             exit();
         }
+
+        $auth_hdr = $_SERVER['HTTP_X_MAQE_KEY'] ?? $_SERVER['HTTP_AUTHORIZATION'] ?? '';
+        $req_key = trim(str_replace('Bearer', '', $auth_hdr));
+        if ($req_key !== 'maqe_live_sec_994b26f') {
+            http_response_code(401);
+            echo json_encode(['error' => 'Unauthorized: Invalid or missing API security key']);
+            exit();
+        }
+
         $org_id = $body['org_id'] ?? 'org_delta';
         $focus_id = $body['focus_company_id'] ?? 'demo_delta';
         $counterparty_id = $body['counterparty_company_id'];

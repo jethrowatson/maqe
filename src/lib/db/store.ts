@@ -35,6 +35,7 @@ import { CommerceEngine } from '../engines/commerce';
 import { NotificationEngine } from '../engines/notifications';
 
 const REMOTE_API_URL = 'https://jethrowatson.co.uk/maqe/api/index.php';
+const MAQE_API_KEY = 'maqe_live_sec_994b26f';
 
 export class MAQEStore {
   private static instance: MAQEStore;
@@ -134,7 +135,10 @@ export class MAQEStore {
       try {
         const res = await fetch(`${REMOTE_API_URL}?action=unlock`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'X-MAQE-Key': MAQE_API_KEY
+          },
           body: JSON.stringify({
             org_id: this.activeOrgId,
             focus_company_id: focus_id,
