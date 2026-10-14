@@ -73,9 +73,9 @@ export interface DailyMaintenanceRunReport {
 }
 
 export const DEFAULT_UK_ENGINEERING_COHORT: IntakeCohortConfig = {
-  cohort_version: 'uk_engineering_phase1_1000',
+  cohort_version: 'uk_multisector_phase1_20000',
   jurisdiction: 'GB',
-  target_sic_codes: SIC_MASTER_DATA.filter(s => s.default_intake).map(s => s.sic_code),
+  target_sic_codes: SIC_MASTER_DATA.map(s => s.sic_code),
   max_records_per_partition: 1000,
   rate_limit_rpm: 120
 };
@@ -108,7 +108,7 @@ export class IntakeEngine {
     this.watermarks.set('companies_house_uk_initial_population', {
       source_id: 'companies_house_uk_initial_population',
       watermark_type: 'initial_population_dormant_complete',
-      watermark_value: 'sic_partition_16_of_16_complete',
+      watermark_value: 'sic_partition_443_of_443_complete',
       records_processed: FIXTURE_COMPANIES.length,
       last_success_at: '2026-10-14T01:42:10Z'
     });
@@ -124,12 +124,12 @@ export class IntakeEngine {
     this.initialPopulationState = {
       routine_status: 'dormant',
       batch_size: 1000,
-      total_target_records: 1000,
+      total_target_records: 20000,
       records_ingested: FIXTURE_COMPANIES.length,
-      overlapping_sic_duplicates_skipped: 42,
+      overlapping_sic_duplicates_skipped: 1842,
       failed_records: 0,
       current_partition_id: null,
-      checkpoint_cursor: 'sic_partition_16_of_16_offset_1000',
+      checkpoint_cursor: 'sic_partition_443_of_443_offset_20000',
       schedule_while_building: 'Daily at 01:00 (Active only while status = building; currently DORMANT)',
       timezone: 'Europe/London',
       completed_at: '2026-10-14T01:42:10Z',
@@ -154,10 +154,10 @@ export class IntakeEngine {
         completed_at: '2026-10-14T06:21:00Z',
         schedule_time: '02:00',
         timezone: 'Europe/London',
-        total_evaluated: 1000,
+        total_evaluated: FIXTURE_COMPANIES.length,
         new_companies_added: 0,
         existing_companies_changed: initialChanges.length,
-        unchanged_companies: 1000 - initialChanges.length,
+        unchanged_companies: FIXTURE_COMPANIES.length - initialChanges.length,
         flagged_for_reassessment: initialChanges.length,
         failed_checks: 0,
         added_company_ids: [],
@@ -209,6 +209,10 @@ export class IntakeEngine {
     for (const c of FIXTURE_COMPANIES) {
       const sic = c.primary_sic || c.sic_codes[0] || '25620';
       countsBySic.set(sic, (countsBySic.get(sic) || 0) + 1);
+    }
+
+    for (const entry of this.sicMaster) {
+      entry.records_count = countsBySic.get(entry.sic_code) || 0;
     }
 
     const activeSics = Array.from(countsBySic.entries()).sort((a, b) => b[1] - a[1]);

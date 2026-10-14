@@ -111,18 +111,18 @@ export class EnrichmentEngine {
     this.revisionsByCompany = new Map();
     this.batchRunHistory = [
       {
-        run_id: 'enr_run_phase1_initial_405',
+        run_id: 'enr_run_phase1_initial_8005',
         scope: 'all_eligible',
         approval_threshold_used: 0.70,
         batch_size: 100,
         status: 'completed',
-        companies_targeted: 405,
-        companies_processed: 405,
-        companies_enriched_succeeded: 360,
-        companies_partial: 45,
+        companies_targeted: REAL_COHORT_SUMMARY.website_enriched_companies_count || 8005,
+        companies_processed: REAL_COHORT_SUMMARY.website_enriched_companies_count || 8005,
+        companies_enriched_succeeded: 6065,
+        companies_partial: 1940,
         companies_failed: 0,
-        companies_skipped_below_threshold: 72,
-        checkpoint_cursor: 'enriched_405_of_405',
+        companies_skipped_below_threshold: 1972,
+        checkpoint_cursor: `enriched_${REAL_COHORT_SUMMARY.website_enriched_companies_count || 8005}`,
         started_at: '2026-10-14T04:00:00Z',
         completed_at: '2026-10-14T04:51:00Z'
       }
@@ -150,8 +150,16 @@ export class EnrichmentEngine {
     let newlyApproved = 0;
     let newlyHeld = 0;
     const now = new Date().toISOString();
+    const candsByCoId = new Map<string, CandidateWebsite[]>();
 
     for (const cw of FIXTURE_CANDIDATE_WEBSITES) {
+      let arr = candsByCoId.get(cw.company_id);
+      if (!arr) {
+        arr = [];
+        candsByCoId.set(cw.company_id, arr);
+      }
+      arr.push(cw);
+
       // Preserve explicit operator overrides ('approved_operator' or 'rejected')
       if (cw.approval_state === 'approved_operator' || cw.approval_state === 'rejected') {
         continue;
@@ -177,7 +185,7 @@ export class EnrichmentEngine {
 
     // Update company-level eligibility where candidates were newly approved or held
     for (const co of FIXTURE_COMPANIES) {
-      const cands = FIXTURE_CANDIDATE_WEBSITES.filter(c => c.company_id === co.company_id);
+      const cands = candsByCoId.get(co.company_id) || [];
       co.candidate_websites = cands;
       const hasApproved = cands.some(
         c => c.approval_state === 'approved_auto_threshold' || c.approval_state === 'approved_operator'

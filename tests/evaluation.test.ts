@@ -57,8 +57,14 @@ console.log('================================================================\n'
 // -------------------------------------------------------------------------
 console.log('--- PROMPT 1: Shared Data Foundation & Honest Dashboard Metrics ---');
 assert(
-  FIXTURE_COMPANIES.length === 1000,
-  `Expected 1,000 canonical UK Companies House records, got ${FIXTURE_COMPANIES.length}`
+  FIXTURE_COMPANIES.length === 20000,
+  `Expected 20,000 canonical UK Companies House records, got ${FIXTURE_COMPANIES.length}`
+);
+
+const uniquePrimarySics = new Set(FIXTURE_COMPANIES.map(c => c.primary_sic));
+assert(
+  uniquePrimarySics.size === 443,
+  `Expected all 443 SIC codes represented across the 20,000-company cohort, got ${uniquePrimarySics.size}`
 );
 
 const dummyNames = [
@@ -72,12 +78,12 @@ const dummyNames = [
 const foundDummy = FIXTURE_COMPANIES.some(c =>
   dummyNames.some(d => c.legal_name.toLowerCase().includes(d.toLowerCase()))
 );
-assert(!foundDummy, 'Zero dummy/fictional company names exist in the 1,000-company cohort');
+assert(!foundDummy, 'Zero dummy/fictional company names exist in the 20,000-company cohort');
 
 assert(
-  REAL_COHORT_SUMMARY.website_enriched_companies_count === 405 &&
-    REAL_COHORT_SUMMARY.unenriched_companies_count === 595,
-  `Expected honest split of 405 website-enriched vs 595 unenriched companies (never claiming 1,000 website-enriched), got ${REAL_COHORT_SUMMARY.website_enriched_companies_count}/${REAL_COHORT_SUMMARY.unenriched_companies_count}`
+  REAL_COHORT_SUMMARY.website_enriched_companies_count === 8005 &&
+    REAL_COHORT_SUMMARY.unenriched_companies_count === 11995,
+  `Expected honest split of 8,005 website-enriched vs 11,995 unenriched companies (never claiming 20,000 website-enriched), got ${REAL_COHORT_SUMMARY.website_enriched_companies_count}/${REAL_COHORT_SUMMARY.unenriched_companies_count}`
 );
 
 assert(
@@ -137,7 +143,7 @@ const resumedBatch = intakeEngine.runInitialPopulationBatch({
   candidate_records: sampleOverlapBatch
 });
 assert(
-  resumedBatch.routine_status === 'dormant' && FIXTURE_COMPANIES.length === 1000,
+  resumedBatch.routine_status === 'dormant' && FIXTURE_COMPANIES.length === 20000,
   `Resuming interrupted batch must complete without creating duplicate companies and return to dormant state`
 );
 

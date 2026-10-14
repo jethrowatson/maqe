@@ -88,8 +88,14 @@ export function DirectorySearchView({
       </div>
 
       {/* Directory Company List */}
+      <div className="flex items-center justify-between text-xs text-slate-600 px-1">
+        <span>
+          Showing <strong className="text-slate-900">{Math.min(100, filtered.length).toLocaleString()}</strong> of{' '}
+          <strong className="text-slate-900">{filtered.length.toLocaleString()}</strong> matching UK companies
+        </span>
+      </div>
       <div className="grid grid-cols-1 gap-3">
-        {filtered.map(comp => {
+        {filtered.slice(0, 100).map(comp => {
           const profile = getProfile(comp.company_id);
           return (
             <div

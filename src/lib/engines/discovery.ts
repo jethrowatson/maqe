@@ -100,19 +100,21 @@ export class DiscoveryEngine {
       next_scheduled_run_at: '2026-10-15T03:00:00+01:00'
     };
 
+    const processedCount =
+      FIXTURE_COMPANIES.length - (REAL_COHORT_SUMMARY.companies_discovery_unprocessed_count || 965);
     this.batchRunHistory = [
       {
-        run_id: 'disc_run_phase1_initial_985',
+        run_id: `disc_run_phase1_initial_${processedCount}`,
         scope: 'all_companies',
         batch_size: 250,
         status: 'completed',
-        companies_targeted: 985,
-        companies_processed: 985,
-        companies_with_candidates_found: 485,
-        companies_no_website_found: 500,
+        companies_targeted: processedCount,
+        companies_processed: processedCount,
+        companies_with_candidates_found: REAL_COHORT_SUMMARY.companies_with_candidates_count || 10935,
+        companies_no_website_found: REAL_COHORT_SUMMARY.companies_no_website_found_count || 8100,
         companies_failed: 0,
         new_candidate_websites_stored: FIXTURE_CANDIDATE_WEBSITES.length,
-        checkpoint_cursor: 'company_idx_985',
+        checkpoint_cursor: `company_idx_${processedCount}`,
         started_at: '2026-10-14T03:00:00Z',
         completed_at: '2026-10-14T03:38:00Z'
       }

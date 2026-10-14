@@ -103,7 +103,7 @@ export class MatchingEngine {
   }
 
   private seedInitialMatchingProfiles(): void {
-    for (const company of FIXTURE_COMPANIES) {
+    for (const company of FIXTURE_COMPANIES.slice(0, 1000)) {
       const mpStatus = company.pipeline_state?.matching_profile_status || 'awaiting_enrichment';
       if (
         mpStatus === 'current' ||
