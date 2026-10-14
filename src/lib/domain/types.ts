@@ -162,12 +162,14 @@ export interface PhaseOneContactRoute {
 
 export interface PhaseOneOffering {
   id: string;
-  company_id: string;
-  kind: 'service' | 'physical_product' | 'digital_product';
+  company_id?: string;
+  kind: 'service' | 'physical_product' | 'digital_product' | 'product';
   name: string;
   node_type: 'group' | 'offering' | 'variant';
   parent_offering_id?: string;
   canonical_concept?: ConceptRef;
+  concept_id?: string;
+  visibility?: string;
   business_role?: ConceptRef;
   fulfilment?: 'in_house' | 'subcontracted' | 'distributed' | 'mixed' | 'unknown';
   availability?: 'active' | 'discontinued' | 'historical' | 'unknown';
@@ -175,18 +177,22 @@ export interface PhaseOneOffering {
   made_to_order?: boolean;
   process_concepts?: string[];
   material_concepts?: string[];
+  source_page_url?: string;
+  source_excerpt?: string;
 }
 
 export interface PhaseOneCapability {
   id: string;
-  company_id: string;
+  company_id?: string;
   name: string;
-  offering_ids: string[];
+  offering_ids?: string[];
   process_concept?: ConceptRef;
   location_id?: string;
   parameter_ids?: string[];
   material_concepts?: string[];
+  materials: string[];
   fulfilment?: string;
+  source_page_url?: string;
 }
 
 export interface PhaseOneParameter {
@@ -210,11 +216,13 @@ export interface PhaseOneCredential {
   company_id: string;
   claim_type: 'certification' | 'accreditation' | 'approval' | 'membership' | 'licence' | 'conformance_claim' | 'test_report' | 'standard_reference';
   raw_claim: string;
+  raw_label: string;
   standard_code?: string;
   scope_ref: { type: string; id: string };
   status: 'claimed' | 'current_verified' | 'expired' | 'suspended' | 'withdrawn' | 'pending' | 'unknown';
   verification_state: 'unverified' | 'source_checked' | 'independently_verified' | 'contradicted';
   assertion_ids?: string[];
+  source_page_url?: string;
 }
 
 export interface PhaseOneMarketParticipation {
@@ -223,6 +231,7 @@ export interface PhaseOneMarketParticipation {
   scope_ref: { type: string; id: string };
   dimension: 'buyer_type' | 'sector' | 'application' | 'procurement_context';
   raw_label: string;
+  label: string;
   concept_ref?: ConceptRef;
   participation: 'serves' | 'has_served' | 'targets' | 'excludes' | 'inferred_fit';
   evidence_ids?: string[];
@@ -236,8 +245,8 @@ export interface PhaseOneNeed {
   basis: 'stated' | 'inferred';
   status: 'current' | 'historical' | 'unknown';
   priority?: 'required' | 'preferred';
-  target_supplier_sics?: string[];
-  rationale?: string;
+  target_supplier_sics: string[];
+  rationale: string;
   supporting_assertion_ids?: string[];
 }
 
@@ -291,6 +300,9 @@ export interface PhaseOneCompanySchema {
       source_excerpt?: { text: string; evidence_id: string };
     };
   };
+  company_summary: {
+    text: string;
+  };
   website_associations: PhaseOneWebsiteAssociation[];
   source_bundle?: {
     id: string;
@@ -312,6 +324,7 @@ export interface PhaseOneCompanySchema {
   parameters: PhaseOneParameter[];
   credentials: PhaseOneCredential[];
   market_participations: PhaseOneMarketParticipation[];
+  markets: PhaseOneMarketParticipation[];
   defence_contexts: any[];
   needs: PhaseOneNeed[];
   history_events: any[];
@@ -332,24 +345,171 @@ export interface PhaseOneCompanySchema {
   };
 }
 
+export type CompletenessBand = 'band_80_plus' | 'band_50_to_79' | 'band_below_50' | 'unenriched';
+
+export type DiscoveryStageStatus =
+  | 'unprocessed'
+  | 'queued'
+  | 'running'
+  | 'completed_with_candidates'
+  | 'completed_no_website_found'
+  | 'failed';
+
+export type EnrichmentStageStatus =
+  | 'unprocessed'
+  | 'awaiting_approved_candidate'
+  | 'queued'
+  | 'running'
+  | 'completed'
+  | 'partial'
+  | 'failed';
+
+export type SourceChangeStatus = 'unchanged' | 'new_intake' | 'changed_pending_review' | 'reassessed';
+
+export type MatchingProfileStageStatus =
+  | 'unprocessed'
+  | 'awaiting_enrichment'
+  | 'queued'
+  | 'running'
+  | 'current'
+  | 'stale_needs_reassessment'
+  | 'insufficient_evidence'
+  | 'failed';
+
+export type MatchingStageStatus =
+  | 'unprocessed'
+  | 'awaiting_profile_analysis'
+  | 'queued'
+  | 'running'
+  | 'completed_with_matches'
+  | 'completed_no_matches'
+  | 'stale'
+  | 'failed';
+
+export interface ReassessmentFlags {
+  discovery_pending: boolean;
+  enrichment_pending: boolean;
+  matching_profile_pending: boolean;
+  matching_pending: boolean;
+  reasons: string[];
+  flagged_at?: string;
+  policy_flag?: 'name_change_reassessment' | 'out_of_sic_scope_review' | 'status_change_review' | 'website_updated_manual' | string;
+}
+
+export interface RegistryFieldChange {
+  field: 'legal_name' | 'status' | 'sic_codes' | 'addresses' | 'trading_names';
+  old_value: any;
+  new_value: any;
+}
+
+export interface RegistryChangeRecord {
+  change_id: string;
+  company_id: string;
+  registration_number: string;
+  changed_fields: RegistryFieldChange[];
+  affected_stages: ('discovery' | 'enrichment' | 'matching_profile' | 'matching')[];
+  change_reason: string;
+  policy_flag?: string;
+  reassessment_resolved: boolean;
+  observed_at: string;
+  resolved_at?: string;
+}
+
+export interface CompanyPipelineState {
+  discovery_status: DiscoveryStageStatus;
+  enrichment_status: EnrichmentStageStatus;
+  source_change_status: SourceChangeStatus;
+  reassessment_flags: ReassessmentFlags;
+  matching_profile_status: MatchingProfileStageStatus;
+  matching_status: MatchingStageStatus;
+  last_discovery_at?: string;
+  last_enrichment_at?: string;
+  last_profile_analysis_at?: string;
+  last_matching_at?: string;
+}
+
+export interface CandidateEvidenceItem {
+  page_url: string;
+  page_type: 'home' | 'about' | 'contact' | 'products' | 'services' | 'terms' | 'quality' | 'footer' | 'other';
+  signal_type: 'registration_number' | 'legal_name' | 'trading_name' | 'address_postcode' | 'phone_contact' | 'domain_slug' | 'sic_activity_corroboration' | 'contradiction' | 'contradictory_entity';
+  matched_text: string;
+  supports_association: boolean;
+  weight_contribution: number;
+}
+
+export interface CandidateScoreBreakdown {
+  reg_no_score: number;
+  legal_name_on_page_score: number;
+  address_postcode_score: number;
+  phone_contact_score: number;
+  domain_similarity_score: number;
+  activity_corroboration_score: number;
+  contradiction_penalty: number;
+  dissimilar_domain_corroborated?: boolean;
+  explanation: string;
+}
+
+export type CandidateApprovalState =
+  | 'approved_auto_threshold'
+  | 'approved_operator'
+  | 'pending_below_threshold'
+  | 'rejected';
+
+export interface CandidateWebsite {
+  candidate_id: string;
+  company_id: string;
+  registration_number: string;
+  company_name: string;
+  candidate_url: string;
+  final_url?: string;
+  canonical_domain: string;
+  source_type: 'company_website' | 'brand_division_site' | 'directory_listing' | 'social_profile' | 'other';
+  is_primary_candidate: boolean;
+  confidence_score: number; // 0.00 to 1.00
+  score_breakdown: CandidateScoreBreakdown;
+  evidence_items: CandidateEvidenceItem[];
+  pages_inspected: string[];
+  approval_state: CandidateApprovalState;
+  approval_threshold_used: number;
+  approval_reason: string;
+  approved_by?: string;
+  approved_at?: string;
+  enrichment_crawl_state: 'unprocessed' | 'queued' | 'crawling' | 'completed' | 'partial' | 'failed';
+  discovery_run_id: string;
+  discovered_at: string;
+  last_assessed_at: string;
+  reassessment_history?: Array<{ assessed_at: string; confidence_score: number; note: string }>;
+}
+
 export interface EnrichmentMetrics {
   completeness_pct: number;
+  completeness_band?: CompletenessBand;
+  is_website_enriched?: boolean;
   populated_domains_count: number;
   total_domains_count: number;
+  crawl_status?: string;
+  pages_fetched?: number;
+  pages_crawled_count?: number;
+  websites_crawled_count?: number;
+  last_crawled_at?: string;
+  last_enriched_at?: string;
+  enrichment_source?: string;
   quality_score: number;
   quality_grade: 'A' | 'B' | 'C' | 'D';
-  enrichment_tier: 'verified_web_full' | 'verified_web_partial' | 'registry_and_sic_inferred';
-  publication_state: 'published' | 'needs_review' | 'draft';
-  has_confirmed_website: boolean;
-  has_contacts: boolean;
-  has_credentials: boolean;
-  has_numeric_parameters: boolean;
-  assertions_count: number;
-  observed_assertions_count: number;
-  inferred_assertions_count: number;
-  evidence_count: number;
-  documents_count: number;
-  quality_issues_count: number;
+  enrichment_tier?: 'verified_web_full' | 'verified_web_partial' | 'registry_and_sic_inferred';
+  publication_state?: 'published' | 'needs_review' | 'draft';
+  has_confirmed_website?: boolean;
+  website_approval_mode?: 'auto_threshold' | 'operator_manual' | 'operator_approved' | 'none';
+  evidence_backed_pct?: number;
+  has_contacts?: boolean;
+  has_credentials?: boolean;
+  has_numeric_parameters?: boolean;
+  assertions_count?: number;
+  observed_assertions_count?: number;
+  inferred_assertions_count?: number;
+  evidence_count?: number;
+  documents_count?: number;
+  quality_issues_count?: number;
 }
 
 export interface AdminEnrichmentSummary {
@@ -357,12 +517,29 @@ export interface AdminEnrichmentSummary {
   schema_version: string;
   total_companies_found: number;
   total_companies_enriched: number;
+  website_enriched_companies_count?: number;
+  unenriched_companies_count?: number;
+  awaiting_enrichment_eligible_count?: number;
+  no_approved_candidate_count?: number;
   confirmed_websites_count: number;
+  total_candidate_websites_count?: number;
+  companies_with_candidates_count?: number;
+  companies_with_multiple_candidates_count?: number;
+  companies_no_website_found_count?: number;
+  companies_discovery_unprocessed_count?: number;
+  companies_pending_reassessment_count?: number;
   contacts_extracted_count: number;
   credentials_extracted_count: number;
   numeric_parameters_count: number;
   avg_completeness_pct: number;
+  avg_enriched_only_completeness_pct?: number;
   avg_quality_score: number;
+  completeness_bands?: {
+    band_80_plus: number;
+    band_50_to_79: number;
+    band_below_50: number;
+    unenriched: number;
+  };
   total_assertions: number;
   observed_assertions: number;
   inferred_assertions: number;
@@ -370,6 +547,8 @@ export interface AdminEnrichmentSummary {
   total_matches_generated: number;
   supplier_matches_count: number;
   customer_matches_count: number;
+  companies_matched_count?: number;
+  matching_jobs_run_count?: number;
   quality_grades: Record<string, number>;
   enrichment_tiers: Record<string, number>;
   domain_completion_counts: Record<string, number>;
@@ -389,6 +568,23 @@ export interface CompanyAddress {
   country: string;
 }
 
+export interface CompanyProcessingHistoryItem {
+  event_id: string;
+  stage: 'intake' | 'maintenance' | 'discovery' | 'enrichment' | 'matching_profile' | 'matching';
+  status:
+    | 'completed'
+    | 'partial'
+    | 'flagged_reassessment'
+    | 'stale_needs_reassessment'
+    | 'insufficient_evidence'
+    | 'awaiting_enrichment'
+    | 'failed'
+    | 'no_result';
+  summary: string;
+  timestamp: string;
+  details?: Record<string, any>;
+}
+
 export interface CompanyRecord {
   company_id: string;
   jurisdiction: JurisdictionCode;
@@ -397,10 +593,11 @@ export interface CompanyRecord {
   display_name?: string;
   legal_name: string;
   trading_names: string[];
+  previous_names?: string[];
   status: 'active' | 'dissolved' | 'liquidation' | 'receivership' | 'converted-closed';
   sic_codes: string[];
-  primary_sic?: string;
-  sic_description?: string;
+  primary_sic: string;
+  sic_description: string;
   sic_category?: string;
   sic_tier?: number;
   business_roles?: string[];
@@ -411,6 +608,12 @@ export interface CompanyRecord {
   source_updated_at?: string;
   ingested_at: string;
   updated_at?: string;
+  pipeline_state?: CompanyPipelineState;
+  change_history?: RegistryChangeRecord[];
+  processing_history?: CompanyProcessingHistoryItem[];
+  candidate_websites?: CandidateWebsite[];
+  detailed_business_description?: string;
+  enrichment_revision?: number;
   enrichment_metrics?: EnrichmentMetrics;
   phase_one_schema?: PhaseOneCompanySchema;
   profile?: ProfileVersion;
@@ -423,8 +626,9 @@ export interface BackfillPartition {
   sic_code: string;
   start_date?: string;
   end_date?: string;
-  status: 'pending' | 'running' | 'completed' | 'failed';
+  status: 'pending' | 'running' | 'paused' | 'completed' | 'failed';
   records_ingested: number;
+  duplicates_skipped?: number;
   cursor_pos?: string;
   estimated_total: number;
   created_at: string;
@@ -433,10 +637,15 @@ export interface BackfillPartition {
 
 export interface SyncWatermark {
   source_id: string;
+  routine_type?: 'initial_population' | 'ongoing_maintenance';
   watermark_type: string;
   watermark_value: string;
   records_processed: number;
+  is_dormant?: boolean;
+  schedule_cron?: string;
+  schedule_timezone?: string;
   last_success_at: string;
+  next_scheduled_at?: string;
 }
 
 export interface SICMasterEntry {
@@ -455,7 +664,7 @@ export interface SICMasterEntry {
 export interface IngestEvent {
   id: string;
   timestamp: string;
-  type: 'companies_house_query' | 'entity_ingested' | 'discovery_crawled' | 'assertion_extracted' | 'match_evaluated';
+  type: 'companies_house_query' | 'entity_ingested' | 'discovery_crawled' | 'assertion_extracted' | 'match_evaluated' | 'registry_change_detected';
   sic_code: string;
   company_name?: string;
   company_number?: string;
@@ -622,15 +831,167 @@ export interface MatchCandidateResult {
   offering_matched?: string;
   need_satisfied?: string;
   score: number;
+  score_band?: 'high_80_plus' | 'moderate_65_79' | 'exploratory_50_64' | 'below_50';
   score_components: ScoreComponents;
   coverage: number;
   explanation: string;
   criterion_results?: CriterionResult[];
+  matched_profile_criteria?: string[];
+  evidence_used?: string[];
   supporting_assertions: string[];
+  weak_evidence_and_gaps?: string[];
+  weak_evidence_or_gaps?: string[];
+  profile_analysis_id?: string;
   is_unlocked: boolean;
   unlocked_access_id?: string;
   unlocked_at?: string;
+  delivery_status?: 'undelivered' | 'delivered';
+  is_delivered_in_batch?: boolean;
+  delivered_batch_id?: string;
+  delivered_batch_number?: number;
+  delivered_at?: string;
   profile_version?: ProfileVersion;
+}
+
+export interface ObservedActivityEntry {
+  activity_id: string;
+  kind: 'product' | 'service' | 'process' | 'material';
+  label: string;
+  concept_id: string;
+  basis: 'observed';
+  source_page_url?: string;
+  assertion_id: string;
+  quote_snippet?: string;
+}
+
+export interface InferredSupplierCriterion {
+  criterion_id: string;
+  category?: string;
+  need_category?: 'raw_material' | 'subcontract_process' | 'components_fasteners' | 'tooling_machinery' | 'testing_certification' | 'logistics_packaging';
+  requirement_label: string;
+  target_supplier_activities?: string[];
+  target_supplier_sics: string[];
+  target_keywords?: string[];
+  required_materials_or_processes?: string[];
+  importance?: 'must' | 'prefer';
+  basis?: 'explicitly_stated' | 'inferred_from_activity' | 'observed' | 'inferred';
+  confidence: number;
+  inference_confidence?: number;
+  supporting_observed_inputs: string[];
+  supporting_enrichment_evidence?: any[];
+  rationale: string;
+}
+
+export interface InferredCustomerCriterion {
+  criterion_id: string;
+  customer_archetype_label: string;
+  archetype_label?: string;
+  target_customer_activities?: string[];
+  target_customer_sics: string[];
+  target_keywords?: string[];
+  relevant_materials_or_inputs_used?: string[];
+  excluded_competitor_activities?: string[];
+  importance?: 'must' | 'prefer';
+  basis?: 'explicitly_stated_sector' | 'inferred_downstream_fit' | 'observed' | 'inferred';
+  confidence: number;
+  inference_confidence?: number;
+  likely_use_case?: string;
+  supporting_observed_inputs?: string[];
+  supporting_enrichment_evidence?: any[];
+  rationale: string;
+}
+
+export interface MatchingProfileInformationGap {
+  field_or_domain: string;
+  impact_on_matching: string;
+  severity: 'info' | 'moderate' | 'high';
+}
+
+export interface MatchingProfileAnalysis {
+  matching_profile_id?: string;
+  profile_analysis_id?: string;
+  company_id: string;
+  registration_number: string;
+  company_name: string;
+  enrichment_version_id?: string;
+  enrichment_revision?: number;
+  enrichment_revision_used?: number;
+  version_number?: number;
+  status: 'current' | 'stale_needs_reassessment' | 'insufficient_evidence' | 'awaiting_enrichment' | 'failed';
+  observed_summary?: string;
+  observed_activities?: any[];
+  observed_products: string[];
+  observed_services: string[];
+  observed_materials_processes?: any[];
+  observed_capabilities_and_materials: string[];
+  observed_sectors: string[];
+  observed_certifications?: string[];
+  observed_company_scale_and_role?: string;
+  inferred_supplier_criteria: InferredSupplierCriterion[];
+  inferred_supplier_requirements?: InferredSupplierCriterion[];
+  inferred_customer_criteria: InferredCustomerCriterion[];
+  inferred_customer_archetypes?: InferredCustomerCriterion[];
+  profile_confidence: number;
+  overall_inference_confidence?: number;
+  information_gaps: string[];
+  generated_at?: string;
+  updated_at?: string;
+  analyzed_at?: string;
+  reassessment_reason?: string;
+  previous_analysis_id?: string;
+  is_current?: boolean;
+}
+
+export interface DeliveredMatchBatch {
+  batch_id: string;
+  company_id?: string;
+  recipient_company_id?: string;
+  company_name?: string;
+  recipient_company_name?: string;
+  registration_number?: string;
+  direction: MatchDirection;
+  batch_number: number;
+  requested_batch_size: number;
+  delivered_count: number;
+  min_score_applied: number;
+  min_score_threshold?: number;
+  include_lower_scoring?: boolean;
+  delivered_connection_ids: string[];
+  delivered_counterparty_ids?: string[];
+  delivered_connections?: MatchCandidateResult[];
+  remaining_qualifying_count: number;
+  shortfall_count?: number;
+  shortfall_reason?: string;
+  shortfall_explanation?: string;
+  delivered_by?: string;
+  created_at: string;
+  delivered_at?: string;
+}
+
+export interface MatchBatchPreview {
+  company_id?: string;
+  recipient_company_id?: string;
+  company_name?: string;
+  recipient_company_name?: string;
+  direction: MatchDirection;
+  next_batch_number?: number;
+  requested_batch_size: number;
+  min_score_applied: number;
+  min_score_threshold?: number;
+  include_lower_scoring?: boolean;
+  selected_connections: MatchCandidateResult[];
+  next_batch_candidates?: MatchCandidateResult[];
+  excluded_already_delivered_count: number;
+  already_delivered_count?: number;
+  excluded_below_min_score_count: number;
+  withheld_below_threshold_count?: number;
+  remaining_qualifying_undelivered_count: number;
+  remaining_undelivered_count?: number;
+  total_connections_available?: number;
+  qualifying_above_threshold_count?: number;
+  shortfall_count?: number;
+  shortfall_reason?: string;
+  shortfall_explanation?: string;
 }
 
 export interface MatchingCriteria {
@@ -836,12 +1197,46 @@ export interface ProjectBid {
   submitted_at: string;
 }
 
-export type JobType = 'intake_partition' | 'discovery_run' | 'enrichment_run' | 'match_batch' | 'daily_sync';
-export type JobState = 'queued' | 'running' | 'succeeded' | 'partial' | 'failed' | 'cancelled';
+export type JobCategory =
+  | 'initial_population'
+  | 'ongoing_maintenance'
+  | 'discovery'
+  | 'enrichment'
+  | 'matching_profile_analysis'
+  | 'match_generation'
+  | 'system';
+
+export type JobType =
+  | 'intake_partition'
+  | 'initial_ingestion_batch'
+  | 'initial_population_batch'
+  | 'daily_maintenance_sync'
+  | 'discovery_run'
+  | 'discovery_batch_crawl'
+  | 'enrichment_run'
+  | 'enrichment_batch_crawl'
+  | 'matching_profile_analysis_run'
+  | 'matching_profile_batch'
+  | 'match_batch'
+  | 'match_generation_batch'
+  | 'daily_sync';
+
+export type JobState =
+  | 'queued'
+  | 'running'
+  | 'paused'
+  | 'paused_interrupted'
+  | 'succeeded'
+  | 'partial'
+  | 'failed'
+  | 'cancelled'
+  | 'dormant';
 
 export interface Job {
   job_id: string;
+  job_category?: JobCategory;
   job_type: JobType;
+  scope?: string;
   subject_id: string;
   schema_version: string;
   idempotency_key: string;
@@ -849,11 +1244,23 @@ export interface Job {
   mode: 'fixture' | 'live';
   state: JobState;
   attempts: number;
+  batch_size?: number;
+  total_items?: number;
+  processed_items?: number;
+  succeeded_items?: number;
+  failed_items?: number;
+  skipped_items?: number;
+  checkpoint_cursor?: string;
+  cursor_pos?: string;
+  schedule_info?: string;
   progress: number;
   output_refs?: Record<string, any>;
   error_message?: string;
   created_at: string;
+  started_at?: string;
+  paused_at?: string;
   updated_at: string;
+  completed_at?: string;
 }
 
 export interface AuditEvent {
@@ -891,3 +1298,4 @@ export interface NotificationItem {
   read_at?: string;
   created_at: string;
 }
+

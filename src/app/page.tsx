@@ -29,8 +29,10 @@ import { BillingCreditsView } from '../components/BillingCreditsView';
 import { AdminEnrichmentDashboard } from '../components/AdminEnrichmentDashboard';
 import { OperatorIntakeView } from '../components/OperatorIntakeView';
 import { OperatorDiscoveryView } from '../components/OperatorDiscoveryView';
+import { OperatorEnrichmentView } from '../components/OperatorEnrichmentView';
 import { OperatorMatchingLabView } from '../components/OperatorMatchingLabView';
 import { OperatorJobsView } from '../components/OperatorJobsView';
+import { OperatorVerificationView } from '../components/OperatorVerificationView';
 
 import {
   Sparkles,
@@ -45,7 +47,8 @@ import {
   Sliders,
   Activity,
   Bell,
-  ShieldCheck
+  ShieldCheck,
+  CheckCircle2
 } from 'lucide-react';
 
 export default function MAQEApp() {
@@ -190,7 +193,7 @@ export default function MAQEApp() {
       {/* Sub Navigation Bar */}
       <div className="bg-white border-b border-slate-200 sticky top-16 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-1 sm:space-x-3 overflow-x-auto py-2.5 scrollbar-none">
+          <nav className="flex space-x-1 sm:space-x-2.5 overflow-x-auto py-2.5 scrollbar-none">
             {mode === 'member' ? (
               <>
                 <button
@@ -275,7 +278,7 @@ export default function MAQEApp() {
                   className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100"
                 >
                   <ShieldCheck className="w-3.5 h-3.5 mr-1.5 text-emerald-600" />
-                  Admin 1,000-Company Dashboard
+                  Operator Console
                 </button>
               </>
             ) : (
@@ -289,7 +292,7 @@ export default function MAQEApp() {
                   }`}
                 >
                   <ShieldCheck className="w-3.5 h-3.5 mr-1.5 text-emerald-600" />
-                  Admin Enrichment & Completeness Dashboard (1,000 Cohort)
+                  Company Dataset &amp; Pipeline KPIs
                 </button>
                 <button
                   onClick={() => setOperatorView('intake')}
@@ -300,29 +303,40 @@ export default function MAQEApp() {
                   }`}
                 >
                   <Database className="w-3.5 h-3.5 mr-1.5 text-amber-600" />
-                  C01 Registry Intake
+                  C01 Intake &amp; Daily Maintenance
                 </button>
                 <button
                   onClick={() => setOperatorView('discovery')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 ${
                     operatorView === 'discovery'
-                      ? 'bg-amber-50 text-amber-800 border border-amber-300'
+                      ? 'bg-cyan-50 text-cyan-800 border border-cyan-300'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <Compass className="w-3.5 h-3.5 mr-1.5 text-amber-600" />
-                  C02 Discovery & Sources
+                  <Compass className="w-3.5 h-3.5 mr-1.5 text-cyan-600" />
+                  C02 Discovery &amp; Candidates
+                </button>
+                <button
+                  onClick={() => setOperatorView('enrichment')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 ${
+                    operatorView === 'enrichment'
+                      ? 'bg-purple-50 text-purple-800 border border-purple-300'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5 mr-1.5 text-purple-600" />
+                  C03 Enrichment Control
                 </button>
                 <button
                   onClick={() => setOperatorView('matching_lab')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 ${
                     operatorView === 'matching_lab'
-                      ? 'bg-amber-50 text-amber-800 border border-amber-300'
+                      ? 'bg-indigo-50 text-indigo-800 border border-indigo-300'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
-                  <Sliders className="w-3.5 h-3.5 mr-1.5 text-amber-600" />
-                  C05 Matching Lab
+                  <Sliders className="w-3.5 h-3.5 mr-1.5 text-indigo-600" />
+                  C05 Matching Profile &amp; Batch Delivery
                 </button>
                 <button
                   onClick={() => setOperatorView('jobs')}
@@ -333,7 +347,18 @@ export default function MAQEApp() {
                   }`}
                 >
                   <Activity className="w-3.5 h-3.5 mr-1.5 text-amber-600" />
-                  C10 Jobs & Audit Trail
+                  C10 Batched Jobs &amp; Audit
+                </button>
+                <button
+                  onClick={() => setOperatorView('verification')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 ${
+                    operatorView === 'verification'
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-300'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-emerald-600" />
+                  Prompt 9 Verification (13/13)
                 </button>
               </>
             )}
@@ -433,6 +458,7 @@ export default function MAQEApp() {
                 getPhaseOneSchema={(id) => store.getPhaseOneSchema(id)}
                 runMatchesForCompany={(id, dir) => store.getMatches(id, dir)}
                 onSelectFocusCompanyInLab={(id) => setFocusCompanyId(id)}
+                onNavigateOperatorTab={(tab) => setOperatorView(tab)}
               />
             ) : operatorView === 'intake' ? (
               <OperatorIntakeView
@@ -460,6 +486,8 @@ export default function MAQEApp() {
                   refreshState();
                 }}
               />
+            ) : operatorView === 'enrichment' ? (
+              <OperatorEnrichmentView onRefreshGlobal={refreshState} />
             ) : operatorView === 'matching_lab' ? (
               <OperatorMatchingLabView initialFocusCompanyId={focusCompanyId} />
             ) : operatorView === 'jobs' ? (
@@ -471,6 +499,8 @@ export default function MAQEApp() {
                   refreshState();
                 }}
               />
+            ) : operatorView === 'verification' ? (
+              <OperatorVerificationView />
             ) : null}
           </>
         )}

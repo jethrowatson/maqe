@@ -11,16 +11,33 @@ CREATE TABLE IF NOT EXISTS maqe_companies (
     registry_namespace VARCHAR(32) NOT NULL DEFAULT 'companies_house',
     registration_number VARCHAR(32) NOT NULL,
     legal_name VARCHAR(255) NOT NULL,
+    display_name VARCHAR(255) NULL,
     trading_names LONGTEXT NULL, -- JSON array
+    previous_names LONGTEXT NULL, -- JSON array
     status VARCHAR(32) NOT NULL DEFAULT 'active',
     sic_codes LONGTEXT NULL, -- JSON array
+    primary_sic VARCHAR(16) NULL,
+    sic_description TEXT NULL,
+    sic_category VARCHAR(128) NULL,
+    sic_tier INT NOT NULL DEFAULT 1,
     incorporation_date DATE NULL,
     addresses LONGTEXT NULL, -- JSON structure
+    discovery_status VARCHAR(40) NOT NULL DEFAULT 'unprocessed',
+    enrichment_status VARCHAR(40) NOT NULL DEFAULT 'unprocessed',
+    source_change_status VARCHAR(40) NOT NULL DEFAULT 'unchanged',
+    reassessment_flags LONGTEXT NULL, -- JSON object
+    matching_profile_status VARCHAR(40) NOT NULL DEFAULT 'unprocessed',
+    matching_status VARCHAR(40) NOT NULL DEFAULT 'unprocessed',
     source_updated_at DATETIME NULL,
     ingested_at DATETIME NOT NULL,
+    updated_at DATETIME NULL,
     UNIQUE KEY uk_reg_identity (jurisdiction, registry_namespace, registration_number),
     INDEX idx_company_status (status),
-    INDEX idx_company_name (legal_name)
+    INDEX idx_company_name (legal_name),
+    INDEX idx_discovery_status (discovery_status),
+    INDEX idx_enrichment_status (enrichment_status),
+    INDEX idx_matching_profile_status (matching_profile_status),
+    INDEX idx_matching_status (matching_status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS maqe_backfill_partitions (
@@ -413,3 +430,139 @@ CREATE TABLE IF NOT EXISTS maqe_notification_deliveries (
     updated_at DATETIME NOT NULL,
     INDEX idx_nd_notif (notification_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- C13 Registry Change & Reassessment History
+CREATE TABLE IF NOT EXISTS maqe_registry_change_history (
+    change_id VARCHAR(64) PRIMARY KEY,
+    company_id VARCHAR(64) NOT NULL,
+    registration_number VARCHAR(32) NOT NULL,
+    changed_fields LONGTEXT NOT NULL, -- JSON array
+    affected_stages LONGTEXT NOT NULL, -- JSON array
+    change_reason TEXT NOT NULL,
+    policy_flag VARCHAR(64) NULL,
+    reassessment_resolved BOOLEAN NOT NULL DEFAULT 0,
+    observed_at DATETIME NOT NULL,
+    resolved_at DATETIME NULL,
+    INDEX idx_reg_chg_company (company_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- C14 Candidate Websites (Separate 1:N Table Linked to Company)
+CREATE TABLE IF NOT EXISTS maqe_candidate_websites (
+    candidate_id VARCHAR(64) PRIMARY KEY,
+    company_id VARCHAR(64) NOT NULL,
+    registration_number VARCHAR(32) NOT NULL,
+    candidate_url VARCHAR(512) NOT NULL,
+    final_url VARCHAR(512) NULL,
+    canonical_domain VARCHAR(255) NOT NULL,
+    source_type VARCHAR(32) NOT NULL DEFAULT 'company_website',
+    is_primary_candidate BOOLEAN NOT NULL DEFAULT 0,
+    confidence_score DECIMAL(5,4) NOT NULL DEFAULT 0.0000,
+    score_breakdown LONGTEXT NOT NULL, -- JSON object
+    evidence_items LONGTEXT NOT NULL, -- JSON array
+    pages_inspected LONGTEXT NOT NULL, -- JSON array
+    approval_state VARCHAR(32) NOT NULL DEFAULT 'pending_below_threshold',
+    approval_threshold_used DECIMAL(5,4) NOT NULL DEFAULT 0.7000,
+    approval_reason TEXT NULL,
+    approved_by VARCHAR(64) NULL,
+    approved_at DATETIME NULL,
+    enrichment_crawl_state VARCHAR(32) NOT NULL DEFAULT 'unprocessed',
+    discovery_run_id VARCHAR(64) NOT NULL,
+    discovered_at DATETIME NOT NULL,
+    last_assessed_at DATETIME NOT NULL,
+    UNIQUE KEY uk_company_candidate_url (company_id, candidate_url),
+    INDEX idx_cw_company (company_id),
+    INDEX idx_cw_approval (approval_state)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- C15 Enrichment Profiles & Completeness
+CREATE TABLE IF NOT EXISTS maqe_enrichment_profiles (
+    enrichment_id VARCHAR(64) PRIMARY KEY,
+    company_id VARCHAR(64) NOT NULL,
+    registration_number VARCHAR(32) NOT NULL,
+    schema_version VARCHAR(32) NOT NULL DEFAULT '1.0.0-phase1',
+    revision_number INT NOT NULL DEFAULT 1,
+    approved_candidate_ids LONGTEXT NOT NULL, -- JSON array
+    crawl_status VARCHAR(32) NOT NULL DEFAULT 'completed',
+    pages_crawled LONGTEXT NOT NULL, -- JSON array
+    inaccessible_pages LONGTEXT NOT NULL, -- JSON array
+    company_summary TEXT NULL,
+    detailed_business_description TEXT NULL,
+    products LONGTEXT NOT NULL, -- JSON array
+    services LONGTEXT NOT NULL, -- JSON array
+    capabilities LONGTEXT NOT NULL, -- JSON array
+    technical_parameters LONGTEXT NOT NULL, -- JSON array
+    credentials LONGTEXT NOT NULL, -- JSON array
+    locations_and_coverage LONGTEXT NOT NULL, -- JSON array
+    contact_routes LONGTEXT NOT NULL, -- JSON array
+    market_sectors LONGTEXT NOT NULL, -- JSON array
+    source_evidences LONGTEXT NOT NULL, -- JSON array
+    field_assessments LONGTEXT NOT NULL, -- JSON array
+    completeness_pct DECIMAL(5,2) NOT NULL DEFAULT 0.00,
+    completeness_band VARCHAR(32) NOT NULL DEFAULT 'unenriched',
+    populated_domains_count INT NOT NULL DEFAULT 0,
+    applicable_domains_count INT NOT NULL DEFAULT 10,
+    domain_breakdown LONGTEXT NOT NULL, -- JSON object
+    enriched_at DATETIME NOT NULL,
+    enrichment_job_id VARCHAR(64) NULL,
+    previous_enrichment_id VARCHAR(64) NULL,
+    change_summary TEXT NULL,
+    is_current BOOLEAN NOT NULL DEFAULT 1,
+    INDEX idx_ep_company (company_id, is_current),
+    INDEX idx_ep_band (completeness_band)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- C16 Matching Profile Analysis
+CREATE TABLE IF NOT EXISTS maqe_matching_profiles (
+    profile_analysis_id VARCHAR(64) PRIMARY KEY,
+    company_id VARCHAR(64) NOT NULL,
+    registration_number VARCHAR(32) NOT NULL,
+    enrichment_version_id VARCHAR(64) NOT NULL,
+    version_number INT NOT NULL DEFAULT 1,
+    status VARCHAR(32) NOT NULL DEFAULT 'current',
+    observed_activities LONGTEXT NOT NULL, -- JSON array
+    observed_products LONGTEXT NOT NULL, -- JSON array
+    observed_services LONGTEXT NOT NULL, -- JSON array
+    observed_materials_processes LONGTEXT NOT NULL, -- JSON array
+    inferred_supplier_requirements LONGTEXT NOT NULL, -- JSON array
+    inferred_customer_archetypes LONGTEXT NOT NULL, -- JSON array
+    matching_query_criteria LONGTEXT NOT NULL, -- JSON object
+    overall_inference_confidence DECIMAL(5,4) NOT NULL DEFAULT 0.0000,
+    information_gaps LONGTEXT NOT NULL, -- JSON array
+    analyzed_at DATETIME NOT NULL,
+    analysis_job_id VARCHAR(64) NULL,
+    previous_analysis_id VARCHAR(64) NULL,
+    is_current BOOLEAN NOT NULL DEFAULT 1,
+    INDEX idx_mp_company (company_id, is_current),
+    INDEX idx_mp_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- C17 Ranked Match Batch Deliveries
+CREATE TABLE IF NOT EXISTS maqe_match_batch_deliveries (
+    batch_id VARCHAR(64) PRIMARY KEY,
+    recipient_company_id VARCHAR(64) NOT NULL,
+    direction VARCHAR(16) NOT NULL,
+    batch_number INT NOT NULL DEFAULT 1,
+    requested_batch_size INT NOT NULL,
+    delivered_count INT NOT NULL,
+    min_score_threshold INT NOT NULL DEFAULT 70,
+    include_lower_scoring BOOLEAN NOT NULL DEFAULT 0,
+    shortfall_count INT NOT NULL DEFAULT 0,
+    shortfall_explanation TEXT NULL,
+    connection_ids LONGTEXT NOT NULL, -- JSON array
+    delivered_at DATETIME NOT NULL,
+    INDEX idx_mbd_recipient (recipient_company_id, direction)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS maqe_delivered_connections (
+    delivery_record_id VARCHAR(64) PRIMARY KEY,
+    recipient_company_id VARCHAR(64) NOT NULL,
+    counterparty_company_id VARCHAR(64) NOT NULL,
+    direction VARCHAR(16) NOT NULL,
+    connection_id VARCHAR(64) NOT NULL,
+    batch_id VARCHAR(64) NOT NULL,
+    score_at_delivery INT NOT NULL,
+    delivered_at DATETIME NOT NULL,
+    UNIQUE KEY uk_recipient_delivered_conn (recipient_company_id, counterparty_company_id, direction),
+    INDEX idx_dc_recipient (recipient_company_id, direction)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
