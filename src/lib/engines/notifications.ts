@@ -4,6 +4,7 @@
  */
 
 import { NotificationItem } from '../domain/types';
+import { DEFAULT_ORG_ID } from '../fixtures/cohort';
 
 export class NotificationEngine {
   private notifications: NotificationItem[];
@@ -12,22 +13,22 @@ export class NotificationEngine {
     this.notifications = [
       {
         notification_id: 'notif_01',
-        recipient_org_id: 'org_delta',
+        recipient_org_id: DEFAULT_ORG_ID,
         event_type: 'match.generated',
-        title: 'New High-Score Customer Leads Available',
-        body: '3 new customer recommendations (Apex Enclosures Ltd, Vanguard Auto Components) have been precomputed for Delta Metalworks.',
+        title: 'Phase One Cohort Enrichment & Matching Complete',
+        body: '1,000 real UK engineering businesses ingested & enriched. 600 directional B2B matches computed across verified supply chains.',
         priority: 'high',
-        created_at: '2026-10-12T10:00:00Z'
+        created_at: '2026-10-14T14:22:48Z'
       },
       {
         notification_id: 'notif_02',
-        recipient_org_id: 'org_delta',
+        recipient_org_id: DEFAULT_ORG_ID,
         event_type: 'rfq.response',
-        title: 'Response received for Sheet Metal RFQ',
-        body: 'David Croft from Apex Enclosures replied to your laser cutting tolerance query.',
+        title: 'Response from D & M Engineering Limited (#02706103)',
+        body: 'Procurement Lead at D & M Engineering replied regarding heavy-gauge pressed steel mounting brackets.',
         priority: 'normal',
-        read_at: '2026-10-12T14:00:00Z',
-        created_at: '2026-10-07T09:30:00Z'
+        read_at: '2026-10-14T12:00:00Z',
+        created_at: '2026-10-14T11:20:00Z'
       }
     ];
   }

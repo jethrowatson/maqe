@@ -93,7 +93,7 @@ export function MessagingView({
             {/* Message Feed */}
             <div className="flex-1 p-4 overflow-y-auto space-y-4">
               {activeConv.messages?.map(msg => {
-                const isMe = msg.sender_org_id === 'org_delta';
+                const isMe = msg.sender_org_id === 'org_regent_00551421';
                 return (
                   <div
                     key={msg.message_id}

@@ -5,6 +5,7 @@
  */
 
 import { PlanTier, PlanSubscription } from '../domain/types';
+import { DEFAULT_ORG_ID } from '../fixtures/cohort';
 
 export interface CommercialPlan {
   id: PlanTier;
@@ -70,13 +71,13 @@ export const CREDIT_PACKS: CreditPackProduct[] = [
 ];
 
 export class CommerceEngine {
-  private subscriptions: Map<string, PlanSubscription>; // Key: org_id
+  private subscriptions: Map<string, PlanSubscription>;
 
   constructor() {
     this.subscriptions = new Map();
-    this.subscriptions.set('org_delta', {
-      subscription_id: 'sub_delta_premium',
-      org_id: 'org_delta',
+    this.subscriptions.set(DEFAULT_ORG_ID, {
+      subscription_id: 'sub_regent_premium',
+      org_id: DEFAULT_ORG_ID,
       plan_tier: 'premium',
       monthly_credits: 50,
       status: 'active',

@@ -215,7 +215,7 @@ export function RFQManagerView({
                   Select Verified Suppliers ({selectedSupplierIds.length} chosen)
                 </label>
                 <div className="max-h-40 overflow-y-auto space-y-1.5 border border-slate-200 rounded-lg p-2 bg-slate-50">
-                  {availableSuppliers.filter(s => s.company_id !== 'demo_delta').map(s => {
+                  {availableSuppliers.filter(s => s.company_id !== 'be2880da-da47-4ebf-87ef-13041a2ca93c').slice(0, 100).map(s => {
                     const isChecked = selectedSupplierIds.includes(s.company_id);
                     return (
                       <div
@@ -225,7 +225,7 @@ export function RFQManagerView({
                           isChecked ? 'bg-blue-100 text-blue-900 border border-blue-300' : 'bg-white hover:bg-slate-100 text-slate-800'
                         }`}
                       >
-                        <div className="font-semibold">{s.legal_name}</div>
+                        <div className="font-semibold">{s.legal_name} (#{s.registration_number})</div>
                         <span className="text-[10px] text-slate-500 font-mono">SIC: {s.sic_codes.join(', ')}</span>
                       </div>
                     );

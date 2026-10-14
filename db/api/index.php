@@ -144,9 +144,9 @@ switch ($resource) {
         break;
 
     case 'matches':
-        $focus_id = $_GET['focus_company_id'] ?? 'demo_delta';
+        $focus_id = $_GET['focus_company_id'] ?? 'be2880da-da47-4ebf-87ef-13041a2ca93c';
         $direction = $_GET['direction'] ?? 'customer'; // customer or supplier
-        $org_id = $_GET['org_id'] ?? 'org_delta';
+        $org_id = $_GET['org_id'] ?? 'org_regent_00551421';
 
         $sql = "SELECT e.edge_id, e.focus_company_id, e.counterparty_company_id, e.current_state,
                        a.assessment_id, a.direction, a.score, a.score_components, a.coverage, a.explanation, a.supporting_assertions,
@@ -179,6 +179,19 @@ switch ($resource) {
         ]);
         break;
 
+    case 'enrichment_summary':
+        $c_count = (int)$pdo->query("SELECT COUNT(*) as c FROM maqe_companies")->fetch()['c'];
+        $p_count = (int)$pdo->query("SELECT COUNT(*) as c FROM maqe_profile_versions WHERE is_current = 1")->fetch()['c'];
+        $m_count = (int)$pdo->query("SELECT COUNT(*) as c FROM maqe_match_assessments")->fetch()['c'];
+        echo json_encode([
+            'total_found' => $c_count,
+            'total_enriched' => $p_count,
+            'total_matches_generated' => $m_count,
+            'schema_version' => 'phase_one_v1.0',
+            'focus_company_id' => 'be2880da-da47-4ebf-87ef-13041a2ca93c'
+        ]);
+        break;
+
     case 'unlock':
         if ($method !== 'POST') {
             http_response_code(405);
@@ -194,8 +207,8 @@ switch ($resource) {
             exit();
         }
 
-        $org_id = $body['org_id'] ?? 'org_delta';
-        $focus_id = $body['focus_company_id'] ?? 'demo_delta';
+        $org_id = $body['org_id'] ?? 'org_regent_00551421';
+        $focus_id = $body['focus_company_id'] ?? 'be2880da-da47-4ebf-87ef-13041a2ca93c';
         $counterparty_id = $body['counterparty_company_id'];
 
         if (!$counterparty_id) {
@@ -276,7 +289,7 @@ switch ($resource) {
         break;
 
     case 'wallet':
-        $org_id = $_GET['org_id'] ?? 'org_delta';
+        $org_id = $_GET['org_id'] ?? 'org_regent_00551421';
         $w_stmt = $pdo->prepare("SELECT * FROM maqe_credit_wallets WHERE org_id = ?");
         $w_stmt->execute([$org_id]);
         $wallet = $w_stmt->fetch();
@@ -298,7 +311,7 @@ switch ($resource) {
         break;
 
     case 'opportunities':
-        $org_id = $_GET['org_id'] ?? 'org_delta';
+        $org_id = $_GET['org_id'] ?? 'org_regent_00551421';
         $sql = "SELECT o.*, c.legal_name as counterparty_name, c.registration_number, c.addresses
                 FROM maqe_opportunities o
                 JOIN maqe_companies c ON o.counterparty_company_id = c.company_id

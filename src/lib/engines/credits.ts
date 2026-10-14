@@ -8,9 +8,9 @@ import {
   CreditWallet,
   LedgerEntry,
   MemberMatchAccess,
-  Opportunity,
   MatchDirection
 } from '../domain/types';
+import { FIXTURE_WALLETS, FIXTURE_LEDGER_ENTRIES } from '../fixtures/cohort';
 
 export interface UnlockResult {
   success: boolean;
@@ -24,7 +24,7 @@ export interface UnlockResult {
 export class CreditLedgerEngine {
   private wallets: Map<string, CreditWallet>; // Key: org_id
   private ledger: LedgerEntry[];
-  private unlockedAccess: Map<string, MemberMatchAccess>; // Key: `${org_id}_${focus}_${counterparty}`
+  private unlockedAccess: Map<string, MemberMatchAccess>; // Key: `${org_id}:${focus}:${counterparty}`
 
   constructor(
     initialWallets?: CreditWallet[],
@@ -32,13 +32,12 @@ export class CreditLedgerEngine {
     initialAccess?: MemberMatchAccess[]
   ) {
     this.wallets = new Map();
-    if (initialWallets) {
-      for (const w of initialWallets) {
-        this.wallets.set(w.org_id, { ...w });
-      }
+    const walletsSource = initialWallets || FIXTURE_WALLETS;
+    for (const w of walletsSource) {
+      this.wallets.set(w.org_id, { ...w });
     }
 
-    this.ledger = initialLedger ? [...initialLedger] : [];
+    this.ledger = initialLedger ? [...initialLedger] : [...FIXTURE_LEDGER_ENTRIES];
     this.unlockedAccess = new Map();
     if (initialAccess) {
       for (const a of initialAccess) {
@@ -62,7 +61,7 @@ export class CreditLedgerEngine {
       wallet = {
         wallet_id: `wallet_${org_id}`,
         org_id,
-        allowance_balance: 20,
+        allowance_balance: 50,
         purchased_balance: 0,
         updated_at: new Date().toISOString()
       };
@@ -133,7 +132,7 @@ export class CreditLedgerEngine {
       amount: -1,
       balance_after: balAfter,
       reference_id: accessId,
-      description: `Unlocked contact and deep intelligence for ${counterparty_company_id}`,
+      description: `Unlocked contact and deep Phase One intelligence for ${counterparty_company_id} (${direction})`,
       created_at: new Date().toISOString()
     };
     this.ledger.unshift(entry);

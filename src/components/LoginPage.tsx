@@ -39,7 +39,7 @@ export function LoginPage({
   const [role, setRole] = useState<'member' | 'operator'>(initialRole);
   const [email, setEmail] = useState<string>(
     initialRole === 'member'
-      ? 'marcus.vance@deltametalworks.co.uk'
+      ? 'operations@regenteng.com'
       : 'operator@maqe.intelligence'
   );
   const [password, setPassword] = useState<string>('MAQE2026!');
@@ -51,7 +51,7 @@ export function LoginPage({
     setRole(newRole);
     setError(null);
     if (newRole === 'member') {
-      setEmail('marcus.vance@deltametalworks.co.uk');
+      setEmail('operations@regenteng.com');
       setPassword('MAQE2026!');
     } else {
       setEmail('operator@maqe.intelligence');
@@ -76,10 +76,10 @@ export function LoginPage({
       const session: AuthSession = {
         isAuthenticated: true,
         email: email.trim(),
-        name: role === 'member' ? 'Marcus Vance' : 'Sarah Jenkins',
+        name: role === 'member' ? 'Operations Director' : 'Sarah Jenkins',
         role: role,
-        orgId: 'org_delta',
-        orgName: role === 'member' ? 'Delta Metalworks Ltd' : 'MAQE Operations',
+        orgId: 'org_regent_00551421',
+        orgName: role === 'member' ? 'Regent Engineering Co (Walsall) Limited' : 'MAQE Operations',
         planTier: 'premium'
       };
 
@@ -230,8 +230,8 @@ export function LoginPage({
                 className="w-full text-left p-2 rounded-lg bg-slate-900 hover:bg-slate-700/80 border border-slate-700 text-xs text-slate-300 transition-colors flex items-center justify-between"
               >
                 <div>
-                  <div className="font-semibold text-white">Delta Metalworks Ltd (Member)</div>
-                  <div className="text-[10px] text-slate-400 font-mono">marcus.vance@deltametalworks.co.uk</div>
+                  <div className="font-semibold text-white">Regent Engineering Co (Walsall) Ltd (Member)</div>
+                  <div className="text-[10px] text-slate-400 font-mono">operations@regenteng.com • UK Reg #00551421</div>
                 </div>
                 <span className="text-[10px] font-bold text-blue-400 bg-blue-950 px-2 py-0.5 rounded border border-blue-800">
                   Select

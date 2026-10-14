@@ -1,7 +1,7 @@
 /**
  * MAQE Unified Database & Engine Store
  * Bridges live remote MariaDB API (https://jethrowatson.co.uk/maqe/api/)
- * with client-side reactive state and deterministic engine execution.
+ * with client-side reactive state and deterministic Phase One engine execution.
  */
 
 import {
@@ -9,20 +9,24 @@ import {
   ProfileVersion,
   MatchCandidateResult,
   MatchDirection,
-  Organisation,
   CreditWallet,
   LedgerEntry,
   Opportunity,
   Conversation,
   Message,
   RFQ,
-  RFQTemplate,
-  Job,
-  NotificationItem,
   OpportunityState,
-  PlanTier
+  PlanTier,
+  AdminEnrichmentSummary,
+  PhaseOneCompanySchema
 } from '../domain/types';
-import { FIXTURE_COMPANIES, FIXTURE_PROFILES } from '../fixtures/cohort';
+import {
+  FIXTURE_COMPANIES,
+  DEFAULT_FOCUS_COMPANY_ID,
+  DEFAULT_ORG_ID,
+  REAL_COHORT_SUMMARY,
+  hydratePhaseOneSchema
+} from '../fixtures/cohort';
 import { MatchingEngine } from '../engines/matching';
 import { CreditLedgerEngine } from '../engines/credits';
 import { IntakeEngine } from '../engines/intake';
@@ -51,8 +55,8 @@ export class MAQEStore {
   public commerceEngine: CommerceEngine;
   public notificationEngine: NotificationEngine;
 
-  public activeOrgId: string = 'org_delta';
-  public activeCompanyId: string = 'demo_delta';
+  public activeOrgId: string = DEFAULT_ORG_ID;
+  public activeCompanyId: string = DEFAULT_FOCUS_COMPANY_ID;
   public userRole: 'member' | 'operator' = 'member';
   public cloudApiConnected: boolean = true;
 
@@ -68,7 +72,6 @@ export class MAQEStore {
     this.commerceEngine = new CommerceEngine();
     this.notificationEngine = new NotificationEngine();
 
-    // Check remote cloud API health on startup
     if (typeof window !== 'undefined') {
       this.checkRemoteApi();
     }
@@ -94,6 +97,15 @@ export class MAQEStore {
     return false;
   }
 
+  // --- Admin Summary & Phase One Schema Access ---
+  public getEnrichmentSummary(): AdminEnrichmentSummary {
+    return REAL_COHORT_SUMMARY;
+  }
+
+  public getPhaseOneSchema(company_id: string): PhaseOneCompanySchema | undefined {
+    return hydratePhaseOneSchema(company_id);
+  }
+
   // --- Companies & Profiles ---
   public getCompanies(): CompanyRecord[] {
     return FIXTURE_COMPANIES;
@@ -109,7 +121,6 @@ export class MAQEStore {
 
   // --- Matching ---
   public getMatches(focus_id: string, direction: MatchDirection): MatchCandidateResult[] {
-    // Get unlocked IDs from credit ledger
     const unlockedIds = new Set<string>();
     for (const c of FIXTURE_COMPANIES) {
       if (this.creditEngine.isUnlocked(this.activeOrgId, focus_id, c.company_id)) {
@@ -124,13 +135,16 @@ export class MAQEStore {
     });
   }
 
+  public getAllCohortMatches(direction?: MatchDirection): MatchCandidateResult[] {
+    return this.matchingEngine.getAllCohortMatches(direction);
+  }
+
   // --- Unlock Flow with Non-Double Charge Protection ---
   public async unlockCandidate(
     focus_id: string,
     counterparty_id: string,
     direction: MatchDirection
   ): Promise<{ success: boolean; message: string; balance: number }> {
-    // Attempt sync with remote API if connected
     if (typeof window !== 'undefined' && this.cloudApiConnected) {
       try {
         const res = await fetch(`${REMOTE_API_URL}?action=unlock`, {
@@ -148,7 +162,6 @@ export class MAQEStore {
         });
         const data = await res.json();
         if (res.ok && data.success) {
-          // Sync local engine
           this.creditEngine.unlockMatch(this.activeOrgId, focus_id, counterparty_id, direction);
           return {
             success: true,
@@ -172,7 +185,6 @@ export class MAQEStore {
       };
     }
 
-    // Add to opportunities if new
     if (!res.already_unlocked) {
       const counterparty = this.getCompany(counterparty_id);
       const newOpp: Opportunity = {
@@ -185,11 +197,10 @@ export class MAQEStore {
         addresses: counterparty?.addresses,
         direction,
         state: 'prospective',
-        notes: 'Unlocked via MAQE Matching Engine',
+        notes: 'Unlocked via MAQE Phase One Matching Engine',
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       };
-      // Register in networking engine
       (this.networkingEngine as any).opportunities.set(newOpp.opportunity_id, newOpp);
     }
 
@@ -229,11 +240,12 @@ export class MAQEStore {
   }
 
   public sendMessage(conversation_id: string, text: string): Message {
+    const activeCo = this.getCompany(this.activeCompanyId);
     return this.networkingEngine.sendMessage(
       conversation_id,
       this.activeOrgId,
-      'usr_delta_ops',
-      'Marcus Vance (Delta Metalworks)',
+      'usr_regent_ops',
+      `Operations Director (${activeCo?.display_name || 'Regent Engineering Co (Walsall) Ltd'})`,
       text
     );
   }

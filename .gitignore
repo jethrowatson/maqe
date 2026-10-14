@@ -31,3 +31,5 @@ next-env.d.ts
 # Temporary text extracts
 docx_extracted.txt
 pdf_extracted.txt
+phase_one_schema_extracted.txt
+src/lib/fixtures/enriched_1000_companies_full.json

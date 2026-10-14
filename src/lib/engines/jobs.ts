@@ -4,6 +4,7 @@
  */
 
 import { Job, JobType, JobState, AuditEvent } from '../domain/types';
+import { DEFAULT_FOCUS_COMPANY_ID, REAL_COHORT_SUMMARY } from '../fixtures/cohort';
 
 export class JobEngine {
   private jobs: Map<string, Job>;
@@ -13,27 +14,35 @@ export class JobEngine {
     this.jobs = new Map();
     this.auditEvents = [];
 
-    // Seed initial completed jobs
+    // Seed initial completed Phase One jobs
     this.createJob({
       job_type: 'intake_partition',
-      subject_id: 'part_uk_eng_v1_25110_2015_2020',
-      idempotency_key: 'seed_job_intake_25110',
-      requested_by: 'system_bootstrap',
-      mode: 'fixture',
+      subject_id: 'uk_companies_house_cohort_1000',
+      idempotency_key: 'phase1_intake_1000_uk_companies',
+      requested_by: 'phase1_pipeline',
+      mode: 'live',
       state: 'succeeded',
       progress: 100,
-      output_refs: { records_ingested: 4850 }
+      output_refs: {
+        records_ingested: REAL_COHORT_SUMMARY.total_companies_found,
+        sic_categories: REAL_COHORT_SUMMARY.sic_category_breakdown.length
+      }
     });
 
     this.createJob({
       job_type: 'enrichment_run',
-      subject_id: 'demo_delta',
-      idempotency_key: 'seed_job_enrich_delta',
-      requested_by: 'system_bootstrap',
-      mode: 'fixture',
+      subject_id: DEFAULT_FOCUS_COMPANY_ID,
+      idempotency_key: 'phase1_enrich_1000_uk_companies',
+      requested_by: 'phase1_pipeline',
+      mode: 'live',
       state: 'succeeded',
       progress: 100,
-      output_refs: { assertions_generated: 5, profile_version_id: 'pv_delta_v1' }
+      output_refs: {
+        companies_enriched: REAL_COHORT_SUMMARY.total_companies_enriched,
+        websites_confirmed: REAL_COHORT_SUMMARY.confirmed_websites_count,
+        assertions_generated: REAL_COHORT_SUMMARY.total_assertions,
+        avg_completeness_pct: REAL_COHORT_SUMMARY.avg_completeness_pct
+      }
     });
   }
 
@@ -59,7 +68,6 @@ export class JobEngine {
     progress?: number;
     output_refs?: Record<string, any>;
   }): Job {
-    // Check idempotency
     const existing = Array.from(this.jobs.values()).find(
       j => j.idempotency_key === params.idempotency_key
     );
@@ -72,10 +80,10 @@ export class JobEngine {
       job_id: jobId,
       job_type: params.job_type,
       subject_id: params.subject_id,
-      schema_version: '1.0',
+      schema_version: '1.0.0-phase1',
       idempotency_key: params.idempotency_key,
       requested_by: params.requested_by,
-      mode: params.mode || 'fixture',
+      mode: params.mode || 'live',
       state: params.state || 'queued',
       attempts: 1,
       progress: params.progress || 0,

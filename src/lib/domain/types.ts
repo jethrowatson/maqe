@@ -1,18 +1,390 @@
 /**
  * MAQE Engineering Intelligence Platform - Domain Types & Data Contracts
- * Specifications based on MAQE Technical Build Addendum v1.1
+ * Updated for MAQE Phase One Discovery and Enrichment Schema (Draft 0.1 - 14 October 2026)
+ * & Technical Build Addendum v1.1
  */
 
 // =========================================================================
-// C01 Registry Intake
+// Phase One Discovery & Enrichment Schema Contracts (Sections 2-15)
 // =========================================================================
 
 export type JurisdictionCode = 'GB' | 'US' | 'DE' | 'FR' | string;
+
+export interface ConceptRef {
+  concept_id: string;
+  taxonomy_version: string;
+  raw_label?: string;
+}
+
+export type FieldAssessmentState =
+  | 'not_assessed'
+  | 'not_found'
+  | 'unknown'
+  | 'not_applicable'
+  | 'withheld'
+  | 'conflicting'
+  | 'assessed_populated';
+
+export interface FieldAssessment {
+  subject_ref: { type: string; id: string };
+  field_path: string;
+  state: FieldAssessmentState;
+  reason?: string;
+  evidence_ids?: string[];
+}
+
+export interface IdentitySignal {
+  signal_type: 'registration_number' | 'name' | 'address' | 'official_link' | 'domain_history' | 'contradiction';
+  result: 'supports' | 'contradicts' | 'neutral';
+  detail: string;
+  evidence_ids?: string[];
+}
+
+export interface PhaseOneWebsiteAssociation {
+  id: string;
+  company_id: string;
+  candidate_url: string;
+  final_url?: string;
+  canonical_domain?: string;
+  claimed_entity_name?: string;
+  country_code?: string;
+  language?: string;
+  source_type: 'official_primary' | 'official_additional' | 'brand' | 'regional' | 'directory' | 'social' | 'registry' | 'other';
+  is_primary: boolean;
+  discovered_at: string;
+  discovery_run_id: string;
+  decision: 'candidate' | 'approved' | 'rejected' | 'needs_review';
+  decision_at?: string;
+  decision_origin?: 'automated' | 'operator';
+  decision_policy_version: string;
+  identity_signals: IdentitySignal[];
+  identity_score?: string;
+  authority_score?: string;
+  relevance_score?: string;
+  title?: string;
+  snippet?: string;
+}
+
+export interface CrawlRunCounters {
+  discovered: number;
+  eligible: number;
+  fetched: number;
+  extracted: number;
+  duplicate: number;
+  excluded: number;
+  blocked: number;
+  failed: number;
+  pending: number;
+}
+
+export interface CrawlRun {
+  id: string;
+  company_id: string;
+  association_ids: string[];
+  policy_version: string;
+  state: 'queued' | 'running' | 'completed' | 'partial' | 'blocked' | 'failed';
+  started_at: string;
+  completed_at?: string;
+  counters: CrawlRunCounters;
+  discovery_exhausted: boolean;
+  budget_exhausted: boolean;
+}
+
+export interface PhaseOneEvidence {
+  id: string;
+  document_id: string;
+  locator: {
+    kind: 'text_span' | 'pdf_page' | 'section';
+    value: string;
+  };
+  quote: string;
+  captured_at: string;
+}
+
+export interface PhaseOneAssertion {
+  id: string;
+  company_id: string;
+  subject_ref: { type: string; id: string };
+  field_path: string;
+  value: any;
+  basis: 'observed' | 'inferred' | 'normalised' | 'member_declared' | 'operator_corrected';
+  evidence_ids: string[];
+  supporting_assertion_ids: string[];
+  status: 'active' | 'disputed' | 'superseded' | 'retracted';
+  verification_state: 'unverified' | 'source_checked' | 'independently_verified' | 'contradicted';
+  visibility: 'public_profile' | 'member_only' | 'internal_review' | 'restricted';
+  confidence?: number;
+  rationale?: string;
+  model_run_id?: string;
+}
+
+export interface PhaseOneLocation {
+  id: string;
+  company_id: string;
+  location_type: 'registered_office' | 'headquarters' | 'factory' | 'warehouse' | 'branch' | 'showroom' | 'service_base' | 'other';
+  name?: string;
+  address: {
+    address_lines: string[];
+    locality?: string;
+    administrative_area?: string;
+    postal_code?: string;
+    country_code: string;
+    source_address_text?: string;
+  };
+  operational?: boolean;
+}
+
+export interface PhaseOneCoverage {
+  id: string;
+  company_id: string;
+  scope_ref: { type: string; id: string };
+  activity: 'sales' | 'shipping' | 'installation' | 'onsite_service' | 'remote_service' | 'export';
+  inclusion: 'included' | 'excluded';
+  area: {
+    kind: 'country' | 'region' | 'postcode' | 'radius' | 'worldwide' | 'named_area';
+    country_codes?: string[];
+    region_codes?: string[];
+    postcode_patterns?: string[];
+  };
+  source_text?: string;
+}
+
+export interface PhaseOneContactRoute {
+  id: string;
+  company_id: string;
+  kind: 'email' | 'phone' | 'web_form' | 'postal' | 'social';
+  value: string;
+  purpose: 'general' | 'sales' | 'purchasing' | 'technical' | 'support' | 'other';
+  location_id?: string;
+  visibility: 'public_profile' | 'member_only' | 'internal_review' | 'restricted';
+  contact_use_state: 'unassessed' | 'allowed' | 'restricted' | 'prohibited';
+}
+
+export interface PhaseOneOffering {
+  id: string;
+  company_id: string;
+  kind: 'service' | 'physical_product' | 'digital_product';
+  name: string;
+  node_type: 'group' | 'offering' | 'variant';
+  parent_offering_id?: string;
+  canonical_concept?: ConceptRef;
+  business_role?: ConceptRef;
+  fulfilment?: 'in_house' | 'subcontracted' | 'distributed' | 'mixed' | 'unknown';
+  availability?: 'active' | 'discontinued' | 'historical' | 'unknown';
+  customisable?: boolean;
+  made_to_order?: boolean;
+  process_concepts?: string[];
+  material_concepts?: string[];
+}
+
+export interface PhaseOneCapability {
+  id: string;
+  company_id: string;
+  name: string;
+  offering_ids: string[];
+  process_concept?: ConceptRef;
+  location_id?: string;
+  parameter_ids?: string[];
+  material_concepts?: string[];
+  fulfilment?: string;
+}
+
+export interface PhaseOneParameter {
+  id: string;
+  company_id: string;
+  scope_ref: { type: string; id: string };
+  parameter_key: string;
+  value_kind: 'quantity' | 'interval' | 'tolerance' | 'categorical' | 'boolean' | 'text';
+  quantity?: { magnitude: string; unit: string; comparator: string };
+  interval?: { lower?: string; upper?: string; unit: string };
+  tolerance?: { lower_deviation: string; upper_deviation: string; unit: string };
+  categories?: string[];
+  boolean_value?: boolean;
+  text_value?: string;
+  raw_text: string;
+  assertion_ids: string[];
+}
+
+export interface PhaseOneCredential {
+  id: string;
+  company_id: string;
+  claim_type: 'certification' | 'accreditation' | 'approval' | 'membership' | 'licence' | 'conformance_claim' | 'test_report' | 'standard_reference';
+  raw_claim: string;
+  standard_code?: string;
+  scope_ref: { type: string; id: string };
+  status: 'claimed' | 'current_verified' | 'expired' | 'suspended' | 'withdrawn' | 'pending' | 'unknown';
+  verification_state: 'unverified' | 'source_checked' | 'independently_verified' | 'contradicted';
+  assertion_ids?: string[];
+}
+
+export interface PhaseOneMarketParticipation {
+  id: string;
+  company_id: string;
+  scope_ref: { type: string; id: string };
+  dimension: 'buyer_type' | 'sector' | 'application' | 'procurement_context';
+  raw_label: string;
+  concept_ref?: ConceptRef;
+  participation: 'serves' | 'has_served' | 'targets' | 'excludes' | 'inferred_fit';
+  evidence_ids?: string[];
+}
+
+export interface PhaseOneNeed {
+  id: string;
+  company_id: string;
+  need_type: 'material' | 'component' | 'equipment' | 'service' | 'logistics' | 'facility' | 'other';
+  label: string;
+  basis: 'stated' | 'inferred';
+  status: 'current' | 'historical' | 'unknown';
+  priority?: 'required' | 'preferred';
+  target_supplier_sics?: string[];
+  rationale?: string;
+  supporting_assertion_ids?: string[];
+}
+
+export interface PhaseOneQualityIssue {
+  id: string;
+  company_id: string;
+  issue_type: string;
+  severity: 'info' | 'warning' | 'blocking';
+  affected_refs: { type: string; id: string }[];
+  state: 'open' | 'resolved' | 'dismissed';
+  detail?: string;
+}
+
+export interface PhaseOneCompanySchema {
+  schema_version: string;
+  taxonomy_version: string;
+  company: {
+    id: string;
+    display_name: string;
+    legal_name: string;
+    trading_names: string[];
+    intake_origin: 'registry' | 'operator' | 'member' | 'import';
+    registrations: {
+      registry_namespace: string;
+      jurisdiction: string;
+      registration_number: string;
+      legal_name: string;
+      registration_status: string;
+      incorporation_date?: string;
+      registry_url?: string;
+    }[];
+    legal_form?: ConceptRef;
+    ownership_type?: string;
+    operating_status?: string;
+    industry_codes: {
+      system: string;
+      version: string;
+      code: string;
+      label: string;
+      primary?: boolean;
+    }[];
+    business_roles: ConceptRef[];
+    languages: string[];
+    summary: {
+      text: string;
+      language: string;
+      generated_at: string;
+      model_run_id: string;
+      supporting_assertion_ids: string[];
+      visibility: string;
+      source_excerpt?: { text: string; evidence_id: string };
+    };
+  };
+  website_associations: PhaseOneWebsiteAssociation[];
+  source_bundle?: {
+    id: string;
+    company_id: string;
+    association_revision_refs: string[];
+    document_ids: string[];
+    admission_policy_version: string;
+    created_at: string;
+  };
+  crawl_runs?: CrawlRun[];
+  source_documents: any[];
+  evidences: PhaseOneEvidence[];
+  assertions: PhaseOneAssertion[];
+  locations: PhaseOneLocation[];
+  coverages: PhaseOneCoverage[];
+  contact_routes: PhaseOneContactRoute[];
+  offerings: PhaseOneOffering[];
+  capabilities: PhaseOneCapability[];
+  parameters: PhaseOneParameter[];
+  credentials: PhaseOneCredential[];
+  market_participations: PhaseOneMarketParticipation[];
+  defence_contexts: any[];
+  needs: PhaseOneNeed[];
+  history_events: any[];
+  field_assessments: FieldAssessment[];
+  quality_issues: PhaseOneQualityIssue[];
+  profile_version: {
+    id: string;
+    company_id: string;
+    schema_version: string;
+    taxonomy_version: string;
+    source_bundle_id: string;
+    enrichment_run_id: string;
+    state: 'draft' | 'needs_review' | 'published' | 'superseded' | 'rejected';
+    published_at?: string;
+    assertion_ids: string[];
+    field_assessments: FieldAssessment[];
+    created_at: string;
+  };
+}
+
+export interface EnrichmentMetrics {
+  completeness_pct: number;
+  populated_domains_count: number;
+  total_domains_count: number;
+  quality_score: number;
+  quality_grade: 'A' | 'B' | 'C' | 'D';
+  enrichment_tier: 'verified_web_full' | 'verified_web_partial' | 'registry_and_sic_inferred';
+  publication_state: 'published' | 'needs_review' | 'draft';
+  has_confirmed_website: boolean;
+  has_contacts: boolean;
+  has_credentials: boolean;
+  has_numeric_parameters: boolean;
+  assertions_count: number;
+  observed_assertions_count: number;
+  inferred_assertions_count: number;
+  evidence_count: number;
+  documents_count: number;
+  quality_issues_count: number;
+}
+
+export interface AdminEnrichmentSummary {
+  generated_at: string;
+  schema_version: string;
+  total_companies_found: number;
+  total_companies_enriched: number;
+  confirmed_websites_count: number;
+  contacts_extracted_count: number;
+  credentials_extracted_count: number;
+  numeric_parameters_count: number;
+  avg_completeness_pct: number;
+  avg_quality_score: number;
+  total_assertions: number;
+  observed_assertions: number;
+  inferred_assertions: number;
+  total_source_documents: number;
+  total_matches_generated: number;
+  supplier_matches_count: number;
+  customer_matches_count: number;
+  quality_grades: Record<string, number>;
+  enrichment_tiers: Record<string, number>;
+  domain_completion_counts: Record<string, number>;
+  sic_category_breakdown: { category: string; count: number }[];
+}
+
+// =========================================================================
+// Core Platform Records
+// =========================================================================
 
 export interface CompanyAddress {
   registered?: string;
   trading?: string;
   locality?: string;
+  region?: string;
   postal_code?: string;
   country: string;
 }
@@ -20,16 +392,27 @@ export interface CompanyAddress {
 export interface CompanyRecord {
   company_id: string;
   jurisdiction: JurisdictionCode;
-  registry_namespace: string; // e.g. 'companies_house'
+  registry_namespace: string;
   registration_number: string;
+  display_name?: string;
   legal_name: string;
   trading_names: string[];
   status: 'active' | 'dissolved' | 'liquidation' | 'receivership' | 'converted-closed';
   sic_codes: string[];
-  incorporation_date?: string; // YYYY-MM-DD
+  primary_sic?: string;
+  sic_description?: string;
+  sic_category?: string;
+  sic_tier?: number;
+  business_roles?: string[];
+  website_url?: string | null;
+  website_domain?: string | null;
+  incorporation_date?: string;
   addresses: CompanyAddress;
   source_updated_at?: string;
   ingested_at: string;
+  updated_at?: string;
+  enrichment_metrics?: EnrichmentMetrics;
+  phase_one_schema?: PhaseOneCompanySchema;
   profile?: ProfileVersion;
   assertions?: Assertion[];
 }
@@ -59,7 +442,7 @@ export interface SyncWatermark {
 export interface SICMasterEntry {
   sic_code: string;
   description: string;
-  tier: number; // 1 (Core), 2 (Supply Chain), 3 (Optional)
+  tier: number;
   default_intake: boolean;
   category: string;
   reason: string;
@@ -81,17 +464,13 @@ export interface IngestEvent {
   level: 'info' | 'success' | 'warn';
 }
 
-// =========================================================================
-// C02 Discovery & Document Retrieval
-// =========================================================================
-
 export type SourceType = 'official_website' | 'linkedin' | 'directory' | 'mention';
 export type DecisionState = 'pending' | 'approved' | 'rejected';
 
 export interface IdentitySignals {
   reg_no_match?: boolean;
   domain_match?: boolean;
-  name_similarity: number; // 0.0 to 1.0
+  name_similarity: number;
   address_match?: boolean;
   phone_match?: boolean;
 }
@@ -103,7 +482,7 @@ export interface SourceAssociation {
   source_type: SourceType;
   discovery_run_id: string;
   identity_signals: IdentitySignals;
-  confidence: number; // 0.0 to 1.0
+  confidence: number;
   decision: DecisionState;
   reviewer?: string;
   review_reason?: string;
@@ -125,10 +504,6 @@ export interface SourceDocument {
   extracted_text?: string;
 }
 
-// =========================================================================
-// C03 AI Enrichment
-// =========================================================================
-
 export type AssertionBasis = 'observed' | 'inferred';
 
 export interface EvidenceRef {
@@ -140,8 +515,8 @@ export interface EvidenceRef {
 export interface Assertion {
   assertion_id: string;
   company_id: string;
-  subject: string; // e.g. 'offering', 'requirement', 'facility'
-  field: string; // e.g. 'provides', 'uses', 'serves', 'likely_needs'
+  subject: string;
+  field: string;
   typed_value: Record<string, any>;
   basis: AssertionBasis;
   supporting_assertion_ids?: string[];
@@ -152,10 +527,6 @@ export interface Assertion {
   validity_status: 'valid' | 'retracted' | 'superseded';
   created_at: string;
 }
-
-// =========================================================================
-// C04 Classification & Published Profile
-// =========================================================================
 
 export interface ConceptItem {
   concept_id: string;
@@ -169,7 +540,7 @@ export interface ConceptItem {
 export interface ProfileQualityIndicators {
   matchable: boolean;
   review_status: 'accepted' | 'under_review' | 'insufficient_evidence';
-  coverage: number; // 0.0 to 1.0
+  coverage: number;
   freshness_days?: number;
 }
 
@@ -189,17 +560,23 @@ export interface ProfileVersion {
   is_current?: boolean;
 }
 
-// =========================================================================
-// C05 Directional Matching & Ranking
-// =========================================================================
-
 export type MatchDirection = 'customer' | 'supplier';
 
 export interface ScoreComponents {
-  compatibility: number; // 0.0 to 1.0
-  sector: number;        // 0.0 to 1.0
-  geography: number;     // 0.0 to 1.0
-  evidence: number;      // 0.0 to 1.0
+  compatibility: number;
+  sector: number;
+  geography: number;
+  evidence: number;
+}
+
+export interface CriterionResult {
+  criterion_id: string;
+  criterion_key: string;
+  importance: 'must' | 'prefer';
+  state: 'pass' | 'fail' | 'unknown' | 'conflict' | 'not_applicable';
+  profile_version_id: string;
+  supporting_assertion_ids: string[];
+  explanation: string;
 }
 
 export interface MatchEdge {
@@ -216,7 +593,7 @@ export interface MatchAssessment {
   assessment_id: string;
   edge_id: string;
   direction: MatchDirection;
-  score: number; // 0 to 100
+  score: number;
   score_components: ScoreComponents;
   coverage: number;
   explanation: string;
@@ -228,17 +605,27 @@ export interface MatchAssessment {
 export interface MatchCandidateResult {
   edge_id: string;
   focus_company_id: string;
+  focus_company_name?: string;
+  focus_registration_number?: string;
+  focus_sic?: string;
+  focus_locality?: string;
   counterparty_company_id: string;
   counterparty_name: string;
+  counterparty_legal_name?: string;
   registration_number: string;
   addresses?: CompanyAddress;
   sic_codes?: string[];
+  counterparty_website?: string | null;
   assessment_id: string;
   direction: MatchDirection;
+  relation_family?: string;
+  offering_matched?: string;
+  need_satisfied?: string;
   score: number;
   score_components: ScoreComponents;
   coverage: number;
   explanation: string;
+  criterion_results?: CriterionResult[];
   supporting_assertions: string[];
   is_unlocked: boolean;
   unlocked_access_id?: string;
@@ -263,10 +650,6 @@ export interface MatchingCriteria {
     allowed_jurisdictions?: string[];
   };
 }
-
-// =========================================================================
-// C06 Membership & Access
-// =========================================================================
 
 export type PlanTier = 'free' | 'pro' | 'premium';
 export type UserRole = 'member' | 'operator' | 'admin';
@@ -301,10 +684,6 @@ export interface CompanyClaim {
   verified_at?: string;
 }
 
-// =========================================================================
-// C07 Allocation & Credits
-// =========================================================================
-
 export interface CreditWallet {
   wallet_id: string;
   org_id: string;
@@ -320,7 +699,7 @@ export interface LedgerEntry {
   entry_id: string;
   wallet_id: string;
   entry_type: LedgerEntryType;
-  amount: number; // positive or negative
+  amount: number;
   balance_after: number;
   reference_id?: string;
   description: string;
@@ -335,10 +714,6 @@ export interface MemberMatchAccess {
   unlocked_at: string;
   source_transaction_id: string;
 }
-
-// =========================================================================
-// C08 Networking & CRM Opportunities
-// =========================================================================
 
 export type OpportunityState = 'prospective' | 'contacted' | 'reviewing' | 'negotiating' | 'won_client' | 'won_supplier' | 'lost';
 
@@ -434,10 +809,6 @@ export interface ReferralInvitation {
   created_at: string;
 }
 
-// =========================================================================
-// C09 Project Opportunities (Later Module)
-// =========================================================================
-
 export interface Project {
   project_id: string;
   owner_org_id: string;
@@ -448,7 +819,7 @@ export interface Project {
   budget_max?: number;
   location_constraint?: string;
   state: 'draft' | 'published' | 'reviewing' | 'awarded' | 'closed' | 'cancelled';
-  max_bids: number; // Cap of 10 suppliers
+  max_bids: number;
   awarded_bid_id?: string;
   created_at: string;
   bids?: ProjectBid[];
@@ -465,10 +836,6 @@ export interface ProjectBid {
   submitted_at: string;
 }
 
-// =========================================================================
-// C10 Shared Platform Jobs & Audit
-// =========================================================================
-
 export type JobType = 'intake_partition' | 'discovery_run' | 'enrichment_run' | 'match_batch' | 'daily_sync';
 export type JobState = 'queued' | 'running' | 'succeeded' | 'partial' | 'failed' | 'cancelled';
 
@@ -482,7 +849,7 @@ export interface Job {
   mode: 'fixture' | 'live';
   state: JobState;
   attempts: number;
-  progress: number; // 0 - 100
+  progress: number;
   output_refs?: Record<string, any>;
   error_message?: string;
   created_at: string;
@@ -500,10 +867,6 @@ export interface AuditEvent {
   occurred_at: string;
 }
 
-// =========================================================================
-// C11 Commerce & Subscriptions
-// =========================================================================
-
 export interface PlanSubscription {
   subscription_id: string;
   org_id: string;
@@ -515,10 +878,6 @@ export interface PlanSubscription {
   cancel_at_period_end: boolean;
   created_at: string;
 }
-
-// =========================================================================
-// C12 Multi-channel Notifications
-// =========================================================================
 
 export interface NotificationItem {
   notification_id: string;

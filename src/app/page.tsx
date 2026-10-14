@@ -7,9 +7,12 @@ import {
   MatchDirection,
   CompanyRecord,
   Opportunity,
-  OpportunityState,
   PlanTier
 } from '../lib/domain/types';
+import {
+  DEFAULT_FOCUS_COMPANY_ID,
+  DEFAULT_ORG_ID
+} from '../lib/fixtures/cohort';
 
 import { Header } from '../components/Header';
 import { BrochureView } from '../components/BrochureView';
@@ -23,6 +26,7 @@ import { RFQManagerView } from '../components/RFQManagerView';
 import { CompanyProfileView } from '../components/CompanyProfileView';
 import { BillingCreditsView } from '../components/BillingCreditsView';
 
+import { AdminEnrichmentDashboard } from '../components/AdminEnrichmentDashboard';
 import { OperatorIntakeView } from '../components/OperatorIntakeView';
 import { OperatorDiscoveryView } from '../components/OperatorDiscoveryView';
 import { OperatorMatchingLabView } from '../components/OperatorMatchingLabView';
@@ -40,17 +44,19 @@ import {
   Compass,
   Sliders,
   Activity,
-  Bell
+  Bell,
+  ShieldCheck
 } from 'lucide-react';
 
 export default function MAQEApp() {
   const [authSession, setAuthSession] = useState<AuthSession | null>(null);
   const [pageState, setPageState] = useState<'brochure' | 'login' | 'app'>('brochure');
-  const [loginRoleTarget, setLoginRoleTarget] = useState<'member' | 'operator'>('member');
+  const [loginRoleTarget, setLoginRoleTarget] = useState<'member' | 'operator'>('operator');
 
-  const [mode, setMode] = useState<'member' | 'operator'>('member');
+  const [mode, setMode] = useState<'member' | 'operator'>('operator');
   const [memberView, setMemberView] = useState<string>('matches');
-  const [operatorView, setOperatorView] = useState<string>('intake');
+  const [operatorView, setOperatorView] = useState<string>('admin_dashboard');
+  const [focusCompanyId, setFocusCompanyId] = useState<string>(DEFAULT_FOCUS_COMPANY_ID);
   const [direction, setDirection] = useState<MatchDirection>('customer');
   const [cloudConnected, setCloudConnected] = useState<boolean>(true);
   const [creditBalance, setCreditBalance] = useState<number>(50);
@@ -59,7 +65,6 @@ export default function MAQEApp() {
   const [showNotifications, setShowNotifications] = useState<boolean>(false);
   const [selectedCompanyForDossier, setSelectedCompanyForDossier] = useState<CompanyRecord | null>(null);
 
-  // Initialize session from localStorage & ping cloud API
   useEffect(() => {
     store.checkRemoteApi().then(connected => setCloudConnected(connected));
     if (typeof window !== 'undefined') {
@@ -82,17 +87,20 @@ export default function MAQEApp() {
 
   useEffect(() => {
     refreshState();
-  }, [direction, memberView, operatorView]);
+  }, [direction, memberView, operatorView, focusCompanyId]);
 
   const refreshState = () => {
     setCreditBalance(store.getCreditBalance());
-    setCandidates(store.getMatches('demo_delta', direction));
+    setCandidates(store.getMatches(focusCompanyId, direction));
     setOpportunities(store.getOpportunities());
   };
 
   const handleLoginSuccess = (session: AuthSession) => {
     setAuthSession(session);
     setMode(session.role);
+    if (session.role === 'operator') {
+      setOperatorView('admin_dashboard');
+    }
     setPageState('app');
     refreshState();
   };
@@ -113,19 +121,19 @@ export default function MAQEApp() {
   };
 
   const handleUnlockCandidate = async (cand: MatchCandidateResult) => {
-    const res = await store.unlockCandidate('demo_delta', cand.counterparty_company_id, direction);
+    await store.unlockCandidate(focusCompanyId, cand.counterparty_company_id, direction);
     refreshState();
   };
 
-  const handleOpenConversation = (opp: Opportunity) => {
+  const handleOpenConversation = () => {
     setMemberView('messages');
   };
 
-  const handleContactFromMatch = (cand: MatchCandidateResult) => {
+  const handleContactFromMatch = () => {
     setMemberView('messages');
   };
 
-  const handleSendRFQFromMatch = (cand: MatchCandidateResult) => {
+  const handleSendRFQFromMatch = () => {
     setMemberView('rfq');
   };
 
@@ -139,7 +147,6 @@ export default function MAQEApp() {
     refreshState();
   };
 
-  // 1. Brochure Landing Page
   if (pageState === 'brochure') {
     return (
       <BrochureView
@@ -149,7 +156,6 @@ export default function MAQEApp() {
     );
   }
 
-  // 2. Dedicated Secure Login Page
   if (pageState === 'login') {
     return (
       <LoginPage
@@ -160,18 +166,22 @@ export default function MAQEApp() {
     );
   }
 
-  // 3. Authenticated Secure Platform
+  const activeFocusCompany = store.getCompany(focusCompanyId) || store.getCompanies()[0];
+
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
       {/* Primary Top Header */}
       <Header
         mode={mode}
-        setMode={setMode}
+        setMode={(m) => {
+          setMode(m);
+          if (m === 'operator') setOperatorView('admin_dashboard');
+        }}
         activeView={mode === 'member' ? memberView : operatorView}
         setActiveView={mode === 'member' ? setMemberView : setOperatorView}
         creditBalance={creditBalance}
         cloudConnected={cloudConnected}
-        unreadCount={store.notificationEngine.getUnreadCount('org_delta')}
+        unreadCount={store.notificationEngine.getUnreadCount(DEFAULT_ORG_ID)}
         onOpenNotifications={() => setShowNotifications(true)}
         onLogout={handleLogout}
         onViewBrochure={() => setPageState('brochure')}
@@ -180,7 +190,7 @@ export default function MAQEApp() {
       {/* Sub Navigation Bar */}
       <div className="bg-white border-b border-slate-200 sticky top-16 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-1 sm:space-x-4 overflow-x-auto py-2.5 scrollbar-none">
+          <nav className="flex space-x-1 sm:space-x-3 overflow-x-auto py-2.5 scrollbar-none">
             {mode === 'member' ? (
               <>
                 <button
@@ -203,7 +213,7 @@ export default function MAQEApp() {
                   }`}
                 >
                   <Search className="w-3.5 h-3.5 mr-1.5 text-slate-500" />
-                  Engineering Directory
+                  1,000 UK Directory
                 </button>
                 <button
                   onClick={() => { setMemberView('crm'); setSelectedCompanyForDossier(null); }}
@@ -239,7 +249,7 @@ export default function MAQEApp() {
                   RFQ Procurement
                 </button>
                 <button
-                  onClick={() => { setMemberView('profile'); setSelectedCompanyForDossier(store.getCompany('demo_delta') || null); }}
+                  onClick={() => { setMemberView('profile'); setSelectedCompanyForDossier(activeFocusCompany || null); }}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 ${
                     memberView === 'profile' || selectedCompanyForDossier
                       ? 'bg-blue-50 text-blue-700 border border-blue-200'
@@ -260,9 +270,27 @@ export default function MAQEApp() {
                   <CreditCard className="w-3.5 h-3.5 mr-1.5 text-slate-500" />
                   Plans & Credits
                 </button>
+                <button
+                  onClick={() => { setMode('operator'); setOperatorView('admin_dashboard'); }}
+                  className="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 mr-1.5 text-emerald-600" />
+                  Admin 1,000-Company Dashboard
+                </button>
               </>
             ) : (
               <>
+                <button
+                  onClick={() => setOperatorView('admin_dashboard')}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 ${
+                    operatorView === 'admin_dashboard'
+                      ? 'bg-emerald-50 text-emerald-800 border border-emerald-300'
+                      : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 mr-1.5 text-emerald-600" />
+                  Admin Enrichment & Completeness Dashboard (1,000 Cohort)
+                </button>
                 <button
                   onClick={() => setOperatorView('intake')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center shrink-0 ${
@@ -335,6 +363,9 @@ export default function MAQEApp() {
                 onContact={handleContactFromMatch}
                 onSendRFQ={handleSendRFQFromMatch}
                 creditBalance={creditBalance}
+                focusCompany={activeFocusCompany}
+                allCompanies={store.getCompanies()}
+                onChangeFocusCompany={(cid) => setFocusCompanyId(cid)}
               />
             ) : memberView === 'directory' ? (
               <DirectorySearchView
@@ -350,7 +381,7 @@ export default function MAQEApp() {
                   refreshState();
                 }}
                 onLogContact={(id, channel, summary) => {
-                  store.networkingEngine.logContactEvent(id, 'org_delta', channel, summary);
+                  store.networkingEngine.logContactEvent(id, DEFAULT_ORG_ID, channel, summary);
                   refreshState();
                 }}
                 onOpenConversation={handleOpenConversation}
@@ -366,7 +397,7 @@ export default function MAQEApp() {
             ) : memberView === 'rfq' ? (
               <RFQManagerView
                 rfqs={store.getRFQs()}
-                templates={store.networkingEngine.getRFQTemplates('org_delta')}
+                templates={store.networkingEngine.getRFQTemplates(DEFAULT_ORG_ID)}
                 availableSuppliers={store.getCompanies()}
                 onDispatchRFQ={(title, desc, date, sups) => {
                   store.dispatchRFQ(title, desc, date, sups);
@@ -375,11 +406,11 @@ export default function MAQEApp() {
               />
             ) : memberView === 'profile' ? (
               <CompanyProfileView
-                company={store.getCompany('demo_delta')!}
-                profile={store.getProfile('demo_delta')}
-                assertions={store.enrichmentEngine.getAssertions('demo_delta')}
-                onClaimCompany={(id) => {
-                  alert(`Ownership verified for Delta Metalworks`);
+                company={activeFocusCompany}
+                profile={store.getProfile(activeFocusCompany.company_id)}
+                assertions={store.enrichmentEngine.getAssertions(activeFocusCompany.company_id)}
+                onClaimCompany={() => {
+                  alert(`Ownership verified for ${activeFocusCompany.legal_name}`);
                 }}
               />
             ) : memberView === 'billing' ? (
@@ -394,7 +425,16 @@ export default function MAQEApp() {
           </>
         ) : (
           <>
-            {operatorView === 'intake' ? (
+            {operatorView === 'admin_dashboard' ? (
+              <AdminEnrichmentDashboard
+                summary={store.getEnrichmentSummary()}
+                companies={store.getCompanies()}
+                allMatches={store.getAllCohortMatches()}
+                getPhaseOneSchema={(id) => store.getPhaseOneSchema(id)}
+                runMatchesForCompany={(id, dir) => store.getMatches(id, dir)}
+                onSelectFocusCompanyInLab={(id) => setFocusCompanyId(id)}
+              />
+            ) : operatorView === 'intake' ? (
               <OperatorIntakeView
                 partitions={store.intakeEngine.getPartitions()}
                 watermarks={store.intakeEngine.getWatermarks()}
@@ -413,15 +453,15 @@ export default function MAQEApp() {
               />
             ) : operatorView === 'discovery' ? (
               <OperatorDiscoveryView
-                associations={store.discoveryEngine.getAssociations()}
-                documents={store.discoveryEngine.getDocuments()}
+                associations={store.discoveryEngine.getAssociations().slice(0, 120)}
+                documents={store.discoveryEngine.getDocuments().slice(0, 120)}
                 onUpdateDecision={(id, dec, reason) => {
                   store.discoveryEngine.updateDecision(id, dec, 'Operator', reason);
                   refreshState();
                 }}
               />
             ) : operatorView === 'matching_lab' ? (
-              <OperatorMatchingLabView />
+              <OperatorMatchingLabView initialFocusCompanyId={focusCompanyId} />
             ) : operatorView === 'jobs' ? (
               <OperatorJobsView
                 jobs={store.jobEngine.getJobs()}
@@ -451,7 +491,7 @@ export default function MAQEApp() {
             </div>
 
             <div className="mt-4 divide-y divide-slate-100 overflow-y-auto flex-1">
-              {store.notificationEngine.getNotifications('org_delta').map(n => (
+              {store.notificationEngine.getNotifications(DEFAULT_ORG_ID).map(n => (
                 <div
                   key={n.notification_id}
                   onClick={() => store.notificationEngine.markAsRead(n.notification_id)}
@@ -475,7 +515,7 @@ export default function MAQEApp() {
       <footer className="bg-white border-t border-slate-200 mt-auto py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
           <div>
-            <span className="font-bold text-slate-800">MAQE Engineering Intelligence Platform</span> • Protected Gateway
+            <span className="font-bold text-slate-800">MAQE Engineering Intelligence Platform</span> • Phase One 1,000-Company Live Cohort
           </div>
           <div className="flex items-center space-x-4">
             <button onClick={() => setPageState('brochure')} className="hover:text-blue-600">

@@ -285,16 +285,16 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
         </div>
       </section>
 
-      {/* Slide 8: Delta Metalworks Benchmark Showcase */}
+      {/* Slide 8: Real UK Engineering Cohort Showcase */}
       <section id="ai-matching" className="py-20 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-xs font-bold text-blue-600 uppercase tracking-widest">Dual-Direction Matching Engine</h2>
+            <h2 className="text-xs font-bold text-blue-600 uppercase tracking-widest">Dual-Direction Matching Engine (1,000 Live UK Cohort)</h2>
             <h3 className="text-3xl font-black text-slate-900 mt-2">
-              Illustrated by Delta Metalworks Ltd.
+              Illustrated by Regent Engineering Co (Walsall) Ltd (#00551421).
             </h3>
             <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-              Delta produces precision sheet metal for components and assembly manufacturers. The engine matches both sides of its commercial balance sheet simultaneously.
+              Operating 700-tonne metal pressing and welded assembly lines in Wednesbury (SIC 25500, ISO 9001:2015 &amp; BS EN 1090), Regent Engineering is matched across both sides of its supply chain from our 1,000 enriched UK businesses.
             </p>
           </div>
 
@@ -330,37 +330,37 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-blue-400">Rank #1 • 92% Score</span>
-                    <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">High Match</span>
+                    <span className="text-xs font-mono font-bold text-blue-400">Rank #1 • 89% Score</span>
+                    <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Verified Match</span>
                   </div>
-                  <h4 className="text-lg font-bold text-white mt-3">Apex Enclosures Ltd</h4>
-                  <p className="text-xs text-slate-400 mt-1">Nottingham • SIC 26110</p>
+                  <h4 className="text-lg font-bold text-white mt-3">D &amp; M Engineering Ltd</h4>
+                  <p className="text-xs text-slate-400 mt-1">UK Reg #02706103 • SIC 28150</p>
                   <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                    Designs server racks & weatherproof cabinets. High-volume laser cut panel and folded chassis use satisfies Delta&apos;s primary output.
+                    Manufactures bearings, gears, and driving elements (ISO 9001). Requires forged &amp; pressed steel gear blanks and housings supplied by Regent Engineering.
                   </p>
                 </div>
 
                 <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-blue-400">Rank #2 • 86% Score</span>
+                    <span className="text-xs font-mono font-bold text-blue-400">Rank #2 • 89% Score</span>
                     <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Repeat OEM</span>
                   </div>
-                  <h4 className="text-lg font-bold text-white mt-3">Vanguard Auto Components</h4>
-                  <p className="text-xs text-slate-400 mt-1">Coventry • SIC 29320</p>
+                  <h4 className="text-lg font-bold text-white mt-3">Tinsley Bridge Ltd</h4>
+                  <p className="text-xs text-slate-400 mt-1">UK Reg #01866166 • Sheffield • SIC 29320</p>
                   <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                    Produces vehicle brackets and stamped assemblies using flat laser blanks. Strong repeat commercial supply-chain fit.
+                    Produces heavy automotive suspension and chassis components requiring high-volume metal stampings, pressings, and welded sub-assemblies.
                   </p>
                 </div>
 
                 <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-amber-400">Rank #3 • 58% Score</span>
-                    <span className="text-[10px] font-bold uppercase bg-amber-950 text-amber-400 px-2 py-0.5 rounded border border-amber-800">Moderate Evidence</span>
+                    <span className="text-xs font-mono font-bold text-blue-400">Rank #3 • 89% Score</span>
+                    <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Precision OEM</span>
                   </div>
-                  <h4 className="text-lg font-bold text-white mt-3">Quantum Robotics Ltd</h4>
-                  <p className="text-xs text-slate-400 mt-1">Cambridge • SIC 28990</p>
+                  <h4 className="text-lg font-bold text-white mt-3">Michell Bearings Ltd</h4>
+                  <p className="text-xs text-slate-400 mt-1">UK Reg #09390648 • Newcastle • SIC 28150</p>
                   <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                    Builds automation robotic cells. Moderate structural casing use alongside extruded aluminium; lower-confidence prospective prospect.
+                    Manufactures hydrodynamic marine &amp; industrial bearings requiring heavy-duty pressed steel housings and precision metal blanks.
                   </p>
                 </div>
               </div>
@@ -368,37 +368,37 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-blue-400">Rank #1 • 94% Score</span>
+                    <span className="text-xs font-mono font-bold text-blue-400">Rank #1 • 93% Score</span>
                     <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Raw Metal</span>
                   </div>
-                  <h4 className="text-lg font-bold text-white mt-3">Apex Steel & Alloys Ltd</h4>
-                  <p className="text-xs text-slate-400 mt-1">Scunthorpe • SIC 24100</p>
+                  <h4 className="text-lg font-bold text-white mt-3">Aw Aluminium Ltd</h4>
+                  <p className="text-xs text-slate-400 mt-1">UK Reg #06403760 • Rotherham • SIC 24420</p>
                   <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                    Primary mill supplier for certified cold-rolled mild steel coil and aluminium plate, fulfilling Delta&apos;s inferred raw material need.
+                    ISO 9001 &amp; ISO 14001 certified supplier of aluminium sheet, plate, and extrusions, fulfilling Regent Engineering&apos;s raw sheet metal requirement.
                   </p>
                 </div>
 
                 <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-blue-400">Rank #2 • 88% Score</span>
-                    <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Machinery Tooling</span>
+                    <span className="text-xs font-mono font-bold text-blue-400">Rank #2 • 89% Score</span>
+                    <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Press Tooling</span>
                   </div>
-                  <h4 className="text-lg font-bold text-white mt-3">Precision Press & Tooling</h4>
-                  <p className="text-xs text-slate-400 mt-1">Birmingham • SIC 28410</p>
+                  <h4 className="text-lg font-bold text-white mt-3">Eckold Ltd</h4>
+                  <p className="text-xs text-slate-400 mt-1">UK Reg #01517315 • Coventry • SIC 28410</p>
                   <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                    Manufactures CNC press brake tooling, dies, and fiber laser optics, satisfying Delta&apos;s tooling and maintenance requirement.
+                    Supplies metal forming machinery, clinching tools, and presswork equipment, satisfying Regent Engineering&apos;s tooling requirement.
                   </p>
                 </div>
 
                 <div className="bg-slate-800/80 p-6 rounded-2xl border border-slate-700">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-blue-400">Rank #3 • 84% Score</span>
-                    <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Haulage</span>
+                    <span className="text-xs font-mono font-bold text-blue-400">Rank #3 • 88% Score</span>
+                    <span className="text-[10px] font-bold uppercase bg-emerald-950 text-emerald-400 px-2 py-0.5 rounded border border-emerald-800">Surface Finishing</span>
                   </div>
-                  <h4 className="text-lg font-bold text-white mt-3">Titan Freight & Haulage</h4>
-                  <p className="text-xs text-slate-400 mt-1">Leeds • SIC 49410</p>
+                  <h4 className="text-lg font-bold text-white mt-3">Langley Coatings Ltd</h4>
+                  <p className="text-xs text-slate-400 mt-1">UK Reg #07106563 • Derby • SIC 25610</p>
                   <p className="text-xs text-slate-300 mt-3 leading-relaxed">
-                    Flatbed articulated heavy transport for palletized sheet metal and regional metal coil dispatch.
+                    Specialist industrial powder coating and shot blasting with 6.1m ovens (ISO 9001), fulfilling subcontract finishing needs.
                   </p>
                 </div>
               </div>
@@ -407,7 +407,7 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
             {/* Competitor Exclusion Callout */}
             <div className="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
               <span className="text-slate-300">
-                <strong className="text-amber-400">Strict Competitor Exclusion:</strong> Vortex Sheet Metal Ltd (SIC 25110) also fabricates sheet steel. Because it offers the same capability rather than consuming it, the matching engine classifies it as a competitor and excludes it from customer leads.
+                <strong className="text-amber-400">Strict Competitor Exclusion:</strong> Horizontal peers with identical primary SIC 25500 offering the same metal stamping capability without consuming it are automatically excluded from downstream customer leads.
               </span>
             </div>
           </div>
@@ -463,18 +463,18 @@ export function BrochureView({ onGoToLogin, cloudConnected }: BrochureViewProps)
                   Open Bidding
                 </span>
               </div>
-              <h4 className="text-sm font-bold text-slate-900 mt-3">Laser Cutting & CNC Bending for Server Enclosures</h4>
+              <h4 className="text-sm font-bold text-slate-900 mt-3">Mill-Certified Cold-Rolled Steel Strip &amp; Aluminium Sheet</h4>
               <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                Mild Steel S275JR (3mm thickness), batch size 250 units, tolerance ±0.1mm.
+                EN 10204 3.1 mill certification, delivery to Darlaston Wednesbury (WS10 8XB) for 700-tonne presswork lines.
               </p>
 
               <div className="mt-4 space-y-2">
                 <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
-                  <span className="font-semibold text-slate-800">Apex Steel & Alloys Ltd</span>
+                  <span className="font-semibold text-slate-800">AW ALUMINIUM LIMITED (#06403760)</span>
                   <span className="text-[10px] font-mono text-emerald-700 font-bold">Blind Thread Isolated</span>
                 </div>
                 <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 flex items-center justify-between text-xs">
-                  <span className="font-semibold text-slate-800">Precision Press & Tooling</span>
+                  <span className="font-semibold text-slate-800">BEN BENNETT JR LIMITED (#00210739)</span>
                   <span className="text-[10px] font-mono text-emerald-700 font-bold">Blind Thread Isolated</span>
                 </div>
               </div>

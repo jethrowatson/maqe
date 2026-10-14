@@ -2,6 +2,7 @@
  * C08 Connections, Networking & RFQ Engine
  * Manages lead opportunities, contact event history, internal participant messaging,
  * RFQ distribution with isolated bidder threads, and referral claims (Sections 14, 14A).
+ * Backed by real UK engineering businesses from the Phase One 1,000-company cohort.
  */
 
 import {
@@ -17,7 +18,9 @@ import {
 } from '../domain/types';
 import {
   FIXTURE_OPPORTUNITIES,
-  FIXTURE_RFQ_TEMPLATES
+  FIXTURE_RFQ_TEMPLATES,
+  DEFAULT_ORG_ID,
+  THIRD_ORG_ID
 } from '../fixtures/cohort';
 
 export class NetworkingEngine {
@@ -39,47 +42,46 @@ export class NetworkingEngine {
     this.contactEvents = [
       {
         event_id: 'ce_01',
-        opportunity_id: 'opp_delta_enclosures',
-        org_id: 'org_delta',
+        opportunity_id: 'opp_regent_dmeng_01',
+        org_id: DEFAULT_ORG_ID,
         channel: 'rfq',
-        summary: 'Sent RFQ for server rack sheet metal panels',
-        details: 'Batch size 250 units, delivery to Nottingham within 4 weeks.',
-        occurred_at: '2026-10-06T14:00:00Z'
+        summary: 'Sent capability pack & presswork tolerance data to D & M Engineering Limited (#02706103)',
+        details: 'Up to 700-tonne press capacity, ISO 9001:2015 & BS EN 1090 certified in Wednesbury (WS10 8XB).',
+        occurred_at: '2026-10-14T10:00:00Z'
       }
     ];
 
     this.conversations = new Map();
     this.messages = [];
 
-    // Seed initial conversation
-    const convId = 'conv_delta_enclosures';
+    const convId = 'conv_regent_dmeng';
     this.conversations.set(convId, {
       conversation_id: convId,
-      participant_org_ids: ['org_delta', 'org_enclosures'],
-      subject: 'Enquiry regarding custom server rack laser profiling',
+      participant_org_ids: [DEFAULT_ORG_ID, THIRD_ORG_ID],
+      subject: 'Subcontract Pressings & Stamped Gear Housing Blanks (SIC 25500 -> 28150)',
       resource_type: 'opportunity',
-      resource_id: 'opp_delta_enclosures',
-      created_at: '2026-10-06T14:15:00Z'
+      resource_id: 'opp_regent_dmeng_01',
+      created_at: '2026-10-14T10:15:00Z'
     });
 
     this.messages.push(
       {
         message_id: 'msg_01',
         conversation_id: convId,
-        sender_org_id: 'org_delta',
-        sender_user_id: 'usr_delta_ops',
-        sender_name: 'Marcus Vance (Delta Metalworks)',
-        body: 'Hello Apex Enclosures team, we noticed your server rack production requirements. Delta Metalworks operates 10kW fiber laser cutters with automated robotic press forming in Sheffield. Would you like to review our tolerance specifications?',
-        sent_at: '2026-10-06T14:15:00Z'
+        sender_org_id: DEFAULT_ORG_ID,
+        sender_user_id: 'usr_regent_ops',
+        sender_name: 'Operations Director (Regent Engineering Co (Walsall) Limited)',
+        body: 'Hello D & M Engineering team, MAQE matched our 700-tonne metal pressing and welded assembly facility in Wednesbury (#00551421, ISO 9001:2015 / BS EN 1090) with your transmission and bearing housing requirements (#02706103). Would you like to review our presswork capacity schedule?',
+        sent_at: '2026-10-14T10:15:00Z'
       },
       {
         message_id: 'msg_02',
         conversation_id: convId,
-        sender_org_id: 'org_enclosures',
-        sender_user_id: 'usr_enc_purchasing',
-        sender_name: 'David Croft (Apex Enclosures)',
-        body: 'Hi Marcus, thank you for reaching out. We are currently looking for a secondary supplier for 3mm mild steel front panels. What is your standard lead time for batch sizes of 250?',
-        sent_at: '2026-10-07T09:30:00Z'
+        sender_org_id: THIRD_ORG_ID,
+        sender_user_id: 'usr_dmeng_purchasing',
+        sender_name: 'Procurement Lead (D & M Engineering Limited)',
+        body: 'Thank you for reaching out. We are actively sourcing heavy-gauge pressed steel mounting brackets and blanking for our precision machining lines. Please share your lead times for scheduled call-off batches.',
+        sent_at: '2026-10-14T11:20:00Z'
       }
     );
 
@@ -92,8 +94,6 @@ export class NetworkingEngine {
     this.rfqRecipients = [];
     this.invitations = new Map();
   }
-
-  // --- Opportunities & CRM ---
 
   public getOpportunities(org_id: string): Opportunity[] {
     return Array.from(this.opportunities.values()).filter(o => o.org_id === org_id);
@@ -136,8 +136,6 @@ export class NetworkingEngine {
     return this.contactEvents.filter(e => e.opportunity_id === opportunity_id);
   }
 
-  // --- Messaging ---
-
   public getConversations(org_id: string): Conversation[] {
     const list = Array.from(this.conversations.values()).filter(c =>
       c.participant_org_ids.includes(org_id)
@@ -167,8 +165,6 @@ export class NetworkingEngine {
     this.messages.push(msg);
     return msg;
   }
-
-  // --- RFQs ---
 
   public getRFQTemplates(org_id: string): RFQTemplate[] {
     return Array.from(this.rfqTemplates.values()).filter(t => t.org_id === org_id);

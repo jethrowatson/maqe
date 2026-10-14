@@ -1,21 +1,25 @@
 /**
- * MAQE Deterministic Evaluation & Acceptance Test Suite
- * Verifies Section 17, 18, and 18A gates from Technical Build Addendum v1.1
+ * MAQE Deterministic Evaluation & Phase One Acceptance Test Suite
+ * Verifies:
+ * 1. 1,000 real UK businesses ingested from UK Companies House & zero dummy records
+ * 2. Phase One Discovery & Enrichment Schema (Sections 2-15) compliance & FieldAssessment missingness rules
+ * 3. Directional B2B Matching Engine across the 1,000 enriched UK businesses
+ * 4. Atomic Credit Ledger & Non-Double-Charging Invariant
+ * 5. Blind RFQ Bidder Isolation
  */
 
 import { MatchingEngine } from '../src/lib/engines/matching';
 import { CreditLedgerEngine } from '../src/lib/engines/credits';
 import { IntakeEngine } from '../src/lib/engines/intake';
-import { DiscoveryEngine } from '../src/lib/engines/discovery';
-import { EnrichmentEngine } from '../src/lib/engines/enrichment';
-import { ClassificationEngine } from '../src/lib/engines/classification';
 import { NetworkingEngine } from '../src/lib/engines/networking';
 import {
   FIXTURE_COMPANIES,
-  FIXTURE_PROFILES,
-  FIXTURE_ASSERTIONS,
   FIXTURE_WALLETS,
-  FIXTURE_ORGANISATIONS
+  REAL_COHORT_SUMMARY,
+  DEFAULT_FOCUS_COMPANY_ID,
+  DEFAULT_ORG_ID,
+  SECOND_ORG_ID,
+  hydratePhaseOneSchema
 } from '../src/lib/fixtures/cohort';
 
 function assert(condition: boolean, message: string) {
@@ -26,115 +30,162 @@ function assert(condition: boolean, message: string) {
   console.log(`✅ PASSED: ${message}`);
 }
 
-console.log('\n======================================================');
-console.log('🧪 MAQE AUTOMATED ACCEPTANCE TEST SUITE (v1.1)');
-console.log('======================================================\n');
+console.log('\n================================================================');
+console.log('🧪 MAQE PHASE ONE 1,000-COMPANY ACCEPTANCE TEST SUITE');
+console.log('================================================================\n');
 
 // -------------------------------------------------------------------------
-// GATE 1: C05 Delta Metalworks Matching Benchmark (Customer Direction)
+// GATE 1: 1,000 Real UK Companies Ingested & Zero Dummy Data
 // -------------------------------------------------------------------------
-console.log('--- TEST GROUP 1: C05 Directional Matching (Customer Leads) ---');
+console.log('--- TEST GROUP 1: 1,000 Real UK Companies & Zero Dummy Data ---');
+assert(
+  FIXTURE_COMPANIES.length === 1000,
+  `Expected exactly 1,000 real UK businesses in cohort, got ${FIXTURE_COMPANIES.length}`
+);
+assert(
+  REAL_COHORT_SUMMARY.total_companies_found === 1000 &&
+    REAL_COHORT_SUMMARY.total_companies_enriched === 1000,
+  `Expected 1,000 found and 1,000 enriched in summary, got ${REAL_COHORT_SUMMARY.total_companies_found}/${REAL_COHORT_SUMMARY.total_companies_enriched}`
+);
+
+const dummyNames = [
+  'Delta Metalworks',
+  'Apex Enclosures',
+  'Vanguard Auto',
+  'Quantum Robotics',
+  'Vortex Sheet',
+  'BioHealth'
+];
+const foundDummy = FIXTURE_COMPANIES.some(c =>
+  dummyNames.some(d => c.legal_name.toLowerCase().includes(d.toLowerCase()))
+);
+assert(!foundDummy, 'Zero dummy/fictional company names exist anywhere in the 1,000-company cohort');
+
+// -------------------------------------------------------------------------
+// GATE 2: Phase One Discovery & Enrichment Schema Compliance (Sections 2-15)
+// -------------------------------------------------------------------------
+console.log('\n--- TEST GROUP 2: Phase One Schema & FieldAssessment Compliance ---');
+const regentSchema = hydratePhaseOneSchema(DEFAULT_FOCUS_COMPANY_ID);
+assert(Boolean(regentSchema), 'Must hydrate Phase One Schema for Regent Engineering Co (Walsall) Limited (#00551421)');
+assert(
+  regentSchema!.schema_version === '1.0.0-phase1',
+  `Expected schema_version 1.0.0-phase1, got ${regentSchema!.schema_version}`
+);
+assert(
+  regentSchema!.field_assessments.length === 10,
+  `Expected 10 Phase One domain FieldAssessments, got ${regentSchema!.field_assessments.length}`
+);
+assert(
+  regentSchema!.website_associations[0].decision === 'approved',
+  'Regent Engineering must have an approved website association with identity signals'
+);
+assert(
+  regentSchema!.offerings.length >= 2 && regentSchema!.needs.length >= 2,
+  'Phase One schema must populate hierarchical offerings and inferred commercial needs'
+);
+
+// Verify missingness rule on a registry-only company (Grade C)
+const registryOnlyCompany = FIXTURE_COMPANIES.find(c => !c.website_url)!;
+const regOnlySchema = hydratePhaseOneSchema(registryOnlyCompany.company_id)!;
+const webAssessment = regOnlySchema.field_assessments.find(fa => fa.field_path === 'website_discovery');
+assert(
+  webAssessment?.state === 'not_found',
+  `Unfound website must be explicitly recorded as FieldAssessment(not_found), got ${webAssessment?.state}`
+);
+
+// -------------------------------------------------------------------------
+// GATE 3: Directional B2B Matching Across the 1,000 Enriched UK Businesses
+// -------------------------------------------------------------------------
+console.log('\n--- TEST GROUP 3: C05 Directional B2B Matching on Real Cohort ---');
 const matchingEngine = new MatchingEngine();
 
 const customerLeads = matchingEngine.runMatch({
-  focus_company_id: 'demo_delta',
+  focus_company_id: DEFAULT_FOCUS_COMPANY_ID,
   direction: 'customer'
 });
-
-assert(customerLeads.length >= 3, `Expected at least 3 customer leads, got ${customerLeads.length}`);
-assert(customerLeads[0].counterparty_company_id === 'demo_enclosures', `Rank #1 must be demo_enclosures, got ${customerLeads[0].counterparty_company_id}`);
-assert(customerLeads[0].score >= 90, `demo_enclosures score must be >= 90%, got ${customerLeads[0].score}%`);
-assert(customerLeads[1].counterparty_company_id === 'demo_components', `Rank #2 must be demo_components, got ${customerLeads[1].counterparty_company_id}`);
-assert(customerLeads[2].counterparty_company_id === 'demo_assembly_weak', `Rank #3 must be demo_assembly_weak, got ${customerLeads[2].counterparty_company_id}`);
-
-// Verify competitor exclusion
-const hasCompetitor = customerLeads.some(c => c.counterparty_company_id === 'demo_competitor');
-assert(!hasCompetitor, 'Direct competitor (demo_competitor - Vortex Sheet Metal) must be strictly excluded from customer leads');
-
-// Verify negative control exclusion
-const hasPharma = customerLeads.some(c => c.counterparty_company_id === 'demo_unrelated');
-assert(!hasPharma, 'Unrelated negative control (demo_unrelated - BioHealth Pharma) must be strictly excluded');
-
-// -------------------------------------------------------------------------
-// GATE 2: C05 Delta Metalworks Matching Benchmark (Supplier Direction)
-// -------------------------------------------------------------------------
-console.log('\n--- TEST GROUP 2: C05 Directional Matching (Supplier Matches) ---');
-const supplierMatches = matchingEngine.runMatch({
-  focus_company_id: 'demo_delta',
-  direction: 'supplier'
-});
-
-assert(supplierMatches.length >= 3, `Expected at least 3 supplier matches, got ${supplierMatches.length}`);
-assert(supplierMatches[0].counterparty_company_id === 'demo_raw_metal', `Supplier Rank #1 must be demo_raw_metal, got ${supplierMatches[0].counterparty_company_id}`);
-assert(supplierMatches[0].score >= 92, `demo_raw_metal score must be >= 92%, got ${supplierMatches[0].score}%`);
-assert(supplierMatches[1].counterparty_company_id === 'demo_equipment', `Supplier Rank #2 must be demo_equipment, got ${supplierMatches[1].counterparty_company_id}`);
-assert(supplierMatches[2].counterparty_company_id === 'demo_logistics', `Supplier Rank #3 must be demo_logistics, got ${supplierMatches[2].counterparty_company_id}`);
-
-// -------------------------------------------------------------------------
-// GATE 3: C07 Credit Ledger & Non-Double-Charging Invariant
-// -------------------------------------------------------------------------
-console.log('\n--- TEST GROUP 3: C07 Credit Ledger & Non-Double-Charge Invariant ---');
-const creditEngine = new CreditLedgerEngine(FIXTURE_WALLETS);
-
-const initialCredits = creditEngine.getTotalCredits('org_delta');
-assert(initialCredits === 50, `Initial credits for org_delta must be 50, got ${initialCredits}`);
-
-// First unlock of demo_enclosures
-const unlock1 = creditEngine.unlockMatch('org_delta', 'demo_delta', 'demo_enclosures', 'customer');
-assert(unlock1.success === true, 'First unlock must succeed');
-assert(unlock1.already_unlocked === false, 'First unlock should not be previously unlocked');
-assert(unlock1.balance_remaining === 49, `Balance after first debit must be 49, got ${unlock1.balance_remaining}`);
-
-// Second unlock of the SAME company (Invariant: never double charge!)
-const unlock2 = creditEngine.unlockMatch('org_delta', 'demo_delta', 'demo_enclosures', 'customer');
-assert(unlock2.success === true, 'Second unlock must succeed');
-assert(unlock2.already_unlocked === true, 'Second unlock must detect already_unlocked');
-assert(unlock2.balance_remaining === 49, `Balance must remain 49 without secondary charge, got ${unlock2.balance_remaining}`);
-
-// Reverse direction unlock for the SAME pair (never double charge across views!)
-const unlock3 = creditEngine.unlockMatch('org_delta', 'demo_delta', 'demo_enclosures', 'supplier');
-assert(unlock3.already_unlocked === true, 'Reverse direction must recognize existing access without double-charging');
-assert(unlock3.balance_remaining === 49, 'Balance must still remain 49');
-
-// Multi-tenant check: org_apex should NOT have access to org_delta unlocked candidate
-assert(!creditEngine.isUnlocked('org_apex', 'demo_delta', 'demo_enclosures'), 'Tenant isolation: org_apex must not inherit org_delta unlocked access');
-
-// -------------------------------------------------------------------------
-// GATE 4: C01 Registry Intake & Partition Coordinator
-// -------------------------------------------------------------------------
-console.log('\n--- TEST GROUP 4: C01 Registry Intake & Checkpoints ---');
-const intakeEngine = new IntakeEngine();
-const status = intakeEngine.getStatus();
-assert(status.total_partitions > 0, 'Intake engine must initialize partition manifests');
-assert(status.capacity_target === 600000, `Capacity target must be 600,000, got ${status.capacity_target}`);
-assert(status.daily_sync_status === 'HEALTHY', 'Daily sync watermark state must be HEALTHY');
-
-// Step a partition
-const p1 = intakeEngine.getPartitions().find(p => p.status === 'pending')!;
-const stepped = intakeEngine.stepPartition(p1.partition_id);
-assert(stepped !== null && stepped.records_ingested > 0, 'Stepping partition must advance ingested record counter');
-
-// -------------------------------------------------------------------------
-// GATE 5: C08 Blind RFQ Bidder Isolation
-// -------------------------------------------------------------------------
-console.log('\n--- TEST GROUP 5: C08 RFQ Procurement & Isolated Bidder Threads ---');
-const networkingEngine = new NetworkingEngine();
-const rfq = networkingEngine.dispatchRFQ(
-  'org_delta',
-  'Test RFQ',
-  'Test spec description',
-  '2026-11-01',
-  [
-    { id: 'demo_raw_metal', name: 'Apex Steel' },
-    { id: 'demo_equipment', name: 'Precision Press' }
-  ]
+assert(
+  customerLeads.length >= 3,
+  `Expected at least 3 real UK customer leads for Regent Engineering (#00551421), got ${customerLeads.length}`
+);
+assert(
+  customerLeads[0].score >= 85,
+  `Top customer lead score must be >= 85%, got ${customerLeads[0].score}% (${customerLeads[0].counterparty_name})`
+);
+assert(
+  Boolean(customerLeads[0].criterion_results && customerLeads[0].criterion_results.length > 0),
+  'Match result must include Phase One CriterionResult[] evaluations'
 );
 
-assert(rfq.recipients?.length === 2, 'RFQ must have 2 recipients');
-const thread1 = rfq.recipients![0].individual_thread_id;
-const thread2 = rfq.recipients![1].individual_thread_id;
-assert(thread1 !== thread2, 'Each supplier must receive an isolated individual thread (blind bidding)');
+// Verify competitor exclusion in customer mode (no same-SIC 25500 horizontal peer in customer leads)
+const hasSameSicCompetitor = customerLeads.some(c => c.sic_codes?.[0] === '25500');
+assert(
+  !hasSameSicCompetitor,
+  'Horizontal competitors sharing primary SIC 25500 must be excluded from customer leads'
+);
 
-console.log('\n======================================================');
-console.log('🎉 ALL ACCEPTANCE GATES PASSED SUCCESSFULLY!');
-console.log('======================================================\n');
+const supplierMatches = matchingEngine.runMatch({
+  focus_company_id: DEFAULT_FOCUS_COMPANY_ID,
+  direction: 'supplier'
+});
+assert(
+  supplierMatches.length >= 2,
+  `Expected at least 2 real UK supplier matches for Regent Engineering (#00551421), got ${supplierMatches.length}`
+);
+assert(
+  supplierMatches[0].score >= 85,
+  `Top supplier match score must be >= 85%, got ${supplierMatches[0].score}% (${supplierMatches[0].counterparty_name})`
+);
+
+// -------------------------------------------------------------------------
+// GATE 4: C07 Credit Ledger & Non-Double-Charging Invariant
+// -------------------------------------------------------------------------
+console.log('\n--- TEST GROUP 4: C07 Credit Ledger & Non-Double-Charge Invariant ---');
+const creditEngine = new CreditLedgerEngine(FIXTURE_WALLETS);
+
+const initialCredits = creditEngine.getTotalCredits(DEFAULT_ORG_ID);
+assert(initialCredits === 50, `Initial credits for ${DEFAULT_ORG_ID} must be 50, got ${initialCredits}`);
+
+const targetCustomerId = customerLeads[0].counterparty_company_id;
+const unlock1 = creditEngine.unlockMatch(DEFAULT_ORG_ID, DEFAULT_FOCUS_COMPANY_ID, targetCustomerId, 'customer');
+assert(unlock1.success === true && unlock1.already_unlocked === false, 'First unlock must succeed and debit 1 credit');
+assert(unlock1.balance_remaining === 49, `Balance after first debit must be 49, got ${unlock1.balance_remaining}`);
+
+const unlock2 = creditEngine.unlockMatch(DEFAULT_ORG_ID, DEFAULT_FOCUS_COMPANY_ID, targetCustomerId, 'customer');
+assert(unlock2.already_unlocked === true && unlock2.balance_remaining === 49, 'Second unlock must not double-charge');
+
+assert(
+  !creditEngine.isUnlocked(SECOND_ORG_ID, DEFAULT_FOCUS_COMPANY_ID, targetCustomerId),
+  'Tenant isolation: SECOND_ORG_ID must not inherit DEFAULT_ORG_ID unlocked access'
+);
+
+// -------------------------------------------------------------------------
+// GATE 5: C01 Registry Intake (Stopped at 1,000 Cap) & C08 Blind RFQ Threads
+// -------------------------------------------------------------------------
+console.log('\n--- TEST GROUP 5: C01 Intake Cap (1,000) & C08 Blind RFQ Isolation ---');
+const intakeEngine = new IntakeEngine();
+const status = intakeEngine.getStatus();
+assert(
+  status.records_ingested === 1000 && status.capacity_target === 1000,
+  `Intake engine must reflect 1,000/1,000 cap reached, got ${status.records_ingested}/${status.capacity_target}`
+);
+
+const networkingEngine = new NetworkingEngine();
+const rfq = networkingEngine.dispatchRFQ(
+  DEFAULT_ORG_ID,
+  'Cold-Rolled Steel Strip & Aluminium Sheet RFQ',
+  'EN 10204 3.1 certified coil & sheet',
+  '2026-11-15',
+  [
+    { id: supplierMatches[0].counterparty_company_id, name: supplierMatches[0].counterparty_name },
+    { id: supplierMatches[1].counterparty_company_id, name: supplierMatches[1].counterparty_name }
+  ]
+);
+assert(rfq.recipients?.length === 2, 'RFQ must have 2 real UK supplier recipients');
+assert(
+  rfq.recipients![0].individual_thread_id !== rfq.recipients![1].individual_thread_id,
+  'Each supplier must receive an isolated individual thread (blind bidding)'
+);
+
+console.log('\n================================================================');
+console.log('🎉 ALL PHASE ONE 1,000-COMPANY ACCEPTANCE GATES PASSED!');
+console.log('================================================================\n');

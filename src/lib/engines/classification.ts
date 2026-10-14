@@ -18,7 +18,7 @@ export interface ProfileDiff {
 }
 
 export class ClassificationEngine {
-  private profiles: Map<string, ProfileVersion[]>; // company_id -> list of versions
+  private profiles: Map<string, ProfileVersion[]>;
 
   constructor(customProfiles?: Record<string, ProfileVersion>) {
     this.profiles = new Map();
@@ -47,9 +47,9 @@ export class ClassificationEngine {
     const newVersion: ProfileVersion = {
       profile_version_id: `pv_${company_id}_v${vNum}`,
       company_id,
-      schema_version: '1.0',
+      schema_version: '1.0.0-phase1',
       source_bundle_version: `sb_${company_id}_${vNum}`,
-      taxonomy_version: 'engineering_demo_v1',
+      taxonomy_version: 'maqe_phase1_v1',
       published_at: new Date().toISOString(),
       provides: draft.provides || [],
       uses: draft.uses || [],
@@ -64,7 +64,6 @@ export class ClassificationEngine {
       is_current: true
     };
 
-    // Mark previous current as false
     for (const h of history) {
       h.is_current = false;
     }
@@ -80,7 +79,7 @@ export class ClassificationEngine {
     const addedProvides = versionB.provides.filter(p => !providesA.has(p.concept_id));
     const removedProvides = versionA.provides.filter(p => !providesB.has(p.concept_id));
 
-    const getNeedId = (n: ConceptItem | string) => typeof n === 'string' ? n : n.concept_id;
+    const getNeedId = (n: ConceptItem | string) => (typeof n === 'string' ? n : n.concept_id);
     const needsA = new Set(versionA.likely_needs.map(getNeedId));
     const needsB = new Set(versionB.likely_needs.map(getNeedId));
 
